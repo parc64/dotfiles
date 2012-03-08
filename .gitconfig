@@ -1,0 +1,12 @@
+[core]
+	quotepath = false
+	excludesfile = /Users/jason/.gitignore
+[user]
+	name = Jason Vowell
+	email = jason@consensuspoint.com
+[difftool "Kaleidoscope"]
+	cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
+[difftool]
+	prompt = false
+[diff]
+	tool = Kaleidoscope

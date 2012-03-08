@@ -1,0 +1,27 @@
+set guifont=Droid\ Sans\ Mono:h16.00
+" set guifont=Menlo\ Regular:h16.00
+" set guifont=Monaco:h16.00
+" set guifont=Ubuntu\ Mono:h20.00
+
+set guioptions-=m
+set guioptions-=T
+set guioptions-=r
+set guioptions-=l
+set guioptions-=L
+set transparency=4
+
+" set cursorcolumn
+set cursorline
+
+let g:buffergator_viewport_split_policy = "T"
+let g:buffergator_split_size = 10
+
+let NERDTreeMinimalUI=1
+let NERDTreeShowBookmarks=1
+let NERDTreeChDirMode=2
+
+set vb t_vb= " Turn off bell
+
+" colorscheme molokai
+colorscheme jellybeans
+" colorscheme valium
