@@ -4,7 +4,10 @@ export PS1="\h:\w \u\$ "
 
 export SERVICE_REGISTRY_URL="http://dev1.consensuspoint.com:2000"
 
-export PATH="/usr/local/bin:/usr/local/sbin:~/src/deploy_noesis/bin:$PATH"
+export PATH="/usr/local/bin:/usr/local/mysql/bin:/usr/local/sbin:~/src/deploy_noesis/bin:$PATH"
+
+export DYLD_LIBRARY_PATH="/usr/local/mysql/lib:$DYLD_LIBRARY_PATH"
+
 alias git=hub
 
 export EDITOR='mvim'
