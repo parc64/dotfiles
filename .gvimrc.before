@@ -1,6 +1,6 @@
 " set guifont=Droid\ Sans\ Mono:h18.00
 " set guifont=Menlo\ Regular:h16.00
-set guifont=Monaco:h16.00
+set guifont=Monaco:h15.00
 " set guifont=Ubuntu\ Mono:h20.00
 
 set guioptions-=m
@@ -10,7 +10,7 @@ set guioptions-=l
 set guioptions-=L
 "set transparency=4
 
-" set cursorcolumn
+"set cursorcolumn
 set cursorline
 
 let g:buffergator_viewport_split_policy = "T"
@@ -31,12 +31,12 @@ let g:solarized_underline=1
 let g:solarized_italic=1
 let g:solarized_termcolors=16
 let g:solarized_contrast="normal"
-let g:solarized_visibility="high"
+let g:solarized_visibility="low"
 let g:solarized_diffmode="normal"
 let g:solarized_hitrail=1
 let g:solarized_menu=1
 
-set background=dark
+set background=light
 colorscheme solarized
 " colorscheme molokai
 " colorscheme jellybeans
