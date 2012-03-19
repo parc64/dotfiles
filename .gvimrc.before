@@ -22,6 +22,8 @@ let NERDTreeChDirMode=2
 
 set vb t_vb= " Turn off bell
 
+:map <F4> [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
+
 call togglebg#map("<F3>")
 
 let g:solarized_termtrans=0

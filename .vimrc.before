@@ -3,4 +3,3 @@ let NERDTreeShowBookmarks=1
 let NERDTreeChDirMode=2
 
 set tags=./tags,tags,~/github/ruby/tags
-
