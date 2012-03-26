@@ -1,3 +1,6 @@
+let mapleader = ","
+
+call janus#disable_plugin('easymotion')
 let NERDTreeMinimalUI=1
 let NERDTreeShowBookmarks=1
 let NERDTreeChDirMode=2

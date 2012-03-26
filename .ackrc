@@ -1,1 +1,4 @@
 -a
+--ignore-dir=.idea
+--ignore-dir=tmp
+--ignore-dir=log

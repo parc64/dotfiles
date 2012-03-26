@@ -1,24 +1,26 @@
-" set guifont=Droid\ Sans\ Mono:h18.00
-" set guifont=Menlo\ Regular:h16.00
+" set guifont=Droid\ Sans\ Mono:h15.00
+" set guifont=Menlo\ Regular:h15.00
 set guifont=Monaco:h15.00
-" set guifont=Ubuntu\ Mono:h20.00
+" set guifont=Ubuntu\ Mono:h15.00
 
 set guioptions-=m
 set guioptions-=T
 set guioptions-=r
 set guioptions-=l
 set guioptions-=L
-"set transparency=4
+
+" set transparency=5
 
 "set cursorcolumn
 set cursorline
 
 let g:buffergator_viewport_split_policy = "T"
-let g:buffergator_split_size = 10
+let g:buffergator_split_size = 8
 
 let NERDTreeMinimalUI=1
-let NERDTreeShowBookmarks=0
+let NERDTreeShowBookmarks=1
 let NERDTreeChDirMode=2
+let NERDTreeWinPos="right"
 
 set vb t_vb= " Turn off bell
 
@@ -38,8 +40,6 @@ let g:solarized_diffmode="normal"
 let g:solarized_hitrail=1
 let g:solarized_menu=1
 
-set background=light
-colorscheme solarized
-" colorscheme molokai
-" colorscheme jellybeans
-" colorscheme valium
+" set background=dark
+"colorscheme solarized
+colorscheme  jellybeans
