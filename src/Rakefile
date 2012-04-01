@@ -14,7 +14,7 @@ def each_dir(&block)
   }
 end
 
-task :update_tags do
+task :tags do
   each_dir do |dir|
     puts dir
     `ctags --file-scope=no -R`

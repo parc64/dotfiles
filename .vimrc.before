@@ -1,8 +1,12 @@
-let mapleader = ","
+" let mapleader = ","
 
 call janus#disable_plugin('easymotion')
 let NERDTreeMinimalUI=1
 let NERDTreeShowBookmarks=1
 let NERDTreeChDirMode=2
+
+set wrap
+set linebreak
+set nolist  " list disables linebreak
 
 set tags=./tags,tags,~/github/ruby/tags
