@@ -1,0 +1,74 @@
+" set guifont=Droid\ Sans\ Mono:h15.00
+" set guifont=Menlo\ Regular:h15.00
+" set guifont=Monaco:h13.00
+" set guifont=Ubuntu\ Mono:h15.00
+"set guifont=LetterGothicMonoOT-Regular:h16
+set guifont=LetterGothicMonoOT-Regular\ for\ Powerline:h17
+
+set guioptions-=M
+set guioptions-=T
+set guioptions-=r
+set guioptions-=l
+set guioptions-=L
+
+set fuoptions=maxvert,maxhorz
+
+set lazyredraw
+
+" Highlight VCS conflict markers
+match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+
+" System clipboard interaction
+" From https://github.com/henrik/dotfiles/blob/master/vim/config/mappings.vim
+noremap <leader>y "*y
+noremap <leader>p :set paste<CR>"*p<CR>:set nopaste<CR>
+noremap <leader>P :set paste<CR>"*P<CR>:set nopaste<CR>
+
+" Clean trailing whitespace
+nnoremap <leader>w mz:%s/\s\+$//<cr>:let @/=''<cr>`z
+
+"set transparency=2
+
+"set cursorcolumn
+set cursorline
+
+set completeopt=longest,menuone,preview
+
+set undodir=~/.janus/tmp/undo//     " undo files
+set backupdir=~/.janus/tmp/backup// " backups
+set directory=~/.janus/tmp/swap//   " swap files
+set backup                        " enable backups
+set noswapfile                    " It's 2012, Vim.
+
+let g:buffergator_viewport_split_policy = "T"
+let g:buffergator_split_size = 8
+
+noremap  <F2> :NERDTreeToggle<cr>
+inoremap <F2> <esc>:NERDTreeToggle<cr>
+
+let NERDTreeMinimalUI=1
+let NERDTreeShowBookmarks=1
+let NERDTreeChDirMode=2
+"let NERDTreeWinPos="right"
+
+set vb t_vb= " Turn off bell
+
+:map <F4> [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
+
+call togglebg#map("<F3>")
+
+let g:solarized_termtrans=0
+let g:solarized_degrade=0
+let g:solarized_bold=1
+let g:solarized_underline=1
+let g:solarized_italic=1
+let g:solarized_termcolors=16
+let g:solarized_contrast="normal"
+let g:solarized_visibility="low"
+let g:solarized_diffmode="normal"
+let g:solarized_hitrail=1
+let g:solarized_menu=1
+
+set background=dark
+colorscheme solarized
+" colorscheme  jellybeans

@@ -1,0 +1,58 @@
+class MasterData < ActiveRecord::Base
+  has_one :master_data, :foreign_key => 'parent_id'
+
+  validates_uniqueness_of :key, :scope => :parent_id
+  
+  attr_accessible :key, :value, :parent_id
+
+  class << self
+    def roots
+      MasterData.find_all_by_parent_id(nil)
+    end
+
+    def for_key_path(path)
+      keys = path.split '.'
+      record = nil
+      keys.each do |k|
+        _parent_id = record.nil? ? nil : record.id
+        record = MasterData.find_by_parent_id_and_key(_parent_id, k)
+      end
+      record
+    end
+
+    def children_for_key_path(path)
+      record = MasterData.for_key_path path
+      record.children
+    rescue Exception
+      []
+    end
+  end
+
+  def key_path
+    path = "#{self.key}"
+    record = self
+    until record.parent.nil?
+      path.prepend "#{record.parent.key}."
+      record = record.parent
+    end
+    path
+  end
+
+  def parent
+    MasterData.find(self.parent_id)
+  rescue ActiveRecord::RecordNotFound
+    nil
+  end
+
+  def parent=(record)
+    self.parent_id = record.id
+  end
+
+  def children
+    MasterData.find_all_by_parent_id self.id
+  end
+
+  def children?
+    MasterData.exists? :parent_id => self.id
+  end
+end
