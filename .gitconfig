@@ -9,4 +9,6 @@
 [difftool]
 	prompt = false
 [diff]
-	tool = Kaleidoscope
+  tool = Kaleidoscope
+[github]
+  user = vowell

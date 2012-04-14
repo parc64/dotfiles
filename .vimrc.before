@@ -1,12 +1,61 @@
 " let mapleader = ","
 
-call janus#disable_plugin('easymotion')
+"call janus#disable_plugin('easymotion')
+
+let g:Powerline_symbols = 'fancy'
+
 let NERDTreeMinimalUI=1
 let NERDTreeShowBookmarks=1
 let NERDTreeChDirMode=2
 
-set wrap
-set linebreak
-set nolist  " list disables linebreak
+" Indent Guides {{{
+
+let g:indentguides_state = 0
+function! IndentGuides() " {{{
+    if g:indentguides_state
+        let g:indentguides_state = 0
+        2match None
+    else
+        let g:indentguides_state = 1
+        execute '2match IndentGuides /\%(\_^\s*\)\@<=\%(\%'.(0*&sw+1).'v\|\%'.(1*&sw+1).'v\|\%'.(2*&sw+1).'v\|\%'.(3*&sw+1).'v\|\%'.(4*&sw+1).'v\|\%'.(5*&sw+1).'v\|\%'.(6*&sw+1).'v\|\%'.(7*&sw+1).'v\)\s/'
+    endif
+endfunction " }}}
+hi def IndentGuides guibg=#303030
+nnoremap <leader>I :call IndentGuides()<cr>
+
+" }}}
+
+" Block Colors {{{
+
+let g:blockcolor_state = 0
+function! BlockColor() " {{{
+    if g:blockcolor_state
+        let g:blockcolor_state = 0
+        call matchdelete(77881)
+        call matchdelete(77882)
+        call matchdelete(77883)
+        call matchdelete(77884)
+        call matchdelete(77885)
+    else
+        let g:blockcolor_state = 1
+        call matchadd("BlockColor1", '^ \{4}.*', 1, 77881)
+        call matchadd("BlockColor2", '^ \{8}.*', 2, 77882)
+        call matchadd("BlockColor3", '^ \{12}.*', 3, 77883)
+        call matchadd("BlockColor4", '^ \{16}.*', 4, 77884)
+        call matchadd("BlockColor5", '^ \{20}.*', 5, 77885)
+    endif
+endfunction " }}}
+" Default highlights {{{
+hi def BlockColor1 guibg=#222222
+hi def BlockColor2 guibg=#2a2a2a
+hi def BlockColor3 guibg=#353535
+hi def BlockColor4 guibg=#3d3d3d
+hi def BlockColor5 guibg=#444444
+" }}}
+nnoremap <leader>B :call BlockColor()<cr>
+
+" }}}
+
+" }}}
 
 set tags=./tags,tags,~/github/ruby/tags
