@@ -2,7 +2,7 @@
 
 "call janus#disable_plugin('easymotion')
 
-"let g:Powerline_symbols = 'fancy'
+let g:Powerline_symbols = 'fancy'
 
 let NERDTreeMinimalUI=1
 let NERDTreeShowBookmarks=1
@@ -59,3 +59,21 @@ nnoremap <leader>B :call BlockColor()<cr>
 " }}}
 
 set tags=./tags,tags,~/github/ruby/tags
+
+if has('gui_running')
+  set guifont=LetterGothicMonoOT-Regular\ for\ Powerline:h17
+  
+  set guioptions-=M
+  set guioptions-=T
+  set guioptions-=r
+  set guioptions-=l
+  set guioptions-=L
+
+  if has("gui_macvim")
+    set fuoptions=maxvert,maxhorz
+  else
+  end
+else
+  " console vim
+  set mouse=a
+end

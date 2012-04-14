@@ -8,12 +8,12 @@ class Outcome < ActiveRecord::Base
   belongs_to :question
   has_many :holdings
 
-  #    # ###### #      #####  ###### #####   ####  
-  #    # #      #      #    # #      #    # #      
-  ###### #####  #      #    # #####  #    #  ####  
-  #    # #      #      #####  #      #####       # 
-  #    # #      #      #      #      #   #  #    # 
-  #    # ###### ###### #      ###### #    #  ####  
+  #    # ###### #      #####  ###### #####   ####
+  #    # #      #      #    # #      #    # #
+  ###### #####  #      #    # #####  #    #  ####
+  #    # #      #      #####  #      #####       #
+  #    # #      #      #      #      #   #  #    #
+  #    # ###### ###### #      ###### #    #  ####
 
 
   def all_held_shares
@@ -52,7 +52,7 @@ class Outcome < ActiveRecord::Base
     bigF = lambda { |n| cost_to_buy(n) - cash }
     f = lambda { |n| price(h + n) }
     num_shares = newton_raphson(bigF, f, 1, epsilon)
-    
+
     # Ensure that we are not buying more than the user requested
     while (cost_to_buy(num_shares) > cash_amount) do
       num_shares -= epsilon
@@ -73,13 +73,13 @@ class Outcome < ActiveRecord::Base
     num_shares
   end
 
-                                       
-##### #####    ##   #####  # #    #  ####  
-  #   #    #  #  #  #    # # ##   # #    # 
-  #   #    # #    # #    # # # #  # #      
-  #   #####  ###### #    # # #  # # #  ### 
-  #   #   #  #    # #    # # #   ## #    # 
-  #   #    # #    # #####  # #    #  ####  
+
+##### #####    ##   #####  # #    #  ####
+  #   #    #  #  #  #    # # ##   # #    #
+  #   #    # #    # #    # # # #  # #
+  #   #####  ###### #    # # #  # # #  ###
+  #   #   #  #    # #    # # #   ## #    #
+  #   #    # #    # #####  # #    #  ####
 
   def buy(cash_amount_to_invest, user_id)
     bank_account = BankAccount.find_by_user_id(user_id)
@@ -138,7 +138,7 @@ class Outcome < ActiveRecord::Base
     cost_basis = (n_shares == 0.0) ? 0.0 : cash_amount.to_f / n_shares
     self.holdings.create(:user_id =>              user_id, :quantity =>  n_shares, :cost_basis => cost_basis, :cash_value =>  cash_amount)
     self.holdings.create(:user_id => MarketMaker::USER_ID, :quantity => -n_shares, :cost_basis => cost_basis, :cash_value => -cash_amount)
-    
+
     self.last_trade_price = self.score
     self.save!
 
@@ -157,30 +157,30 @@ class Outcome < ActiveRecord::Base
     beta * log(log_argument) #TODO: use BigMath.log instead
   end
 
-  #def price(x)
-    #x,e = big_decimalize(x,E)
-    #mu = mean(shares_held_for_siblings + [x])
-    #denominator = e**((x - mu)/beta)
-    #shares_held_for_siblings.each do |n_shares|
-      #denominator += e**((n_shares - mu)/beta)
-    #end
-    #e**((x - mu)/beta) / (denominator)
-  #end
+  def price(x)
+    x,e = big_decimalize(x,E)
+    mu = mean(shares_held_for_siblings + [x])
+    denominator = e**((x - mu)/beta)
+    shares_held_for_siblings.each do |n_shares|
+      denominator += e**((n_shares - mu)/beta)
+    end
+    e**((x - mu)/beta) / (denominator)
+  end
 
   def price(x)
-    h1 = x
+    h1 = x 
     h2 = siblings.first.all_held_shares
-
+binding.pry
     1 / (1 + e**((h2 - h1) / beta))
   end
 
-                                                
-   ####  # #####  #      # #    #  ####   ####  
-  #      # #    # #      # ##   # #    # #      
-   ####  # #####  #      # # #  # #       ####  
-       # # #    # #      # #  # # #  ###      # 
-  #    # # #    # #      # #   ## #    # #    # 
-   ####  # #####  ###### # #    #  ####   ####  
+
+   ####  # #####  #      # #    #  ####   ####
+  #      # #    # #      # ##   # #    # #
+   ####  # #####  #      # # #  # #       ####
+       # # #    # #      # #  # # #  ###      #
+  #    # # #    # #      # #   ## #    # #    #
+   ####  # #####  ###### # #    #  ####   ####
 
 
   def self_and_siblings
