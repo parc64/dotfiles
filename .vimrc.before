@@ -1,7 +1,8 @@
 " let mapleader = ","
 "call janus#disable_plugin('easymotion')
 
-"set lazyredraw
+set lazyredraw
+set modelines=0
 
 " Highlight VCS conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
@@ -71,7 +72,7 @@ let NERDTreeChDirMode=2
 
 " Folding ----------------------------------------------------------------- {{{
 
-set foldlevelstart=0
+set foldlevelstart=1
 
 " Space to toggle folds.
 nnoremap <Space> za
