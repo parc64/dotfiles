@@ -1,7 +1,7 @@
 " let mapleader = ","
 "call janus#disable_plugin('easymotion')
 
-set lazyredraw
+" set lazyredraw
 set modelines=0
 
 " Highlight VCS conflict markers
