@@ -37,6 +37,10 @@ plugins=(vi-mode rails3 git ruby nyan)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/Users/jason/.cabal/bin:/usr/local/bin:/usr/local/mysql/bin:/usr/local/sbin:~/src/deploy_noesis/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/core_perl:/home/jason/bin/rabbitmq_server-2.8.1/sbin:/home/jason/bin
+export PATH=/usr/local/bin:/usr/local/mysql/bin:/usr/local/sbin:~/src/deploy_noesis/bin:/usr/bin:/bin:/usr/sbin:/sbin:~/bin
+
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
 
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+export SERVICE_REGISTRY_URL=http://dev1.consensuspoint.com:2000

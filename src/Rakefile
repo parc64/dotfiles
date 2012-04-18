@@ -21,6 +21,13 @@ task :tags do
   end
 end
 
+task :bundle_install do
+  each_dir do |dir|
+    puts dir
+    `bundle install`
+  end
+end
+
 task :pull_origin do
   each_dir do |dir|
     `git pull origin master`

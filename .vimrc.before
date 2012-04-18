@@ -4,6 +4,9 @@
 " set lazyredraw
 set modelines=0
 
+set noeb vb t_vb=
+au GUIEnter * set vb t_vb=
+
 " Highlight VCS conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
@@ -20,14 +23,12 @@ nnoremap <leader>w mz:%s/\s\+$//<cr>:let @/=''<cr>`z
 set completeopt=longest,menuone,preview
 
 " Save when losing focus
-au FocusLost * :silent! wall
+" au FocusLost * :silent! wall
 
 " Resize splits when the window is resized
-au VimResized * :wincmd =
+"au VimResized * :wincmd =
 
-" Cursorline {{{
 " Only show cursorline in the current window and in normal mode.
-
 augroup cline
     au!
     au WinLeave * set nocursorline
@@ -35,19 +36,6 @@ augroup cline
     au InsertEnter * set nocursorline
     au InsertLeave * set cursorline
 augroup END
-
-" }}}
-
-" Trailing whitespace {{{
-" Only shown when not in insert mode so I don't go insane.
-
-augroup trailing
-    au!
-    au InsertEnter * :set listchars-=trail:⌴
-    au InsertLeave * :set listchars+=trail:⌴
-augroup END
-
-" }}}
 
 let g:Powerline_symbols = 'fancy'
 
@@ -63,108 +51,30 @@ let g:buffergator_split_size = 8
 let g:syntastic_enable_signs = 1
 let g:syntastic_check_on_open = 1
 
+noremap  <F2> :NERDTreeToggle<cr>
+inoremap <F2> <esc>:NERDTreeToggle<cr>
+
 let NERDTreeMinimalUI=1
 let NERDTreeShowBookmarks=1
 let NERDTreeChDirMode=2
 "let NERDTreeWinPos="right"
 
-:map <F4> [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
-
-" Folding ----------------------------------------------------------------- {{{
-
-set foldlevelstart=1
-
-" Space to toggle folds.
-nnoremap <Space> za
-vnoremap <Space> za
-
-" Make zO recursively open whatever top level fold we're in, no matter where the
-" cursor happens to be.
-nnoremap zO zCzO
-
-function! MyFoldText() " {{{
-    let line = getline(v:foldstart)
-
-    let nucolwidth = &fdc + &number * &numberwidth
-    let windowwidth = winwidth(0) - nucolwidth - 3
-    let foldedlinecount = v:foldend - v:foldstart
-
-    " expand tabs into spaces
-    let onetab = strpart('          ', 0, &tabstop)
-    let line = substitute(line, '\t', onetab, 'g')
-
-    let line = strpart(line, 0, windowwidth - 2 -len(foldedlinecount))
-    let fillcharcount = windowwidth - len(line) - len(foldedlinecount)
-    return line . '…' . repeat(" ",fillcharcount) . foldedlinecount . '…' . ' '
-endfunction " }}}
-set foldtext=MyFoldText()
-
-" }}}
+:map <F3> [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
 
 " Ruby {{{
 
-augroup ft_ruby
-    au!
-    au Filetype ruby setlocal foldmethod=syntax
-augroup END
+"augroup ft_ruby
+    "au!
+    "au Filetype ruby setlocal foldmethod=syntax
+"augroup END
 
 " }}}
 
-
-" Indent Guides {{{
-
-let g:indentguides_state = 0
-function! IndentGuides() " {{{
-    if g:indentguides_state
-        let g:indentguides_state = 0
-        2match None
-    else
-        let g:indentguides_state = 1
-      :w  execute '2match IndentGuides /\%(\_^\s*\)\@<=\%(\%'.(0*&sw+1).'v\|\%'.(1*&sw+1).'v\|\%'.(2*&sw+1).'v\|\%'.(3*&sw+1).'v\|\%'.(4*&sw+1).'v\|\%'.(5*&sw+1).'v\|\%'.(6*&sw+1).'v\|\%'.(7*&sw+1).'v\)\s/'
-    endif
-endfunction " }}}
-hi def IndentGuides guibg=#303030
-nnoremap <leader>I :call IndentGuides()<cr>
-
-" }}}
-
-" Block Colors {{{
-
-let g:blockcolor_state = 0
-function! BlockColor() " {{{
-    if g:blockcolor_state
-        let g:blockcolor_state = 0
-        call matchdelete(77881)
-        call matchdelete(77882)
-        call matchdelete(77883)
-        call matchdelete(77884)
-        call matchdelete(77885)
-    else
-        let g:blockcolor_state = 1
-        call matchadd("BlockColor1", '^ \{4}.*', 1, 77881)
-        call matchadd("BlockColor2", '^ \{8}.*', 2, 77882)
-        call matchadd("BlockColor3", '^ \{12}.*', 3, 77883)
-        call matchadd("BlockColor4", '^ \{16}.*', 4, 77884)
-        call matchadd("BlockColor5", '^ \{20}.*', 5, 77885)
-    endif
-endfunction " }}}
-" Default highlights {{{
-hi def BlockColor1 guibg=#222222
-hi def BlockColor2 guibg=#2a2a2a
-hi def BlockColor3 guibg=#353535
-hi def BlockColor4 guibg=#3d3d3d
-hi def BlockColor5 guibg=#444444
-" }}}
-nnoremap <leader>B :call BlockColor()<cr>
-
-" }}}
-
-" }}}
 
 set tags=./tags,tags,~/github/ruby/tags
 
 if has('gui_running')
-  set guifont=LetterGothicMonoOT-Regular\ for\ Powerline:h17
+  set guifont=LetterGothicMonoOT-Regular\ for\ Powerline:h18
 
   set guioptions-=M
   set guioptions-=T
