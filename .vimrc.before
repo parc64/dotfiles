@@ -59,7 +59,7 @@ let NERDTreeShowBookmarks=1
 let NERDTreeChDirMode=2
 "let NERDTreeWinPos="right"
 
-:map <F3> [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
+:map <F3> [I:let nr = input("--> ")<Bar>exe "normal " . nr ."[\t"<CR>
 
 " Ruby {{{
 
