@@ -39,3 +39,9 @@ task :pull_huunu do
     `git pull huunu master`
   end
 end
+
+task :update_gemfile do
+  each_dir do |dir|
+    `ndk_gemfile`
+  end
+end

@@ -176,4 +176,3 @@ else
     inoremap <silent> <f25> <c-o>:doautocmd FocusGained %<cr>
 endif
 
-" }}}

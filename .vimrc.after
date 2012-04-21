@@ -1,2 +1,5 @@
 set background=dark
+if has("gui_macvim")
+  set transparency=5
+end
 color jellybeans+

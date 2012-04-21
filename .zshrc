@@ -10,6 +10,7 @@ ZSH_THEME="cloud"
 
 alias cu="curl.rb"
 alias srl="curl.rb http://localhost:2000/active_services"
+alias srl_qa="curl.rb http://qa1.consensuspoint.com:2000/active_services"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
