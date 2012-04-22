@@ -3,6 +3,12 @@
 
 " set lazyredraw
 set modelines=0
+set splitbelow
+set splitright
+
+set notimeout
+set ttimeout
+set ttimeoutlen=10
 
 set noeb vb t_vb=
 au GUIEnter * set vb t_vb=
