@@ -1,38 +1,5 @@
-" let mapleader = ","
-"call janus#disable_plugin('easymotion')
-
-" set lazyredraw
-set modelines=0
-set splitbelow
-set splitright
-
-set notimeout
-set ttimeout
-set ttimeoutlen=10
-
-set noeb vb t_vb=
-au GUIEnter * set vb t_vb=
-
 " Highlight VCS conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
-
-" System clipboard interaction
-" From https://github.com/henrik/dotfiles/blob/master/vim/config/mappings.vim
-noremap <leader>y "*y
-noremap <leader>p :set paste<CR>"*p<CR>:set nopaste<CR>
-noremap <leader>P :set paste<CR>"*P<CR>:set nopaste<CR>
-
-" Clean trailing whitespace
-nnoremap <leader>w mz:%s/\s\+$//<cr>:let @/=''<cr>`z
-
-" Better Completion
-set completeopt=longest,menuone,preview
-
-" Save when losing focus
-" au FocusLost * :silent! wall
-
-" Resize splits when the window is resized
-"au VimResized * :wincmd =
 
 " Only show cursorline in the current window and in normal mode.
 augroup cline
@@ -43,44 +10,8 @@ augroup cline
     au InsertLeave * set cursorline
 augroup END
 
-let g:Powerline_symbols = 'fancy'
-
-set undodir=~/.janus/tmp/undo//     " undo files
-set backupdir=~/.janus/tmp/backup// " backups
-set directory=~/.janus/tmp/swap//   " swap files
-set backup                        " enable backups
-set noswapfile                    " It's 2012, Vim.
-
-let g:buffergator_viewport_split_policy = "T"
-let g:buffergator_split_size = 8
-
-let g:syntastic_enable_signs = 1
-let g:syntastic_check_on_open = 1
-
-noremap  <F2> :NERDTreeToggle<cr>
-inoremap <F2> <esc>:NERDTreeToggle<cr>
-
-let NERDTreeMinimalUI=1
-let NERDTreeShowBookmarks=1
-let NERDTreeChDirMode=2
-"let NERDTreeWinPos="right"
-
-:map <F3> [I:let nr = input("--> ")<Bar>exe "normal " . nr ."[\t"<CR>
-
-" Ruby {{{
-
-"augroup ft_ruby
-    "au!
-    "au Filetype ruby setlocal foldmethod=syntax
-"augroup END
-
-" }}}
-
-
-set tags=./tags,tags,~/github/ruby/tags
-
 if has('gui_running')
-  set guifont=LetterGothicMonoOT-Regular\ for\ Powerline:h18
+  set guifont=LetterGothicMonoOT-Light\ for\ Powerline:h19
 
   set guioptions-=M
   set guioptions-=T
