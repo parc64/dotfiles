@@ -6,6 +6,7 @@ set splitright
 set notimeout
 set ttimeout
 set ttimeoutlen=10
+set encoding=utf-8
 
 set noeb vb t_vb=
 au GUIEnter * set vb t_vb=
