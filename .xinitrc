@@ -94,6 +94,4 @@ exec ck-launch-session gnome-session
 }
 
 #_gnome
-#_xmonad
-awesome
-
+_xmonad
