@@ -11,12 +11,6 @@ set encoding=utf-8
 set noeb vb t_vb=
 au GUIEnter * set vb t_vb=
 
-" System clipboard interaction
-" From https://github.com/henrik/dotfiles/blob/master/vim/config/mappings.vim
-"noremap <leader>y "*y
-"noremap <leader>p :set paste<CR>"*p<CR>:set nopaste<CR>
-"noremap <leader>P :set paste<CR>"*P<CR>:set nopaste<CR>
-
 " Clean trailing whitespace
 nnoremap <leader>w mz:%s/\s\+$//<cr>:let @/=''<cr>`z
 
@@ -53,20 +47,13 @@ let NERDTreeChDirMode=2
 
 :map <F3> [I:let nr = input("--> ")<Bar>exe "normal " . nr ."[\t"<CR>
 
-" Ruby {{{
-
-"augroup ft_ruby
-    "au!
-    "au Filetype ruby setlocal foldmethod=syntax
-"augroup END
-
-" }}}
-
+set number
+nnoremap <F6> :set nonumber!<CR>
 
 set tags=./tags,tags,~/github/ruby/tags
 
 if has('gui_running')
-  set guifont=LetterGothicMonoOT-Light\ for\ Powerline:h19
+  set guifont=LetterGothicMonoOT-Light\ for\ Powerline:h17
 
   set guioptions-=M
   set guioptions-=T

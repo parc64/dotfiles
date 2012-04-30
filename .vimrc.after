@@ -1,5 +1,5 @@
 " compile vim from source on OSX to get this feature, use system ruby
-" ./configure --enable-rubyinterp --enable-multibyte --with-features=huge
+" ./configure --enable-rubyinterp --enable-pythoninterp --enable-multibyte --with-features=huge
 set clipboard=unnamed
 
 " Highlight VCS conflict markers
@@ -16,7 +16,6 @@ augroup END
 
 set background=dark
 if has("gui_macvim")
-  set transparency=5
+  set transparency=3
 end
-set nonumber
 color jellybeans+

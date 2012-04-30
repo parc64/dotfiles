@@ -1,5 +1,5 @@
-URxvt.font: xft:lettergothicmonoot light for powerline:style=Light:pixelsize=12
-URxvt.italicfont: xft:lettergothicmonoot regular for powerline:style=Italic:pixelsize=12
+URxvt.font: xft:LetterGothicMonoOT:style=Light:pixelsize=18
+URxvt.italicfont: xft:LetterGothicMonoOT:style=RegularIt:pixelsize=18
 
 URxvr.termName:              rxvt-unicode-256color
 URxvr.saveLines:             8192
