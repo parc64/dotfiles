@@ -39,10 +39,10 @@
 *color15:               S_base3
 
 
-urxvt*font:             xft:LetterGothicMonoOT:Light:pixelsize=20
-urxvt*mfont:            xft:LetterGothicMonoOT:Light:pixelsize=20
-urxvt*boldFont:         xft:LetterGothicMonoOT:Regular:pixelsize=20
-urxvt*italicFont:       xft:LetterGothicMonoOT:Italic:pixelsize=20
+urxvt*font:             -misc-lettergothicmonoot light for powerline-medium-r-normal--0-0-0-0-m-0-iso8859-1
+!urxvt*mfont:            xft:LetterGothicMonoOT:Light:pixelsize=20
+!urxvt*boldFont:         xft:LetterGothicMonoOT:Regular:pixelsize=20
+!urxvt*italicFont:       xft:LetterGothicMonoOT:Italic:pixelsize=20
 
 urxvt*termName:         rxvt-unicode-256color
 urxvt*background:       #000000
@@ -54,9 +54,9 @@ urxvt*perl-ext-common:  default,matcher
 
 URxvt.saveLines:        8192
 
-Xft*dpi:                120
-Xft*antialias:          true
-Xft*hinting:            full
+!Xft*dpi:                120
+!Xft*antialias:          true
+!Xft*hinting:            full
 
 URxvt*color0:      #000000
 URxvt*color1:      #9e1828
