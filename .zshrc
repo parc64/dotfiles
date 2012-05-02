@@ -8,9 +8,11 @@ ZSH=$HOME/.oh-my-zsh
 #ZSH_THEME="robbyrussell"
 ZSH_THEME="cloud"
 
+# ALIAS
 alias cu="curl.rb"
 alias srl="curl.rb http://localhost:2000/active_services"
 alias srl_qa="curl.rb http://qa1.consensuspoint.com:2000/active_services"
+alias top="top -o cpu"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"

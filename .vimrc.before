@@ -1,3 +1,4 @@
+let mapleader = ","
 " set lazyredraw
 set modelines=0
 set splitbelow
@@ -10,6 +11,11 @@ set encoding=utf-8
 
 set noeb vb t_vb=
 au GUIEnter * set vb t_vb=
+
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
 
 " Clean trailing whitespace
 nnoremap <leader>w mz:%s/\s\+$//<cr>:let @/=''<cr>`z
