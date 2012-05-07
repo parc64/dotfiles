@@ -6,6 +6,7 @@ Music/
 Movies/
 Pictures/
 Public/
+.DS_Store
 github/
 src/
 tmp/
