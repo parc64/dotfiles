@@ -17,6 +17,8 @@ visualparadigm/
 .zcompdump
 .zsh-update
 .zshrc.pre-oh-my-zsh
-.vim
+.vim/
 .vimrc
 .gvimrc
+.rvm/
+.gem/
