@@ -13,3 +13,10 @@ tmp/
 .viminfo
 .zsh_history
 visualparadigm/
+.oh-my-zsh/
+.zcompdump
+.zsh-update
+.zshrc.pre-oh-my-zsh
+.vim
+.vimrc
+.gvimrc
