@@ -59,7 +59,7 @@ nnoremap <F6> :set nonumber!<CR>
 set tags=./tags,tags,~/github/ruby/tags
 
 if has('gui_running')
-  set guifont=LetterGothicMonoOT-Light\ for\ Powerline:h17
+  set guifont=LetterGothicMonoOT-Light\ for\ Powerline:h19
 
   set guioptions-=M
   set guioptions-=T
