@@ -56,7 +56,7 @@ let NERDTreeChDirMode=2
 set number
 nnoremap <F6> :set nonumber!<CR>
 
-set tags=./tags,tags,~/github/ruby/tags
+set tags=./tags,tags,~/github/ruby/tags,~/github/rails/tags
 
 if has('gui_running')
   set guifont=LetterGothicMonoOT-Light\ for\ Powerline:h19
