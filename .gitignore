@@ -13,7 +13,6 @@ tmp/
 .ssh/
 .cache/
 .viminfo
-.zsh_history
 visualparadigm/
 .oh-my-zsh/
 .zcompdump
@@ -24,3 +23,7 @@ visualparadigm/
 .gvimrc
 .rvm/
 .gem/
+.mutt/
+.muttrc
+.*_history
+.rnd
