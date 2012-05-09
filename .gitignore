@@ -28,3 +28,4 @@ visualparadigm/
 .*_history
 .rnd
 .Trash/
+.erlang.cookie
