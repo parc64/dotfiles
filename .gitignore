@@ -1,3 +1,4 @@
+Documents/
 Desktop/
 Downloads/
 Dropbox/
@@ -29,3 +30,9 @@ visualparadigm/
 .rnd
 .Trash/
 .erlang.cookie
+.cabal/
+.fontconfig/
+.ghc/
+.lesshst
+.Xauthority
+.xmonad/
