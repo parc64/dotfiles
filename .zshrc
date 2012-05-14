@@ -47,3 +47,4 @@ export PATH=~/bin:/usr/local/bin:/usr/local/mysql/bin:/usr/local/sbin:/opt/X11/b
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 export SERVICE_REGISTRY_URL=http://dev1.consensuspoint.com:2000
+export CLASSPATH=$CLASSPATH:/usr/local/Cellar/clojure-contrib/1.2.0/clojure-contrib.jar
