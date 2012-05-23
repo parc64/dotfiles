@@ -17,7 +17,7 @@ end
 task :tags do
   each_dir do |dir|
     puts dir
-    `ctags --file-scope=no -R`
+    `ctags -R`
   end
 end
 
