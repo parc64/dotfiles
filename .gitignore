@@ -37,3 +37,5 @@ visualparadigm/
 .Xauthority
 .xmonad/
 .janus/
+.elinks/
+.htoprc

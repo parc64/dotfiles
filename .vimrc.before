@@ -12,6 +12,8 @@ set encoding=utf-8
 set noeb vb t_vb=
 au GUIEnter * set vb t_vb=
 
+au BufNewFile,BufRead *.jsonify set filetype=ruby
+
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
