@@ -12,6 +12,17 @@ set encoding=utf-8
 set noeb vb t_vb=
 au GUIEnter * set vb t_vb=
 
+set wildmenu
+set wildmode=list:longest
+
+set wildignore+=.hg,.git,.svn                    " Version control
+set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
+set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg   " binary images
+set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
+set wildignore+=*.spl                            " compiled spelling word lists
+set wildignore+=*.sw?                            " Vim swap files
+set wildignore+=*.DS_Store                       " OSX bullshit
+
 au BufNewFile,BufRead *.jsonify set filetype=ruby
 
 map <C-h> <C-w>h
@@ -61,7 +72,7 @@ nnoremap <F6> :set nonumber!<CR>
 set tags=./tags,tags,~/github/ruby/tags,~/github/rails/tags
 
 if has('gui_running')
-  set guifont=LetterGothicMonoOT-Light\ for\ Powerline:h19
+  set guifont=LetterGothicMonoOT-Light\ for\ Powerline:h17
 
   set guioptions-=M
   set guioptions-=T
