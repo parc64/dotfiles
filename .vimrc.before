@@ -30,6 +30,11 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+map - <C-W>-
+map = <C-W>+
+map _ <C-W><
+map + <C-W>>
+
 " Clean trailing whitespace
 nnoremap <leader>w mz:%s/\s\+$//<cr>:let @/=''<cr>`z
 

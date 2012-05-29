@@ -2,4 +2,5 @@ admin_app /Users/jason/src/admin_app
 deploy_noesis /Users/jason/src/deploy_noesis
 market_service /Users/jason/src/market_service
 market_worker /Users/jason/src/market_worker
+noesis_client /Users/jason/src/noesis_client
 
