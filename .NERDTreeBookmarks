@@ -1,4 +1,4 @@
-web_app /Users/jason/src/web_app
+user_service /Users/jason/src/user_service
 deploy_noesis /Users/jason/src/deploy_noesis
 market_service /Users/jason/src/market_service
 admin_app /Users/jason/src/admin_app
@@ -11,5 +11,5 @@ noesis_service /Users/jason/src/noesis_service
 notification_service /Users/jason/src/notification_service
 scheduler_service /Users/jason/src/scheduler_service
 service_registry /Users/jason/src/service_registry
-user_service /Users/jason/src/user_service
+web_app /Users/jason/src/web_app
 
