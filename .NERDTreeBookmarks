@@ -1,15 +1,15 @@
-user_service /Users/jason/src/user_service
-deploy_noesis /Users/jason/src/deploy_noesis
+notification_service /Users/jason/src/notification_service
+market_worker /Users/jason/src/market_worker
 market_service /Users/jason/src/market_service
 admin_app /Users/jason/src/admin_app
+deploy_noesis /Users/jason/src/deploy_noesis
 media_service /Users/jason/src/media_service
 metadata_service /Users/jason/src/metadata_service
-market_worker /Users/jason/src/market_worker
-noesis_client /Users/jason/src/noesis_client
 noesis /Users/jason/src/noesis
 noesis_service /Users/jason/src/noesis_service
-notification_service /Users/jason/src/notification_service
+noesis_client /Users/jason/src/noesis_client
 scheduler_service /Users/jason/src/scheduler_service
 service_registry /Users/jason/src/service_registry
+user_service /Users/jason/src/user_service
 web_app /Users/jason/src/web_app
 

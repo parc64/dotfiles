@@ -1,5 +1,6 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
+EDITOR="vim"
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -39,6 +40,8 @@ DISABLE_AUTO_TITLE="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(osx vi-mode rails3 git ruby nyan)
 source $ZSH/oh-my-zsh.sh
+
+unsetopt correct_all
 
 # Customize to your needs...
 export PATH=~/bin:/usr/local/bin:/usr/local/mysql/bin:/usr/local/sbin:/opt/X11/bin:~/.cabal/bin:~/src/deploy_noesis/bin:/usr/bin:/bin:/usr/sbin:/sbin

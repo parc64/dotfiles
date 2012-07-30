@@ -12,3 +12,5 @@
   tool = Kaleidoscope
 [github]
   user = vowell
+[merge]
+	ff = false
