@@ -40,6 +40,12 @@ task :pull_huunu do
   end
 end
 
+task :pull do
+  each_dir do |dir|
+    `git pull`
+  end
+end
+
 task :update_gemfile do
   each_dir do |dir|
     `ndk_gemfile`
