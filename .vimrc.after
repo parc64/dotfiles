@@ -16,6 +16,7 @@ augroup END
 
 set background=dark
 if has("gui_macvim")
-  set transparency=3
+  set transparency=1
 end
-color jellybeans+
+" color jellybeans+
+color codeschool
