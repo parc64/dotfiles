@@ -70,7 +70,7 @@ inoremap <F2> <esc>:NERDTreeToggle<cr>
 let NERDTreeMinimalUI=1
 let NERDTreeShowBookmarks=1
 let NERDTreeChDirMode=2
-let NERDTreeWinPos="right"
+"let NERDTreeWinPos="right"
 
 :map <F3> [I:let nr = input("--> ")<Bar>exe "normal " . nr ."[\t"<CR>
 

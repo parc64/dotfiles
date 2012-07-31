@@ -38,10 +38,11 @@ DISABLE_AUTO_TITLE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(osx vi-mode rails3 git ruby nyan)
+plugins=(osx vi-mode rails3 git git-flow ruby rake nyan brew)
 source $ZSH/oh-my-zsh.sh
 
 unsetopt correct_all
+unsetopt share_history
 
 # Customize to your needs...
 export PATH=~/bin:/usr/local/bin:/usr/local/mysql/bin:/usr/local/sbin:/opt/X11/bin:~/.cabal/bin:~/src/deploy_noesis/bin:/usr/bin:/bin:/usr/sbin:/sbin
