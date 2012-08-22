@@ -15,7 +15,9 @@ augroup cline
 augroup END
 
 set background=dark
+
 if has("gui_macvim")
   set transparency=1
 end
+
 color jellybeans+
