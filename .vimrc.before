@@ -1,5 +1,6 @@
-let mapleader = ","
+le maplead"er = ","
 " set lazyredraw
+set t_Co=256
 set modelines=0
 set splitbelow
 set splitright
@@ -77,10 +78,10 @@ let NERDTreeChDirMode=2
 set number
 nnoremap <F6> :set nonumber!<CR>
 
-set tags=./tags,tags,~/github/ruby/tags,~/github/rails/tags
+set tags=~/github/ruby/tags,~/github/rails/tags
 
 if has('gui_running')
-  set guifont=LetterGothicMonoOT-Light\ for\ Powerline:h19
+  set guifont=LetterGothicMonoOT-Light\ for\ Powerline:h17
 
   set guioptions-=M
   set guioptions-=T

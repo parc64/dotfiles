@@ -14,10 +14,12 @@ augroup cline
     au InsertLeave * set cursorline
 augroup END
 
-set background=dark
 
 if has("gui_macvim")
   set transparency=1
+  color pyte
+else
+  set background=dark
+  color jellybeans+
 end
 
-color jellybeans+
