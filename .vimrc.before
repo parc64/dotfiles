@@ -1,5 +1,6 @@
-let mapleader = ","
+le maplead"er = ","
 " set lazyredraw
+set t_Co=256
 set modelines=0
 set splitbelow
 set splitright
@@ -70,17 +71,17 @@ inoremap <F2> <esc>:NERDTreeToggle<cr>
 let NERDTreeMinimalUI=1
 let NERDTreeShowBookmarks=1
 let NERDTreeChDirMode=2
-let NERDTreeWinPos="right"
+"let NERDTreeWinPos="right"
 
 :map <F3> [I:let nr = input("--> ")<Bar>exe "normal " . nr ."[\t"<CR>
 
 set number
 nnoremap <F6> :set nonumber!<CR>
 
-set tags=./tags,tags,~/github/ruby/tags,~/github/rails/tags
+set tags=~/github/ruby/tags,~/github/rails/tags
 
 if has('gui_running')
-  set guifont=LetterGothicMonoOT-Light\ for\ Powerline:h19
+  set guifont=LetterGothicMonoOT-Light\ for\ Powerline:h17
 
   set guioptions-=M
   set guioptions-=T
@@ -107,13 +108,13 @@ else
     " focus and <Esc>[I when it gains focus.
     "
     " TODO: Look into how this works with iTerm tabs.  Seems a bit wonky.
-    let enable_focus_reporting  = "\<Esc>[?1004h"
-    let disable_focus_reporting = "\<Esc>[?1004l"
+"    let enable_focus_reporting  = "\<Esc>[?1004h"
+"    let disable_focus_reporting = "\<Esc>[?1004l"
 
     " These sequences save/restore the screen.
     " They should NOT be wrapped in tmux escape sequences for some reason!
-    let save_screen    = "\<Esc>[?1049h"
-    let restore_screen = "\<Esc>[?1049l"
+"    let save_screen    = "\<Esc>[?1049h"
+"    let restore_screen = "\<Esc>[?1049l"
 
     " These sequences tell iTerm2 to change the cursor shape to a bar or block.
     let cursor_to_bar   = "\<Esc>]50;CursorShape=1\x7"
@@ -130,8 +131,8 @@ else
         let tmux_start = "\<Esc>Ptmux;"
         let tmux_end   = "\<Esc>\\"
 
-        let enable_focus_reporting  = tmux_start . "\<Esc>" . enable_focus_reporting  . tmux_end
-        let disable_focus_reporting = tmux_start . "\<Esc>" . disable_focus_reporting . tmux_end
+"        let enable_focus_reporting  = tmux_start . "\<Esc>" . enable_focus_reporting  . tmux_end
+"        let disable_focus_reporting = tmux_start . "\<Esc>" . disable_focus_reporting . tmux_end
 
         let cursor_to_bar   = tmux_start . "\<Esc>" . cursor_to_bar   . tmux_end
         let cursor_to_block = tmux_start . "\<Esc>" . cursor_to_block . tmux_end
@@ -143,8 +144,8 @@ else
     " The "focus/save" and "nofocus/restore" each have to be in this order.
     " Trust me, you don't want to go down this rabbit hole.  Just keep them in
     " this order and no one gets hurt.
-    let &t_ti = enable_focus_reporting . save_screen
-    let &t_te = disable_focus_reporting . restore_screen
+"    let &t_ti = enable_focus_reporting . save_screen
+"    let &t_te = disable_focus_reporting . restore_screen
 
     " When entering insert mode, change the cursor to a bar.
     " When exiting insert mode, change it back to a block.
@@ -169,15 +170,15 @@ else
     " possible.  This is easy for some modes and hard/impossible for others.
     "
     " EXAMPLES:
-    nnoremap <silent> <f24> :doautocmd FocusLost %<cr>
-    nnoremap <silent> <f25> :doautocmd FocusGained %<cr>
+"    nnoremap <silent> <f24> :doautocmd FocusLost %<cr>
+"    nnoremap <silent> <f25> :doautocmd FocusGained %<cr>
 
-    onoremap <silent> <f24> <esc>:doautocmd FocusLost %<cr>
-    onoremap <silent> <f25> <esc>:doautocmd FocusGained %<cr>
+"    onoremap <silent> <f24> <esc>:doautocmd FocusLost %<cr>
+"    onoremap <silent> <f25> <esc>:doautocmd FocusGained %<cr>
 
-    vnoremap <silent> <f24> <esc>:doautocmd FocusLost %<cr>gv
-    vnoremap <silent> <f25> <esc>:doautocmd FocusGained %<cr>gv
+"    vnoremap <silent> <f24> <esc>:doautocmd FocusLost %<cr>gv
+"    vnoremap <silent> <f25> <esc>:doautocmd FocusGained %<cr>gv
 
-    inoremap <silent> <f24> <c-o>:doautocmd FocusLost %<cr>
-    inoremap <silent> <f25> <c-o>:doautocmd FocusGained %<cr>
+"    inoremap <silent> <f24> <c-o>:doautocmd FocusLost %<cr>
+"    inoremap <silent> <f25> <c-o>:doautocmd FocusGained %<cr>
 endif

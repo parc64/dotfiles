@@ -13,4 +13,4 @@
 [github]
   user = vowell
 [merge]
-	ff = false
+	tool = opendiff
