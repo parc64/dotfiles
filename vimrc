@@ -3,6 +3,7 @@ call pathogen#infect()
 syntax on
 filetype plugin indent on
 
+set clipboard=unnamed,unnamedplus,autoselect
 set t_Co=256
 set wrap
 set linebreak
@@ -16,8 +17,12 @@ set ttimeout
 set ttimeoutlen=10
 set encoding=utf-8
 set noeb vb t_vb=
+set termencoding=utf-8
+set incsearch
+set hlsearch
+
 set wildmenu
-set wildmode=list:longest
+set wildmode=list:longest,full
 set wildignore+=.hg,.git,.svn                    " Version control
 set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
 set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg   " binary images
@@ -29,22 +34,19 @@ set wildignore+=*.DS_Store                       " OSX bullshit
 au GUIEnter * set vb t_vb=
 
 if has("autocmd")
-  " In Makefiles, use real tabs, not tabs expanded to spaces
-  au FileType make setlocal noexpandtab
+	" In Makefiles, use real tabs, not tabs expanded to spaces
+	au FileType make setlocal noexpandtab
 
-  " Make sure all mardown files have the correct filetype set and setup wrapping
-  au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown | call s:setupWrapping()
+	" Treat JSON files like JavaScript
+	au BufNewFile,BufRead *.json set ft=javascript
 
-  " Treat JSON files like JavaScript
-  au BufNewFile,BufRead *.json set ft=javascript
+	" make Python follow PEP8 for whitespace ( http://www.python.org/dev/peps/pep-0008/ )
+	au FileType python setlocal softtabstop=4 tabstop=4 shiftwidth=4
 
-  " make Python follow PEP8 for whitespace ( http://www.python.org/dev/peps/pep-0008/ )
-  au FileType python setlocal softtabstop=4 tabstop=4 shiftwidth=4
-
-  " Remember last location in file, but not for commit messages.
-  " see :help last-position-jump
-  au BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= line("$")
-    \| exe "normal! g`\"" | endif
+	" Remember last location in file, but not for commit messages.
+	" see :help last-position-jump
+	au BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= line("$")
+				\| exe "normal! g`\"" | endif
 endif
 
 cmap w!! %!sudo tee > /dev/null %
@@ -63,10 +65,10 @@ map <Leader>= <C-w>=
 
 au BufNewFile,BufRead *.jsonify set filetype=ruby
 
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
+"map <C-h> <C-w>h
+"map <C-j> <C-w>j
+"map <C-k> <C-w>k
+"map <C-l> <C-w>l
 
 " Clean trailing whitespace
 nnoremap <leader>w mz:%s/\s\+$//<cr>:let @/=''<cr>`z
@@ -76,9 +78,9 @@ set completeopt=longest,menuone,preview
 
 let g:Powerline_symbols = 'fancy'
 
-set undodir=~/.janus/tmp/undo//     " undo files
-set backupdir=~/.janus/tmp/backup// " backups
-set directory=~/.janus/tmp/swap//   " swap files
+set undodir=~/.vim/tmp/undo//     " undo files
+set backupdir=~/.vim/tmp/backup// " backups
+set directory=~/.vim/tmp/swap//   " swap files
 set backup                        " enable backups
 set noswapfile                    " It's 2012, Vim.
 
@@ -154,7 +156,8 @@ else
 		let cursor_to_block = tmux_start . "\<Esc>" . cursor_to_block . tmux_end
 	endif
 
+	let &t_SI = cursor_to_bar                                                              
+	let &t_EI = cursor_to_block
 
-	set background=dark
 	color jellybeans+
 endif
