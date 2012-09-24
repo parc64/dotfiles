@@ -20,6 +20,10 @@ set noeb vb t_vb=
 set termencoding=utf-8
 set incsearch
 set hlsearch
+set expandtab
+set tabstop=2 shiftwidth=2 softtabstop=2
+set autoindent
+set nocompatible
 
 set wildmenu
 set wildmode=list:longest,full
@@ -127,6 +131,8 @@ if has('gui_running')
 
 	if has("gui_macvim")
 		set fuoptions=maxvert,maxhorz
+		set background=dark
+		color jellybeans+
 	else
 		" non macvim gui
 	end
@@ -158,6 +164,6 @@ else
 
 	let &t_SI = cursor_to_bar                                                              
 	let &t_EI = cursor_to_block
-
+	set background=dark
 	color jellybeans+
 endif
