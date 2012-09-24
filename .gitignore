@@ -1,3 +1,4 @@
+Applications/
 Documents/
 Desktop/
 Downloads/
@@ -14,6 +15,7 @@ tmp/
 .ssh/
 .cache/
 .viminfo
+.vim/
 visualparadigm/
 .oh-my-zsh/
 .zcompdump
