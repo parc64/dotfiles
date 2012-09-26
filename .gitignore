@@ -63,3 +63,4 @@ visualparadigm/
 bin/gate
 gate.pem
 qa1ec2.pem
+.vimtags
