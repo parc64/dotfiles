@@ -1,0 +1,9 @@
+# ~/.tmuxinator/dev.yml
+# you can make as many tabs as you wish...
+
+project_name: Develop
+project_root: ~/src
+tabs:
+  - editor:
+  - shell:
+  - gate: gate

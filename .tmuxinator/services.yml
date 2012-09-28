@@ -1,0 +1,13 @@
+# ~/.tmuxinator/services.yml
+# you can make as many tabs as you wish...
+
+project_name: Services
+project_root: ~/src
+tabs:
+  - sr: cd ~/src/service_registry && script/run_local
+  - user: cd ~/src/user_service && script/run_local
+  - mds: cd ~/src/metadata_service && script/run_local
+  - media: cd ~/src/media_service && script/run_local
+  - market: ~/src/market_service && script/run_local
+  - web_app: ~/src/web_app && script/run_local
+  - memcached: memcached
