@@ -10,4 +10,5 @@ tabs:
   - media: cd ~/src/media_service && script/run_local
   - market: ~/src/market_service && script/run_local
   - web_app: ~/src/web_app && script/run_local
+  - security: ~/src/web_app && script/run_local
   - memcached: memcached

@@ -5,5 +5,3 @@ project_name: Develop
 project_root: ~/src
 tabs:
   - editor:
-  - shell:
-  - gate: gate
