@@ -19,7 +19,6 @@ if has("gui_macvim")
   set transparency=1
   color pyte
 else
-  set background=dark
-  color jellybeans+
+  color ir_black
 end
 
