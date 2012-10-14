@@ -12,6 +12,17 @@ let g:tagbar_autoshowtag = 1
 let g:syntastic_enable_signs = 1
 let g:syntastic_check_on_open = 1
 
+set wildmenu
+set wildmode=list:longest
+
+set wildignore+=.hg,.git,.svn                    " Version control
+set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
+set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg   " binary images
+set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
+set wildignore+=*.spl                            " compiled spelling word lists
+set wildignore+=*.sw?                            " Vim swap files
+set wildignore+=*.DS_Store                       " OSX bullshit
+
 noremap  <F1> :NERDTreeFind<CR>
 inoremap <F1> <esc>:NERDTreeFind<CR>
 

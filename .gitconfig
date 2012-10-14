@@ -4,13 +4,11 @@
 [user]
 	name = Jason Vowell
 	email = jason@consensuspoint.com
+[github]
+  user = vowell
 [difftool "Kaleidoscope"]
 	cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
 [difftool]
 	prompt = false
 [diff]
-  tool = Kaleidoscope
-[github]
-  user = vowell
-[merge]
-	tool = opendiff
+	tool = Kaleidoscope
