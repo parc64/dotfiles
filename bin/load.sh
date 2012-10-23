@@ -1,2 +1,2 @@
 #!/bin/bash
-uptime | awk -F'load averages: ' '{ print $2 }'
+uptime | awk -F'load averages(s|): ' '{ print $2 }'
