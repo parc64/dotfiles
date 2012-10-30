@@ -8,6 +8,7 @@ set nowrap
 set tabstop=2 shiftwidth=2
 set expandtab
 set backspace=indent,eol,start
+set visualbell t_vb=
 
 " searching
 set hlsearch
@@ -49,13 +50,19 @@ nnoremap <silent> <F3> :TagbarToggle<CR>
 
 nnoremap <F6> :set nonumber!<CR>
 
+set undodir=~/.vim/tmp/undo//     " undo files
+set backupdir=~/.vim/tmp/backup// " backups
+set directory=~/.vim/tmp/swap//   " swap files
+set backup                        " enable backups
+set noswapfile                    " It's 2012, Vim.
+
 let NERDTreeMinimalUI=1
 let NERDTreeShowBookmarks=1
 let NERDTreeChDirMode=2
 "let NERDTreeWinPos="right"
 
 if has('gui_running')
-  set guifont=LetterGothicMonoOT-Light\ for\ Powerline:h21
+  set guifont=LetterGothicMonoOT-Light\ for\ Powerline:h23
 
   set guioptions-=M
   set guioptions-=T
@@ -65,6 +72,7 @@ if has('gui_running')
 
   if has("gui_macvim")
     set fuoptions=maxvert,maxhorz
+    set showtabline=2
   else
     " non macvim gui
   end
@@ -93,4 +101,4 @@ else
     let &t_EI = cursor_to_block
 endif
 
-color pyte
+color ir_dark
