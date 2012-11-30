@@ -1,23 +1,23 @@
 " compile vim from source on OSX to get this feature, use system ruby
 " ./configure --enable-rubyinterp --enable-pythoninterp --enable-multibyte --with-features=huge
-set clipboard=unnamed
-
+" set clipboard=unnamed
+set nonumber
 " Highlight VCS conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 " Only show cursorline in the current window and in normal mode.
 augroup cline
-    au!
-    au WinLeave * set nocursorline
-    au WinEnter * set cursorline
-    au InsertEnter * set nocursorline
-    au InsertLeave * set cursorline
+  au!
+  au WinLeave * set nocursorline
+  au WinEnter * set cursorline
+  au InsertEnter * set nocursorline
+  au InsertLeave * set cursorline
 augroup END
 
 
 if has("gui_macvim")
-  set transparency=1
-  color pyte
+  "set transparency=1
+  color molokai
 else
   color ir_black
 end
