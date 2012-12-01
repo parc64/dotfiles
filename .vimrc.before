@@ -41,19 +41,13 @@ let NERDTreeChDirMode=2
 "let NERDTreeWinPos="right"
 
 if has('gui_running')
-  set guifont=Monaco:h17
+  set guifont=Droid\ Sans\ Mono:h24
 
   set guioptions-=M
   set guioptions-=T
   set guioptions-=r
   set guioptions-=l
   set guioptions-=L
-
-  if has("gui_macvim")
-    set fuoptions=maxvert,maxhorz
-  else
-    " non macvim gui
-  end
 else
   " Mouse support
   set mouse=a
