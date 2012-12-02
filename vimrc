@@ -64,7 +64,7 @@ let NERDTreeChDirMode=2
 "let NERDTreeWinPos="right"
 
 if has('gui_running')
-  set guifont=LetterGothicMonoOT-Light\ for\ Powerline:h23
+  set guifont=Ubuntu\ Mono\ for\ Powerline\ 12
 
   set guioptions-=M
   set guioptions-=T

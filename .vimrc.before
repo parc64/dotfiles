@@ -1,3 +1,4 @@
+set t_Co=256
 " Clean trailing whitespace
 nnoremap <leader>w mz:%s/\s\+$//<cr>:let @/=''<cr>`z
 
@@ -40,8 +41,10 @@ let NERDTreeShowBookmarks=1
 let NERDTreeChDirMode=2
 "let NERDTreeWinPos="right"
 
+au BufRead,BufNewFile *.jsonify setfiletype ruby
+
 if has('gui_running')
-  set guifont=Droid\ Sans\ Mono:h24
+  set guifont=Droid\ Sans\ Mono\ 15
 
   set guioptions-=M
   set guioptions-=T

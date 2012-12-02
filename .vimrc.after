@@ -17,10 +17,10 @@ augroup cline
 augroup END
 
 
-if has("gui_macvim")
-  set fuoptions=maxvert,maxhorz
+if has("gui_running")
+  "set fuoptions=maxvert,maxhorz
   "set transparency=1
-  color solarized
+  color jellybeans
 else
   color ir_black
 end
