@@ -16,11 +16,12 @@ augroup cline
   au InsertLeave * set cursorline
 augroup END
 
+" call togglebg#map("<F12>")
 
 if has("gui_running")
-  "set fuoptions=maxvert,maxhorz
-  "set transparency=1
-  color jellybeans
+  set background=dark
+  set transparency=10
+  color ir_black
 else
   color ir_black
 end
