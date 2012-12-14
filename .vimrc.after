@@ -1,6 +1,6 @@
 " compile vim from source on OSX to get this feature, use system ruby
 " ./configure --enable-rubyinterp --enable-pythoninterp --enable-multibyte --with-features=huge
-" set clipboard=unnamed
+set clipboard=unnamed
 
 set nonumber
 
@@ -20,7 +20,7 @@ augroup END
 
 if has("gui_running")
   set background=dark
-  " set transparency=10
+  set transparency=12
   color ir_black
 else
   color ir_black

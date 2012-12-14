@@ -4,12 +4,12 @@
 project_name: Services
 project_root: ~/src
 tabs:
-  - sr: cd ~/src/service_registry
-  - user: cd ~/src/user_service
-  - mds: cd ~/src/metadata_service
-  - media: cd ~/src/media_service
-  - market: cd ~/src/market_service
-  - web_app: cd ~/src/web_app
-  - admin_app: cd ~/src/admin_app
-  - security: cd ~/src/security_service
+  - sr: cd ~/src/service_registry && script/run_local
+  - user: cd ~/src/user_service && script/run_local
+  - mds: cd ~/src/metadata_service && script/run_local
+  - media: cd ~/src/media_service && script/run_local
+  - market: cd ~/src/market_service && script/run_local
+  - web_app: cd ~/src/web_app && script/run_local
+  - admin_app: cd ~/src/admin_app && script/run_local
+  - security: cd ~/src/security_service && script/run_local
   - memcached: memcached

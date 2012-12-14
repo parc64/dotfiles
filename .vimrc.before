@@ -44,7 +44,7 @@ let NERDTreeChDirMode=2
 au BufRead,BufNewFile *.jsonify setfiletype ruby
 
 if has('gui_running')
-  set guifont=Droid\ Sans\ Mono\ 16
+  set guifont=Droid\ Sans\ Mono:h21
 
   set guioptions-=M
   set guioptions-=T
