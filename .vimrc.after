@@ -20,7 +20,7 @@ augroup END
 
 if has("gui_running")
   set background=dark
-  set transparency=12
+  set transparency=8
   color ir_black
 else
   color ir_black
