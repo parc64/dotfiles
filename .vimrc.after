@@ -19,9 +19,7 @@ augroup END
 " call togglebg#map("<F12>")
 
 if has("gui_running")
-  set background=dark
-  set transparency=8
-  color ir_black
+  color ironman
 else
   color ir_black
 end
