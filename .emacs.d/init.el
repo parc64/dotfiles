@@ -25,6 +25,6 @@
 (require 'scala-mode2)
 
 ;; load the ensime lisp code...
-(add-to-list 'load-path "~/.emacs.d/site-lisps/ensime/elisp/")
+(add-to-list 'load-path "~/.emacs.d/ensime/elisp/")
 (require 'ensime)
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
