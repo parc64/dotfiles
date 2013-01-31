@@ -1,4 +1,19 @@
 set t_Co=256
+
+set autoread
+
+" Set 7 lines to the cursor - when moving vertically using j/k
+set so=7
+
+set nobackup
+set nowb
+set noswapfile
+
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
 " Clean trailing whitespace
 nnoremap <leader>w mz:%s/\s\+$//<cr>:let @/=''<cr>`z
 
@@ -8,8 +23,8 @@ nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
 
 let g:tagbar_autoclose = 0
-let g:tagbar_compact = 1
 let g:tagbar_foldlevel = 2
+let g:tagbar_compact = 1
 let g:tagbar_autoshowtag = 1
 
 let g:syntastic_enable_signs = 1

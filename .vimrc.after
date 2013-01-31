@@ -2,7 +2,7 @@
 " ./configure --enable-rubyinterp --enable-pythoninterp --enable-multibyte --with-features=huge
 set clipboard=unnamed
 
-set nonumber
+" set nonumber
 
 " Highlight VCS conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
@@ -19,7 +19,7 @@ augroup END
 " call togglebg#map("<F12>")
 
 if has("gui_running")
-  color ironman
+  color jellybeans+
 else
   color ir_black
 end
