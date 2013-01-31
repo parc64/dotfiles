@@ -3,15 +3,12 @@ export TERM="xterm-256color"
 ZSH=$HOME/.oh-my-zsh
 export EDITOR="vim"
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
 ZSH_THEME="minimal"
 
 # ALIAS
 alias top="top -o cpu"
 alias top_commands="history | awk {'print $2'} | sort | uniq -c | sort -k1 -rn | head"
+alias emacs="open ~/Applications/Emacs.app --args ${@}"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
