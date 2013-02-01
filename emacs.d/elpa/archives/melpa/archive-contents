@@ -440,10 +440,10 @@
 	   [(20120905 2101)
 	    nil "Support sequential operation which omitted prefix keys. [source: github]" single])
  (smartparens .
-	      [(20130128 1352)
+	      [(20130201 334)
 	       ((dash
 		 (1 0 2)))
-	       "Autoinsert pairs of defined brackets and wrap regions [source: github]" single])
+	       "Smart insertion and wrapping with parens/user defined pairs/tags [source: github]" tar])
  (smart-tabs-mode .
 		  [(20121202 1829)
 		   nil "Intelligently indent with tabs, align with spaces! [source: github]" single])
@@ -465,7 +465,7 @@
 	     [(20130118 1159)
 	      nil "slime extensions for ritz [source: github]" single])
  (slime .
-	[(20130129 1617)
+	[(20130201 1003)
 	 nil "Superior Lisp Interaction Mode for Emacs [source: github]" tar])
  (slim-mode .
 	    [(20130117 1415)
@@ -709,7 +709,7 @@
 		[(20130124 1603)
 		 nil "Project oriented automatic builder and error highlighter, flymake for projects [source: github]" tar])
  (projectile .
-	     [(20130131 36)
+	     [(20130201 46)
 	      ((s
 		(1 0 0))
 	       (dash
@@ -894,8 +894,8 @@
 	   [(20130129 908)
 	    nil "Major mode for editing PHP code [source: github]" tar])
  (php-eldoc .
-	    [(20130130 2336)
-	     nil "eldoc backend for php [source: github]" single])
+	    [(20130131 1429)
+	     nil "eldoc backend for php [source: github]" tar])
  (php+-mode .
 	    [(20121129 1452)
 	     nil "A better PHP mode with Zend Framework 1 support. [source: github]" tar])
@@ -947,7 +947,7 @@
 	  [(20110508 1256)
 	   nil "minor mode for editing parentheses [source: darcs]" single])
  (pandoc-mode .
-	      [(20130131 37)
+	      [(20130201 422)
 	       nil "Minor mode for interacting with Pandoc [source: github]" tar])
  (page-break-lines .
 		   [(20121114 931)
@@ -1103,7 +1103,7 @@
 		[(20110927 1253)
 		 nil "A major mode for editing Mustache files. [source: github]" single])
  (multiple-cursors .
-		   [(20130123 1205)
+		   [(20130130 1634)
 		    nil "Multiple cursors for Emacs. [source: github]" tar])
  (multifiles .
 	     [(20121114 2059)
@@ -1304,7 +1304,7 @@
        [(20130128 1824)
 	nil "communcate with the KWin window manager [source: github]" single])
  (kv .
-     [(20121231 1444)
+     [(20130122 1547)
       nil "key/value data structure functions [source: github]" single])
  (kite .
        [(20130121 2241)
@@ -1380,7 +1380,7 @@
 		[(20121004 1726)
 		 nil "Watch continuous integration build status [source: github]" single])
  (jedi .
-       [(20130124 945)
+       [(20130131 2352)
 	((epc
 	  (0 1 0))
 	 (auto-complete
@@ -1447,7 +1447,7 @@
 	 [(20121210 1935)
 	  nil "interactively flip between recently visited buffers [source: hg]" single])
  (iedit .
-	[(20130124 2013)
+	[(20130201 12)
 	 nil "Edit multiple regions in the same way simultaneously. [source: github]" tar])
  (ido-ubiquitous .
 		 [(20121214 2145)
@@ -1466,10 +1466,10 @@
 		      [(20120920 1848)
 		       nil "highlight the word the point is on [source: github]" single])
  (identica-mode .
-		[(20130111 1820)
+		[(20130131 1903)
 		 nil "Major mode API client for status.net open microblogging [source: github]" tar])
  (icicles .
-	  [(20130130 1654)
+	  [(20130131 1753)
 	   nil "Minibuffer input completion and cycling. [source: wiki]" tar])
  (ibuffer-vc .
 	     [(20121217 826)
@@ -1534,7 +1534,7 @@
 		 (1 0)))
 	       "Color theme selection with helm interface [source: github]" single])
  (helm-projectile .
-		  [(20130105 1709)
+		  [(20130131 2338)
 		   ((helm
 		     (1 4 0))
 		    (projectile
@@ -1586,7 +1586,7 @@
 	    (20120509)))
 	  "helm-sources and some utilities for GNU R. [source: github]" single])
  (helm .
-       [(20130129 1623)
+       [(20130131 1804)
 	nil "Helm is an Emacs incremental and narrowing framework [source: github]" tar])
  (header2 .
 	  [(20121228 2051)
@@ -1858,7 +1858,7 @@
 		    (0 1)))
 		  "A flymake handler for coffee script [source: github]" single])
  (flycheck .
-	   [(20130130 1137)
+	   [(20130201 1608)
 	    ((s
 	      (1 3 1))
 	     (dash
@@ -1974,7 +1974,7 @@
 	 [(20120831 1448)
 	  nil "No description available. [source: github]" tar])
  (ergoemacs-mode .
-		 [(20130129 18)
+		 [(20130201 832)
 		  nil "A minor mode, a keybinding set based on ergonomics. [source: git]" tar])
  (eredis .
 	 [(20120808 2207)
@@ -2326,7 +2326,7 @@
 		 [(20130110 1632)
 		  nil "A minor mode for the ClojureScript 'lein cljsbuild' command [source: github]" single])
  (clj-refactor .
-	       [(20130131 1021)
+	       [(20130131 2109)
 		((s
 		  (1 3 1))
 		 (dash
@@ -2510,6 +2510,11 @@
  (anaphora .
 	   [(20121205 1452)
 	    nil "anaphoric macros providing implicit temp variables [source: github]" single])
+ (all-ext .
+	  [(20130201 1223)
+	   ((all
+	     (1 0)))
+	   "Extension of M-x all [source: wiki]" single])
  (align-cljlet .
 	       [(20121118 1041)
 		((clojure-mode
@@ -2521,7 +2526,7 @@
 	   (0 0 2)))
 	 "Alternatives to `message' [source: github]" single])
  (ag .
-     [(20130125 1205)
+     [(20130131 1652)
       nil "A front-end for ag, the C ack replacement. [source: github]" single])
  (aes .
       [(20130121 413)

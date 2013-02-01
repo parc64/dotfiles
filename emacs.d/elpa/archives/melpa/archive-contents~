@@ -893,6 +893,9 @@
  (php-mode .
 	   [(20130129 908)
 	    nil "Major mode for editing PHP code [source: github]" tar])
+ (php-eldoc .
+	    [(20130130 2336)
+	     nil "eldoc backend for php [source: github]" single])
  (php+-mode .
 	    [(20121129 1452)
 	     nil "A better PHP mode with Zend Framework 1 support. [source: github]" tar])
@@ -1031,8 +1034,8 @@
 	   [(20120531 1636)
 	    nil "Open files with external programs [source: hg]" single])
  (open-junk-file .
-		 [(20130130 739)
-		  nil "No description available. [source: wiki]" single])
+		 [(20130131 720)
+		  nil "Open a junk (memo) file to try-and-error [source: wiki]" single])
  (offlineimap .
 	      [(20120314 1109)
 	       nil "Run OfflineIMAP from Emacs [source: git]" single])
@@ -1444,7 +1447,7 @@
 	 [(20121210 1935)
 	  nil "interactively flip between recently visited buffers [source: hg]" single])
  (iedit .
-	[(20130119 2223)
+	[(20130124 2013)
 	 nil "Edit multiple regions in the same way simultaneously. [source: github]" tar])
  (ido-ubiquitous .
 		 [(20121214 2145)
@@ -1549,7 +1552,7 @@
 	      [(20130117 843)
 	       nil "list git files. [source: github]" single])
  (helm-gtags .
-	     [(20130121 2228)
+	     [(20130130 1218)
 	      ((helm
 		(1 0)))
 	      "GNU GLOBAL helm interface [source: github]" single])
@@ -1850,7 +1853,7 @@
 		 (0 1)))
 	       "Flymake support for css using csslint [source: github]" single])
  (flymake-coffee .
-		 [(20121107 1111)
+		 [(20130131 952)
 		  ((flymake-easy
 		    (0 1)))
 		  "A flymake handler for coffee script [source: github]" single])
@@ -1952,7 +1955,7 @@
 		   (0 1)))
 		 "Move the region in 4 directions, in a way similar to Eclipse's [source: github]" single])
  (es-lib .
-	 [(20130130 616)
+	 [(20130131 622)
 	  nil "A collection of emacs utilities [source: github]" tar])
  (es-edit-color-stamp .
 		      [(20130125 1651)
@@ -1989,7 +1992,7 @@
 	   [(20121003 221)
 	    nil "assign files to projects, programatically [source: github]" tar])
  (epc .
-      [(20130122 2030)
+      [(20130130 2128)
        ((concurrent
 	 (0 3 1))
 	(ctable
@@ -2273,10 +2276,10 @@
 			   (6 5 5)))
 			 "Solarized themes for Emacs [source: github]" tar])
  (color-theme-sanityinc-tomorrow .
-				 [(20121205 2137)
+				 [(20130131 1014)
 				  nil "A version of Chris Kempson's various Tomorrow themes [source: github]" tar])
  (color-theme-sanityinc-solarized .
-				  [(20121206 833)
+				  [(20130131 1014)
 				   nil "A version of Ethan Schoonover's Solarized themes [source: github]" tar])
  (color-theme-buffer-local .
 			   [(20120703 17)
@@ -2322,6 +2325,15 @@
  (cljsbuild-mode .
 		 [(20130110 1632)
 		  nil "A minor mode for the ClojureScript 'lein cljsbuild' command [source: github]" single])
+ (clj-refactor .
+	       [(20130131 1021)
+		((s
+		  (1 3 1))
+		 (dash
+		  (1 0 3))
+		 (yasnippet
+		  (0 6 1)))
+		"A collection of clojure refactoring functions [source: github]" single])
  (citrus-mode .
 	      [(20121008 1918)
 	       nil "Major mode for editing Citrus files [source: github]" tar])
@@ -2434,7 +2446,7 @@
 		 (0 2 3)))
 	       "Visual navigation through mark rings [source: github]" single])
  (awk-it .
-	 [(20130126 1808)
+	 [(20130131 815)
 	  nil "Run AWK interactively on region! [source: wiki]" single])
  (autopair .
 	   [(20121120 2012)
