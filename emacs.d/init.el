@@ -29,3 +29,17 @@
 (add-to-list 'load-path "~/.emacs.d/ensime/elisp/")
 (require 'ensime)
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
+
+(require 'sr-speedbar)
+(global-set-key (kbd "s-s") 'sr-speedbar-toggle)
+
+(require 'ecb-autoloads)
+
+(global-hl-line-mode 1)
+(setq standard-indent 2)
+(setq scroll-step 1)
+(setq-default indent-tabs-mode nil)
+(setq make-backup-files nil)
+(line-number-mode 1)
+(setq ring-bell-function 'ignore)
+
