@@ -8,7 +8,7 @@ ZSH_THEME="minimal"
 # ALIAS
 alias top="top -o cpu"
 alias top_commands="history | awk {'print $2'} | sort | uniq -c | sort -k1 -rn | head"
-alias emacs="open ~/Applications/Emacs.app --args ${@}"
+#alias emacs="open ~/Applications/Emacs.app --args ${@}"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"

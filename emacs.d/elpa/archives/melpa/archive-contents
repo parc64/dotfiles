@@ -496,7 +496,7 @@
 	    [(20121227 1032)
 	     nil "Rip Clojure namespaces apart and rebuild them. [source: github]" single])
  (skewer-mode .
-	      [(20130205 937)
+	      [(20130206 1003)
 	       ((simple-httpd
 		 (1 4 0))
 		(js2-mode
@@ -697,7 +697,7 @@
 	  [(20121017 157)
 	   nil "No description available. [source: github]" single])
  (quickrun .
-	   [(20130201 1853)
+	   [(20130206 2337)
 	    nil "Run commands quickly [source: github]" single])
  (quickref .
 	   [(20130113 1700)
@@ -1642,7 +1642,7 @@
 	   (1 2)))
 	 "Emacs client for hastebin (http://hastebin.com/about.md) [source: github]" single])
  (haskell-mode .
-	       [(20130201 2146)
+	       [(20130206 2248)
 		nil "A Haskell editing mode [source: github]" tar])
  (hardhat .
 	  [(20121126 1228)
@@ -1980,7 +1980,7 @@
 	   (0 0 5)))
 	 "Library for working with xml via esxml and sxml [source: github]" single])
  (ess .
-      [(20130119 1705)
+      [(20130206 1436)
        nil "No description available. [source: github]" tar])
  (espuds .
 	 [(20121202 1535)

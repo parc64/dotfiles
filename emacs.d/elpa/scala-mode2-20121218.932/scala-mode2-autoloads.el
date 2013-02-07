@@ -3,14 +3,14 @@
 ;;; Code:
 
 
-;;;### (autoloads (scala-mode) "scala-mode2" "scala-mode2.el" (20745
-;;;;;;  63229))
+;;;### (autoloads (scala-mode) "scala-mode2" "scala-mode2.el" (20755
+;;;;;;  53500 0 0))
 ;;; Generated autoloads from scala-mode2.el
 
 (autoload 'scala-mode "scala-mode2" "\
 Major mode for editing scala code.
 
-When started, runs `scala-mode-hook'. 
+When started, runs `scala-mode-hook'.
 
 \\{scala-mode-map}
 
@@ -20,8 +20,8 @@ When started, runs `scala-mode-hook'.
 
 ;;;### (autoloads nil nil ("scala-mode2-fontlock.el" "scala-mode2-indent.el"
 ;;;;;;  "scala-mode2-lib.el" "scala-mode2-map.el" "scala-mode2-paragraph.el"
-;;;;;;  "scala-mode2-pkg.el" "scala-mode2-syntax.el") (20745 63230
-;;;;;;  33678))
+;;;;;;  "scala-mode2-pkg.el" "scala-mode2-syntax.el") (20755 53500
+;;;;;;  103704 0))
 
 ;;;***
 

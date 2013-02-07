@@ -1,45 +1,112 @@
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-enabled-themes (quote (adwaita)))
- '(inhibit-startup-screen t)
- '(speedbar-directory-button-trim-method (quote trim))
- '(speedbar-hide-button-brackets-flag nil)
- '(speedbar-show-unknown-files t)
- '(tool-bar-mode nil))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:slant normal :weight normal :height 160 :width normal :family "Droid Sans Mono")))))
+;;; init.el --- Prelude's configuration entry point.
+;;
+;; Copyright (c) 2011 Bozhidar Batsov
+;;
+;; Author: Bozhidar Batsov <bozhidar@batsov.com>
+;; URL: http://batsov.com/prelude
+;; Version: 1.0.0
+;; Keywords: convenience
 
+;; This file is not part of GNU Emacs.
 
-;; ====================
-(require 'package)
-(package-initialize)
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("marmalade" . "http://marmalade-repo.org/packages/")
-                         ("melpa" . "http://melpa.milkbox.net/packages/")))
-(require 'scala-mode2)
+;;; Commentary:
 
-;; load the ensime lisp code...
-(add-to-list 'load-path "~/.emacs.d/ensime/elisp/")
-(require 'ensime)
-(add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
+;; This file simply sets up the default load path and requires
+;; the various modules defined within Emacs Prelude.
 
-(require 'sr-speedbar)
-(global-set-key (kbd "s-s") 'sr-speedbar-toggle)
+;;; License:
 
-(require 'ecb-autoloads)
+;; This program is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU General Public License
+;; as published by the Free Software Foundation; either version 3
+;; of the License, or (at your option) any later version.
+;;
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;;
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to the
+;; Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+;; Boston, MA 02110-1301, USA.
 
-(global-hl-line-mode 1)
-(setq standard-indent 2)
-(setq scroll-step 1)
-(setq-default indent-tabs-mode nil)
-(setq make-backup-files nil)
-(line-number-mode 1)
-(setq ring-bell-function 'ignore)
+;;; Code:
 
+(message "Prelude is powering up... Be patient, Master %s!" (getenv "USER"))
+
+(defvar prelude-dir (file-name-directory load-file-name)
+  "The root dir of the Emacs Prelude distribution.")
+(defvar prelude-core-dir (expand-file-name "core" prelude-dir)
+  "The home of Prelude's core functionality.")
+(defvar prelude-modules-dir (expand-file-name  "modules" prelude-dir)
+  "This directory houses all of the built-in Prelude modules.")
+(defvar prelude-personal-dir (expand-file-name "personal" prelude-dir)
+  "Users of Emacs Prelude are encouraged to keep their personal configuration
+changes in this directory. All Emacs Lisp files there are loaded automatically
+by Prelude.")
+(defvar prelude-vendor-dir (expand-file-name "vendor" prelude-dir)
+  "This directory house Emacs Lisp packages that are not yet available in
+ELPA (or MELPA).")
+(defvar prelude-snippets-dir (expand-file-name "snippets" prelude-dir)
+  "This folder houses additional yasnippet bundles distributed with Prelude.")
+(defvar prelude-personal-snippets-dir (expand-file-name "snippets" prelude-personal-dir)
+  "This folder houses additional yasnippet bundles added by the users.")
+(defvar prelude-savefile-dir (expand-file-name "savefile" prelude-dir)
+  "This folder stores all the automatically generated save/history-files.")
+(defvar prelude-modules-file (expand-file-name "prelude-modules.el" prelude-dir)
+  "This files contains a list of modules that will be loaded by Prelude.")
+
+(unless (file-exists-p prelude-savefile-dir)
+  (make-directory prelude-savefile-dir))
+
+(defun prelude-add-subfolders-to-load-path (parent-dir)
+ "Adds all first level `parent-dir' subdirs to the
+Emacs load path."
+ (dolist (f (directory-files parent-dir))
+   (let ((name (expand-file-name f parent-dir)))
+     (when (and (file-directory-p name)
+     (not (equal f ".."))
+     (not (equal f ".")))
+       (add-to-list 'load-path name)))))
+
+;; add Prelude's directories to Emacs's `load-path'
+(add-to-list 'load-path prelude-core-dir)
+(add-to-list 'load-path prelude-modules-dir)
+(add-to-list 'load-path prelude-vendor-dir)
+(prelude-add-subfolders-to-load-path prelude-vendor-dir)
+
+(require 'dash)
+
+;; the core stuff
+(require 'prelude-packages)
+(require 'prelude-ui)
+(require 'prelude-core)
+(require 'prelude-mode)
+(require 'prelude-editor)
+(require 'prelude-global-keybindings)
+
+;; OSX specific settings
+(when (eq system-type 'darwin)
+  (require 'prelude-osx))
+
+;; the modules
+(require 'prelude-programming)
+
+(when (file-exists-p prelude-modules-file)
+  (load prelude-modules-file))
+
+;; config changes made through the customize UI will be store here
+(setq custom-file (expand-file-name "custom.el" prelude-personal-dir))
+
+;; load the personal settings (this includes `custom-file')
+(when (file-exists-p prelude-personal-dir)
+  (mapc 'load (directory-files prelude-personal-dir 't "^[^#].*el$")))
+
+(message "Prelude is ready to do thy bidding, Master %s!" (getenv "USER"))
+
+(prelude-eval-after-init
+ ;; greet the use with some useful tip
+ (run-at-time 5 nil 'prelude-tip-of-the-day))
+
+;;; init.el ends here
