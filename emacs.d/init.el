@@ -10,9 +10,11 @@
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes (quote (zenburn)))
  '(custom-safe-themes (quote ("0bac11bd6a3866c6dee5204f76908ec3bdef1e52f3c247d5ceca82860cccfa9d" default)))
+ '(fringe-mode (quote (nil . 0)) nil (fringe))
  '(inhibit-startup-screen t)
+ '(show-paren-mode t)
  '(speedbar-directory-button-trim-method (quote trim))
- '(speedbar-hide-button-brackets-flag nil)
+ ;; '(speedbar-hide-button-brackets-flag nil)
  '(speedbar-show-unknown-files t)
  '(tool-bar-mode nil))
 (custom-set-faces
@@ -48,6 +50,6 @@
 (setq scroll-step 1)
 (setq-default indent-tabs-mode nil)
 (setq make-backup-files nil)
-(global-linum-mode 1)
+;; (global-linum-mode 1)
 (setq ring-bell-function 'ignore)
 (scroll-bar-mode -1)
