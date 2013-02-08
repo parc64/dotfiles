@@ -444,7 +444,7 @@
 		  [(20130108 651)
 		   nil "The Solarized color theme, ported to Emacs. [source: github]" tar])
  (smotitah .
-	   [(20130116 2329)
+	   [(20130207 1719)
 	    nil "Modular emacs configuration framework [source: github]" tar])
  (smooth-scrolling .
 		   [(20121012 1154)
@@ -462,7 +462,7 @@
 	   [(20120905 2101)
 	    nil "Support sequential operation which omitted prefix keys. [source: github]" single])
  (smartparens .
-	      [(20130202 1651)
+	      [(20130207 124)
 	       ((dash
 		 (1 0 2)))
 	       "Smart insertion and wrapping with parens/user defined pairs/tags [source: github]" tar])
@@ -913,7 +913,7 @@
 		  [(20120403 1455)
 		   nil "Interact with Pivotal Tracker through its API [source: github]" single])
  (php-mode .
-	   [(20130129 908)
+	   [(20130206 1732)
 	    nil "Major mode for editing PHP code [source: github]" tar])
  (php-eldoc .
 	    [(20130131 1429)
@@ -1259,7 +1259,7 @@
 			       [(20121223 154)
 				nil "Advice for magit-log-edit-commit [source: github]" single])
  (magit .
-	[(20130205 1026)
+	[(20130206 1334)
 	 nil "Control Git from Emacs. [source: github]" tar])
  (mag-menu .
 	   [(20130127 2113)
@@ -1335,7 +1335,7 @@
 	  [(20121228 1947)
 	   nil "Execute menu items as commands, with completion. [source: wiki]" single])
  (kwin .
-       [(20130128 1824)
+       [(20130207 31)
 	nil "communcate with the KWin window manager [source: github]" single])
  (kv .
      [(20130202 1543)
@@ -1508,7 +1508,7 @@
 		[(20130204 1653)
 		 nil "Major mode API client for status.net open microblogging [source: github]" tar])
  (icicles .
-	  [(20130205 4)
+	  [(20130207 555)
 	   nil "Minibuffer input completion and cycling. [source: wiki]" tar])
  (ibuffer-vc .
 	     [(20121217 826)
@@ -1625,7 +1625,7 @@
 	    (20120509)))
 	  "helm-sources and some utilities for GNU R. [source: github]" single])
  (helm .
-       [(20130205 1832)
+       [(20130207 823)
 	nil "Helm is an Emacs incremental and narrowing framework [source: github]" tar])
  (header2 .
 	  [(20121228 2051)
@@ -1732,7 +1732,7 @@
 	       [(20121023 1509)
 		nil "Major mode for editing gnuplot scripts [source: github]" single])
  (gnuplot .
-	  [(20121127 1316)
+	  [(20130207 101)
 	   nil "drive gnuplot from within emacs [source: github]" tar])
  (glsl-mode .
 	    [(20121024 808)
@@ -1812,7 +1812,7 @@
 	    [(20121228 2016)
 	     nil "Non-interactive frame and window functions. [source: wiki]" single])
  (frame-cmds .
-	     [(20130118 837)
+	     [(20130206 2246)
 	      nil "Frame and window commands (interactive functions). [source: wiki]" single])
  (font-utils .
 	     [(20121205 1454)
@@ -1897,7 +1897,7 @@
 		    (0 1)))
 		  "A flymake handler for coffee script [source: github]" single])
  (flycheck .
-	   [(20130206 1222)
+	   [(20130207 1406)
 	    ((s
 	      (1 3 1))
 	     (dash
@@ -2002,7 +2002,7 @@
 			 (0 2)))
 		       "Edit a hex color stamp, using a QT or the internal color picker [source: github]" tar])
  (es-auto-auto-indent .
-		      [(20130202 2216)
+		      [(20130206 1740)
 		       ((es-lib
 			 (0 1)))
 		       "Indents code as you type [source: github]" single])
@@ -2028,7 +2028,7 @@
 	       [(20130114 1648)
 		nil "ERC nick highlighter that ignores uniquifying chars when colorizing [source: github]" single])
  (eproject .
-	   [(20130130 1525)
+	   [(20130206 918)
 	    nil "assign files to projects, programatically [source: github]" tar])
  (epc .
       [(20130130 2128)
@@ -2059,7 +2059,7 @@
 	   [(20120413 1107)
 	    nil "Emacs window session manager [source: github]" single])
  (elpy .
-       [(20130205 2230)
+       [(20130206 1938)
 	nil "Emacs Lisp Python Environment [source: github]" single])
  (elpa-audit .
 	     [(20121121 1747)
@@ -2118,7 +2118,7 @@
 		   (1 2)))
 		 "Bookmark plugin for e2wm.el [source: github]" single])
  (e2wm .
-       [(20130203 2113)
+       [(20130206 1831)
 	nil "simple window manager for emacs [source: github]" tar])
  (dynamic-fonts .
 		[(20121218 1153)
@@ -2142,7 +2142,7 @@
 		[(20120329 1636)
 		 nil "Drop-down menu interface [source: wiki]" single])
  (dropbox .
-	  [(20130111 1557)
+	  [(20130207 1206)
 	   ((json
 	     (1 2))
 	    (oauth
@@ -2187,7 +2187,7 @@
 		[(20130122 14)
 		 nil "No description available. [source: wiki]" single])
  (dired+ .
-	 [(20130128 2345)
+	 [(20130206 1702)
 	  nil "Extensions to Dired. [source: wiki]" single])
  (dircmp .
 	 [(20120517 2118)
@@ -2217,7 +2217,7 @@
    [(20120306 1807)
     nil "Simple asynchronous functions for emacs lisp [source: github]" single])
  (dash .
-       [(20130129 1530)
+       [(20130207 605)
 	nil "A modern list library for Emacs [source: github]" single])
  (dart-mode .
 	    [(20121218 1449)
