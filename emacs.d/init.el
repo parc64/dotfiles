@@ -1,9 +1,15 @@
+(require 'package)
+(package-initialize)
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                         ("marmalade" . "http://marmalade-repo.org/packages/")))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes (quote (adwaita)))
+ '(custom-enabled-themes (quote (zenburn)))
+ '(custom-safe-themes (quote ("0bac11bd6a3866c6dee5204f76908ec3bdef1e52f3c247d5ceca82860cccfa9d" default)))
  '(inhibit-startup-screen t)
  '(speedbar-directory-button-trim-method (quote trim))
  '(speedbar-hide-button-brackets-flag nil)
@@ -17,12 +23,6 @@
  '(default ((t (:slant normal :weight normal :height 160 :width normal :family "Droid Sans Mono")))))
 
 
-;; ====================
-(require 'package)
-(package-initialize)
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("marmalade" . "http://marmalade-repo.org/packages/")
-                         ("melpa" . "http://melpa.milkbox.net/packages/")))
 (require 'ido)
 (ido-mode t)
 
