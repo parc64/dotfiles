@@ -45,6 +45,7 @@
 
 (require 'ecb-autoloads)
 
+(global-set-key (kbd "<f2>") 'sr-speedbar-toggle)
 (global-hl-line-mode 1)
 (setq standard-indent 2)
 (setq scroll-step 1)
