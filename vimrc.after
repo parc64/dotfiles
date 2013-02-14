@@ -1,8 +1,8 @@
 " compile vim from source on OSX to get this feature, use system ruby
 " ./configure --enable-rubyinterp --enable-pythoninterp --enable-multibyte --with-features=huge
-set clipboard=unnamed
+" set clipboard=unnamed
 
-" set nonumber
+set nonumber
 
 " Highlight VCS conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
@@ -18,9 +18,11 @@ augroup END
 
 " call togglebg#map("<F12>")
 
+set background=dark
+
 if has("gui_running")
-  color jellybeans+
+  color zenburn
 else
-  color ir_black
+  color zenburn
 end
 

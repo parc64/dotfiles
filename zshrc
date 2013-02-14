@@ -8,6 +8,11 @@ ZSH_THEME="minimal"
 # ALIAS
 alias top="top -o cpu"
 alias top_commands="history | awk {'print $2'} | sort | uniq -c | sort -k1 -rn | head"
+
+alias vi="vim +NERDTree"
+alias vim="vim +NERDTree"
+alias gvim="gvim +NERDTree"
+
 #alias emacs="open ~/Applications/Emacs.app --args ${@}"
 
 # Example aliases
@@ -38,7 +43,7 @@ source $ZSH/oh-my-zsh.sh
 unsetopt correct_all
 unsetopt share_history
 
-PATH=~/opt/play-2.0.4
+PATH=~/opt/play-2.1.0
 export PATH=$PATH:~/bin:/usr/local/bin:/usr/local/mysql/bin:/usr/local/sbin:/opt/X11/bin:~/.cabal/bin:~/src/deploy_noesis/bin:/usr/bin:/bin:/usr/sbin:/sbin:~/bin/sbin:/usr/local/share/npm/bin
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
