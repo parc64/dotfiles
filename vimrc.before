@@ -67,6 +67,10 @@ let NERDTreeAutoCenter=1
 let NERDTreeAutoDeleteBuffer=1
 "let NERDTreeWinPos="right"
 
+let g:buffergator_sort_regime="mru"
+let g:buffergator_viewport_split_policy="T"
+let g:buffergator_split_size="20"
+
 au BufRead,BufNewFile *.jsonify setfiletype ruby
 
 if has('gui_running')

@@ -9,9 +9,9 @@ ZSH_THEME="minimal"
 alias top="top -o cpu"
 alias top_commands="history | awk {'print $2'} | sort | uniq -c | sort -k1 -rn | head"
 
-alias vi="vim +NERDTree"
-alias vim="vim +NERDTree"
-alias gvim="gvim +NERDTree"
+# alias vi="vim +NERDTree"
+# alias vim="vim +NERDTree"
+# alias gvim="gvim +NERDTree"
 
 #alias emacs="open ~/Applications/Emacs.app --args ${@}"
 
@@ -43,9 +43,9 @@ source $ZSH/oh-my-zsh.sh
 unsetopt correct_all
 unsetopt share_history
 
-export PATH=$PATH:~/bin:/usr/local/bin:/usr/local/mysql/bin:/usr/local/sbin:/opt/X11/bin:~/.cabal/bin:~/src/deploy_noesis/bin:/usr/bin:/bin:/usr/sbin:/sbin:~/bin/sbin:/usr/local/share/npm/bin
+PATH=~/bin:/usr/local/bin:/usr/local/mysql/bin:/usr/local/sbin:/opt/X11/bin:~/.cabal/bin:~/src/deploy_noesis/bin:/usr/bin:/bin:/usr/sbin:/sbin:~/bin/sbin:/usr/local/share/npm/bin
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
