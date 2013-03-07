@@ -79,7 +79,8 @@ au BufRead,BufNewFile *.jsonify setfiletype ruby
 if has('gui_running')
   if has('mac')
     " set guifont=Droid\ Sans\ Mono:h16
-    set guifont=Menlo:h18
+    " set guifont=Menlo:h18
+    set guifont=LetterGothicMonoOT:h18
   elseif has('unix')
     set guifont=Droid\ Sans\ Mono\ 12
   endif
