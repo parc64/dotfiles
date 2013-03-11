@@ -21,8 +21,9 @@ augroup END
 set background=dark
 
 if has("gui_running")
-  color solarized
+  color zenesque
 else
+  " color zenburn
   color zenburn
 end
 
