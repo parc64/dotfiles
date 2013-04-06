@@ -17,11 +17,10 @@ Bundle 'scrooloose/syntastic'
 Bundle 'ervandew/supertab'
 Bundle 'mileszs/ack.vim'
 Bundle 'jeetsukumaran/vim-buffergator'
+Bundle 'majutsushi/tagbar'
 
 Bundle 'ZoomWin'
-Bundle 'wombat256.vim'
-Bundle 'Zenburn'
-Bundle '256-grayvim'
+Bundle 'Colour-Sampler-Pack'
 
 set t_Co=256
 
@@ -109,7 +108,7 @@ let NERDTreeAutoDeleteBuffer=1
 
 let g:buffergator_sort_regime="mru"
 let g:buffergator_viewport_split_policy="T"
-let g:buffergator_split_size="20"
+let g:buffergator_split_size="10"
 
 au BufRead,BufNewFile *.jsonify setfiletype ruby
 
@@ -172,8 +171,7 @@ augroup END
 set background=dark
 
 if has("gui_running")
-  color wombat256mod
+  color wombat256
 else
-  " color zenburn
-  color 256-grayvim
+  color wombat256mod
 end
