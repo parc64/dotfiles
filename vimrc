@@ -18,13 +18,23 @@ Bundle 'ervandew/supertab'
 Bundle 'mileszs/ack.vim'
 Bundle 'jeetsukumaran/vim-buffergator'
 Bundle 'majutsushi/tagbar'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'majutsushi/tagbar'
 
 Bundle 'ZoomWin'
 Bundle 'Colour-Sampler-Pack'
 
+Bundle 'twerth/ir_black'
+Bundle 'w0ng/vim-hybrid'
+
+syntax enable
+set number
+set ruler
+
 set t_Co=256
 
 set autoread
+set completeopt=longest,menuone
 
 " Set 7 lines to the cursor - when moving vertically using j/k
 set so=7
@@ -48,6 +58,7 @@ set incsearch
 set ignorecase
 set smartcase
 
+map <Leader>= <C-w>=
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
@@ -92,11 +103,6 @@ nnoremap <silent> <F3> :TagbarToggle<CR>
 
 nnoremap <F6> :set nonumber!<CR>
 
-let Tlist_Process_File_Always=1
-let Tlist_Use_Right_Window=1
-let Tlist_Ctags_Cmd="/usr/local/bin/ctags"
-let TList_Exit_OnlyWindow=1
-
 let NERDTreeMinimalUI=1
 let NERDTreeShowBookmarks=1
 let NERDTreeChDirMode=2
@@ -116,7 +122,7 @@ if has('gui_running')
   if has('mac')
     " set guifont=Droid\ Sans\ Mono:h16
     " set guifont=Menlo:h18
-    set guifont=LetterGothicMonoOT:h18
+    set guifont=Letter\ Gothic\ Std\ Medium:h18
   elseif has('unix')
     set guifont=Droid\ Sans\ Mono\ 12
   endif
@@ -152,8 +158,6 @@ endif
 " ./configure --enable-rubyinterp --enable-pythoninterp --enable-multibyte --with-features=huge
 " set clipboard=unnamed
 
-set nonumber
-
 " Highlight VCS conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
@@ -168,10 +172,185 @@ augroup END
 
 " call togglebg#map("<F12>")
 
-set background=dark
-
 if has("gui_running")
-  color wombat256
+  set background=light   
+  color jellybeans
 else
-  color wombat256mod
+  set background=dark
+  color ir_black
 end
+
+if has("gui_macvim") && has("gui_running")
+  " Map command-[ and command-] to indenting or outdenting
+  " while keeping the original selection in visual mode
+  vmap <D-]> >gv
+  vmap <D-[> <gv
+
+  nmap <D-]> >>
+  nmap <D-[> <<
+
+  omap <D-]> >>
+  omap <D-[> <<
+
+  imap <D-]> <Esc>>>i
+  imap <D-[> <Esc><<i
+
+  " Bubble single lines
+  nmap <D-Up> [e
+  nmap <D-Down> ]e
+  nmap <D-k> [e
+  nmap <D-j> ]e
+
+  " Bubble multiple lines
+  vmap <D-Up> [egv
+  vmap <D-Down> ]egv
+  vmap <D-k> [egv
+  vmap <D-j> ]egv
+
+  " Map Command-# to switch tabs
+  map  <D-0> 0gt
+  imap <D-0> <Esc>0gt
+  map  <D-1> 1gt
+  imap <D-1> <Esc>1gt
+  map  <D-2> 2gt
+  imap <D-2> <Esc>2gt
+  map  <D-3> 3gt
+  imap <D-3> <Esc>3gt
+  map  <D-4> 4gt
+  imap <D-4> <Esc>4gt
+  map  <D-5> 5gt
+  imap <D-5> <Esc>5gt
+  map  <D-6> 6gt
+  imap <D-6> <Esc>6gt
+  map  <D-7> 7gt
+  imap <D-7> <Esc>7gt
+  map  <D-8> 8gt
+  imap <D-8> <Esc>8gt
+  map  <D-9> 9gt
+  imap <D-9> <Esc>9gt
+else
+  " Map command-[ and command-] to indenting or outdenting
+  " while keeping the original selection in visual mode
+  vmap <A-]> >gv
+  vmap <A-[> <gv
+
+  nmap <A-]> >>
+  nmap <A-[> <<
+
+  omap <A-]> >>
+  omap <A-[> <<
+
+  imap <A-]> <Esc>>>i
+  imap <A-[> <Esc><<i
+ 
+  " Bubble single lines
+  nmap <C-Up> [e
+  nmap <C-Down> ]e
+  nmap <C-k> [e
+  nmap <C-j> ]e
+
+  " Bubble multiple lines
+  vmap <C-Up> [egv
+  vmap <C-Down> ]egv
+  vmap <C-k> [egv
+  vmap <C-j> ]egv
+
+  " Make shift-insert work like in Xterm
+  map <S-Insert> <MiddleMouse>
+  map! <S-Insert> <MiddleMouse>
+
+  " Map Control-# to switch tabs
+  map  <C-0> 0gt
+  imap <C-0> <Esc>0gt
+  map  <C-1> 1gt
+  imap <C-1> <Esc>1gt
+  map  <C-2> 2gt
+  imap <C-2> <Esc>2gt
+  map  <C-3> 3gt
+  imap <C-3> <Esc>3gt
+  map  <C-4> 4gt
+  imap <C-4> <Esc>4gt
+  map  <C-5> 5gt
+  imap <C-5> <Esc>5gt
+  map  <C-6> 6gt
+  imap <C-6> <Esc>6gt
+  map  <C-7> 7gt
+  imap <C-7> <Esc>7gt
+  map  <C-8> 8gt
+  imap <C-8> <Esc>8gt
+  map  <C-9> 9gt
+  imap <C-9> <Esc>9gt
+endif
+
+""
+"" Command-Line Mappings
+""
+
+" Kills Trailing Whitespaces
+command! KillWhitespace :normal :%s/ *$//g<cr><c-o><cr>
+
+set showtabline=2 " always show tabs in gvim, but not vim
+" set up tab labels with tab number, buffer name, number of windows
+function! GuiTabLabel()
+  let label = ''
+  let bufnrlist = tabpagebuflist(v:lnum)
+  " Add '+' if one of the buffers in the tab page is modified
+  for bufnr in bufnrlist
+    if getbufvar(bufnr, "&modified")
+      let label = '+'
+      break
+    endif
+  endfor
+  " Append the tab number
+  let label .= v:lnum.': '
+  " Append the buffer name
+  let name = bufname(bufnrlist[tabpagewinnr(v:lnum) - 1])
+  if name == ''
+    " give a name to no-name documents
+    if &buftype=='quickfix'
+      let name = '[Quickfix List]'
+    else
+      let name = '[No Name]'
+    endif
+  else
+    " get only the file name
+    let name = fnamemodify(name,":t")
+  endif
+  let label .= name
+  " Append the number of windows in the tab page
+  let wincount = tabpagewinnr(v:lnum, '$')
+  return label . '  [' . wincount . ']'
+endfunction
+set guitablabel=%{GuiTabLabel()}
+
+" set up tab tooltips with every buffer name
+function! GuiTabToolTip()
+  let tip = ''
+  let bufnrlist = tabpagebuflist(v:lnum)
+  for bufnr in bufnrlist
+    " separate buffer entries
+    if tip!=''
+      let tip .= " \n "
+    endif
+    " Add name of buffer
+    let name=bufname(bufnr)
+    if name == ''
+      " give a name to no name documents
+      if getbufvar(bufnr,'&buftype')=='quickfix'
+        let name = '[Quickfix List]'
+      else
+        let name = '[No Name]'
+      endif
+    endif
+    let tip.=name
+    " add modified/modifiable flags
+    if getbufvar(bufnr, "&modified")
+      let tip .= ' [+]'
+    endif
+    if getbufvar(bufnr, "&modifiable")==0
+      let tip .= ' [-]'
+    endif
+  endfor
+  return tip
+endfunction
+set guitabtooltip=%{GuiTabToolTip()}
