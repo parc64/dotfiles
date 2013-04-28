@@ -20,6 +20,7 @@ Bundle 'jeetsukumaran/vim-buffergator'
 Bundle 'majutsushi/tagbar'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'majutsushi/tagbar'
+" Bundle 'nathanaelkane/vim-indent-guides'
 
 Bundle 'ZoomWin'
 Bundle 'Colour-Sampler-Pack'
@@ -122,7 +123,7 @@ if has('gui_running')
   if has('mac')
     " set guifont=Droid\ Sans\ Mono:h16
     " set guifont=Menlo:h18
-    set guifont=Letter\ Gothic\ Std\ Medium:h18
+    set guifont=Letter\ Gothic\ Std\ Medium:h16
   elseif has('unix')
     set guifont=Droid\ Sans\ Mono\ 12
   endif
@@ -173,11 +174,9 @@ augroup END
 " call togglebg#map("<F12>")
 
 if has("gui_running")
-  set background=light   
-  color jellybeans
+  color ir_dark
 else
-  set background=dark
-  color ir_black
+  color ir_dark
 end
 
 if has("gui_macvim") && has("gui_running")
