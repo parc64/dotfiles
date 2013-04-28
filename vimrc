@@ -122,8 +122,8 @@ au BufRead,BufNewFile *.jsonify setfiletype ruby
 if has('gui_running')
   if has('mac')
     " set guifont=Droid\ Sans\ Mono:h16
-    " set guifont=Menlo:h18
-    set guifont=Letter\ Gothic\ Std\ Medium:h16
+    set guifont=Menlo:h18
+    " set guifont=Letter\ Gothic\ Std\ Medium:h16
   elseif has('unix')
     set guifont=Droid\ Sans\ Mono\ 12
   endif
@@ -353,3 +353,9 @@ function! GuiTabToolTip()
   return tip
 endfunction
 set guitabtooltip=%{GuiTabToolTip()}
+
+aug AutoloadVimrc
+  au!
+  au BufWritePost .vimrc source ~/.vimrc
+  " echomsg 'Loaded .vimrc'
+aug END
