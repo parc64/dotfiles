@@ -1,5 +1,3 @@
-export TERM="xterm-256color-italic"
-
 ZSH=$HOME/.oh-my-zsh
 export EDITOR="vim"
 

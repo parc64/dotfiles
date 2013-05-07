@@ -20,6 +20,7 @@ Bundle 'jeetsukumaran/vim-buffergator'
 Bundle 'majutsushi/tagbar'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'majutsushi/tagbar'
+Bundle 'TechnoGate/janus-colors'
 " Bundle 'nathanaelkane/vim-indent-guides'
 
 Bundle 'ZoomWin'
