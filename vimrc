@@ -10,6 +10,7 @@ Bundle 'gmarik/vundle'
 
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-endwise.git'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
@@ -20,6 +21,8 @@ Bundle 'jeetsukumaran/vim-buffergator'
 Bundle 'majutsushi/tagbar'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'majutsushi/tagbar'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'TechnoGate/janus-colors'
 " Bundle 'nathanaelkane/vim-indent-guides'
 
 Bundle 'ZoomWin'
@@ -121,8 +124,8 @@ au BufRead,BufNewFile *.jsonify setfiletype ruby
 
 if has('gui_running')
   if has('mac')
-    " set guifont=Droid\ Sans\ Mono:h16
-    set guifont=Menlo:h18
+    set guifont=Droid\ Sans\ Mono:h13
+    " set guifont=Menlo:h18
     " set guifont=Letter\ Gothic\ Std\ Medium:h16
   elseif has('unix')
     set guifont=Droid\ Sans\ Mono\ 12
@@ -174,9 +177,10 @@ augroup END
 " call togglebg#map("<F12>")
 
 if has("gui_running")
+  set clipboard=unnamed
   color ir_dark
 else
-  color ir_dark
+  color ir_black
 end
 
 if has("gui_macvim") && has("gui_running")
@@ -357,5 +361,4 @@ set guitabtooltip=%{GuiTabToolTip()}
 aug AutoloadVimrc
   au!
   au BufWritePost .vimrc source ~/.vimrc
-  " echomsg 'Loaded .vimrc'
 aug END
