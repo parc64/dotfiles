@@ -54,13 +54,32 @@ set nowrap
 set tabstop=2
 set shiftwidth=2
 set expandtab
-" set backspace=indent,eol,start
+set backspace=indent,eol,start
+
+set list
+set listchars=""
+set listchars=tab:\ \
 set listchars+=trail:.
+set listchars+=extends:>
+set listchars+=precedes:<
 
 set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+
+if has("statusline") && !&cp
+  set laststatus=2  " always show the status bar
+
+  " Start the status line
+  set statusline=%f\ %m\ %r
+  set statusline+=Line:%l/%L[%p%%]
+  set statusline+=Col:%v
+  set statusline+=Buf:#%n
+  set statusline+=[%b][0x%B]
+endif
+
+filetype plugin indent on " Turn on filetype plugins (:help filetype-plugin)
 
 map <Leader>= <C-w>=
 map <C-j> <C-W>j
@@ -120,11 +139,12 @@ let g:buffergator_sort_regime="mru"
 let g:buffergator_viewport_split_policy="T"
 let g:buffergator_split_size="10"
 
+au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,Procfile,Guardfile,config.ru,*.rake} set ft=ruby
 au BufRead,BufNewFile *.jsonify setfiletype ruby
 
 if has('gui_running')
   if has('mac')
-    set guifont=Droid\ Sans\ Mono:h13
+    set guifont=Droid\ Sans\ Mono:h15
     " set guifont=Menlo:h18
     " set guifont=Letter\ Gothic\ Std\ Medium:h16
   elseif has('unix')
@@ -160,7 +180,7 @@ endif
 
 " compile vim from source on OSX to get this feature, use system ruby
 " ./configure --enable-rubyinterp --enable-pythoninterp --enable-multibyte --with-features=huge
-" set clipboard=unnamed
+set clipboard=unnamed
 
 " Highlight VCS conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
