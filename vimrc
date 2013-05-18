@@ -1,5 +1,5 @@
-set nocompatible
 set encoding=utf-8
+set nocompatible
 filetype off
 
 " Vundle!
@@ -18,18 +18,21 @@ Bundle 'scrooloose/syntastic'
 Bundle 'ervandew/supertab'
 Bundle 'mileszs/ack.vim'
 Bundle 'jeetsukumaran/vim-buffergator'
-Bundle 'majutsushi/tagbar'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'majutsushi/tagbar'
-Bundle 'kchmck/vim-coffee-script'
 Bundle 'TechnoGate/janus-colors'
-" Bundle 'nathanaelkane/vim-indent-guides'
+
+" Languages
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'rainux/vim-vala'
+Bundle 'pangloss/vim-javascript'
+Bundle 'mmalecki/vim-node.js'
 
 Bundle 'ZoomWin'
 Bundle 'Colour-Sampler-Pack'
 
 Bundle 'twerth/ir_black'
-Bundle 'w0ng/vim-hybrid'
+" Bundle 'w0ng/vim-hybrid'
 
 syntax enable
 set number
@@ -79,7 +82,7 @@ if has("statusline") && !&cp
   set statusline+=[%b][0x%B]
 endif
 
-filetype plugin indent on " Turn on filetype plugins (:help filetype-plugin)
+filetype plugin indent on
 
 map <Leader>= <C-w>=
 map <C-j> <C-W>j
@@ -133,7 +136,7 @@ let NERDTreeChristmasTree=1
 let NERDTreeAutoCenter=1
 " let NERDTreeQuitOnOpen=1
 let NERDTreeAutoDeleteBuffer=1
-"let NERDTreeWinPos="right"
+let NERDTreeWinPos="right"
 
 let g:buffergator_sort_regime="mru"
 let g:buffergator_viewport_split_policy="T"
@@ -144,7 +147,7 @@ au BufRead,BufNewFile *.jsonify setfiletype ruby
 
 if has('gui_running')
   if has('mac')
-    set guifont=Droid\ Sans\ Mono:h15
+    set guifont=Droid\ Sans\ Mono:h18
     " set guifont=Menlo:h18
     " set guifont=Letter\ Gothic\ Std\ Medium:h16
   elseif has('unix')
@@ -197,10 +200,10 @@ augroup END
 " call togglebg#map("<F12>")
 
 if has("gui_running")
-  set clipboard=unnamed
-  color ir_dark
+  set transparency=5
+  color jellybeans+
 else
-  color ir_black
+  color jellybeans+
 end
 
 if has("gui_macvim") && has("gui_running")
