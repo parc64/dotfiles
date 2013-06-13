@@ -1,6 +1,6 @@
 ZSH=$HOME/.oh-my-zsh
 export EDITOR="vim"
-export ZSH_TMUX_AUTOSTART=true
+# export ZSH_TMUX_AUTOSTART=true
 ZSH_THEME="minimal"
 
 alias top="top -o cpu"
@@ -33,16 +33,17 @@ DISABLE_AUTO_TITLE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(osx vi-mode rails3 git ruby rake bundler brew autojump history tmux taskwarrior)
+plugins=(osx rails3 git ruby rake bundler brew autojump history tmux)
 source $ZSH/oh-my-zsh.sh
 
 unsetopt correct_all
 unsetopt share_history
 
-PATH=~/bin:/usr/local/bin:/usr/local/share/npm/bin:/usr/local/mysql/bin:/usr/local/sbin:/opt/X11/bin:~/.cabal/bin:~/src/deploy_noesis/bin:/usr/bin:/bin:/usr/sbin:/sbin:~/bin/sbin:~/.npm:/Applications/MATLAB_R2012b.app/bin/maci64
+PATH=~/bin:/usr/local/bin:/usr/local/share/npm/bin:/usr/local/mysql/bin:/usr/local/sbin:/opt/X11/bin:~/.cabal/bin:~/src/deploy_noesis/bin:/usr/bin:/bin:/usr/sbin:/sbin:~/bin/sbin:~/.npm:/Applications/MATLAB_R2012b.app/bin/maci64:$PATH
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
 export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export NODE_PATH=/usr/local/lib/node_modules
+export RAILS_ENV=vowell
