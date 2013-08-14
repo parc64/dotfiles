@@ -24,6 +24,14 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'majutsushi/tagbar'
 Bundle 'TechnoGate/janus-colors'
 
+Bundle "vim-scripts/Conque-Shell"
+
+" For objective-c ios development
+Bundle 'Rip-Rip/clang_complete'
+Bundle 'guns/ultisnips'
+Bundle "b4winckler/vim-objc"
+Bundle 'eraserhd/vim-ios.git'
+
 " Languages
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'rainux/vim-vala'
@@ -56,8 +64,8 @@ set nowb
 set noswapfile
 
 set nowrap
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
 set expandtab
 set backspace=indent,eol,start
 
@@ -100,6 +108,17 @@ nnoremap <C-Right> :tabnext<CR>
 nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
 
+" clang_complete
+let g:clang_auto_select = 1
+let g:clang_complete_auto = 1
+let g:clang_use_library = 1
+let g:clang_periodic_quickfix = 1
+let g:clang_close_preview = 1
+let g:clang_snippets = 1
+let g:clang_snippets_engine = 'ultisnips'
+let g:clang_exec = '/usr/local/bin/clang'
+let g:clang_library_path = '/usr/local/lib/libclang.dylib'
+
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
 " Use neocomplcache.
@@ -114,7 +133,7 @@ let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 " Use camel case completion.
 "let g:neocomplcache_enable_camel_case_completion = 1
 " Use underbar completion.
-"let g:neocomplcache_enable_underbar_completion = 1
+let g:neocomplcache_enable_underbar_completion = 1
 
 " Define dictionary.
 let g:neocomplcache_dictionary_filetype_lists = {
@@ -197,6 +216,15 @@ let g:tagbar_autoshowtag = 1
 
 let g:syntastic_enable_signs = 1
 let g:syntastic_check_on_open = 1
+let g:syntastic_objc_config_file = '.clang_complete'
+let g:syntastic_objc_check_header = 1
+let g:syntastic_objc_auto_refresh_includes = 1
+
+" Status line configuration
+set statusline+=%#warningmsg#  " Add Error ruler.
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+nnoremap <silent> ` :Errors<CR>
 
 set wildmenu
 set wildmode=list:longest
@@ -228,7 +256,7 @@ let NERDTreeChristmasTree=1
 let NERDTreeAutoCenter=1
 " let NERDTreeQuitOnOpen=1
 let NERDTreeAutoDeleteBuffer=1
-let NERDTreeWinPos="right"
+let NERDTreeWinPos="left"
 
 let g:buffergator_sort_regime="mru"
 let g:buffergator_viewport_split_policy="T"
