@@ -17,16 +17,17 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
 " Bundle 'ervandew/supertab'
 Bundle 'Shougo/neocomplcache'
-Bundle 'Shougo/neosnippet'
+" Bundle 'Shougo/neosnippet'
 Bundle 'mileszs/ack.vim'
 Bundle 'jeetsukumaran/vim-buffergator'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'majutsushi/tagbar'
 Bundle 'TechnoGate/janus-colors'
+Bundle 'bling/vim-airline.git'
+" Bundle 'vim-scripts/Conque-Shell'
+Bundle 'airblade/vim-gitgutter.git'
 
-Bundle "vim-scripts/Conque-Shell"
-
-" For objective-c ios development
+" For objective-c iOS development
 Bundle 'Rip-Rip/clang_complete'
 Bundle 'guns/ultisnips'
 Bundle "b4winckler/vim-objc"
@@ -109,8 +110,9 @@ nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
 
 " clang_complete
-let g:clang_auto_select = 1
+let g:clang_auto_select = 2
 let g:clang_complete_auto = 1
+let g:clang_complete_copen = 0
 let g:clang_use_library = 1
 let g:clang_periodic_quickfix = 1
 let g:clang_close_preview = 1
@@ -120,9 +122,9 @@ let g:clang_exec = '/usr/local/bin/clang'
 let g:clang_library_path = '/usr/local/lib/libclang.dylib'
 
 " Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
+let g:acp_enableAtStartup = 1
 " Use neocomplcache.
-let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_at_startup = 0
 " Use smartcase.
 let g:neocomplcache_enable_smart_case = 1
 " Set minimum syntax keyword length.
@@ -267,7 +269,8 @@ au BufRead,BufNewFile *.jsonify setfiletype ruby
 
 if has('gui_running')
   if has('mac')
-    set guifont=Droid\ Sans\ Mono:h18
+    set guifont=Inconsolata:h19
+    " set guifont=Droid\ Sans\ Mono:h15
     " set guifont=Menlo:h18
     " set guifont=Letter\ Gothic\ Std\ Medium:h16
   elseif has('unix')
@@ -320,8 +323,9 @@ augroup END
 " call togglebg#map("<F12>")
 
 if has("gui_running")
-  set transparency=5
-  color jellybeans+
+  " set transparency=2
+  " color vylight
+  color jellybeans
 else
   color jellybeans+
 end
