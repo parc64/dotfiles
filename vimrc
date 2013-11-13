@@ -17,7 +17,7 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
 " Bundle 'ervandew/supertab'
 Bundle 'Shougo/neocomplcache'
-" Bundle 'Shougo/neosnippet'
+Bundle 'Shougo/neosnippet'
 Bundle 'mileszs/ack.vim'
 Bundle 'jeetsukumaran/vim-buffergator'
 Bundle 'altercation/vim-colors-solarized'
@@ -28,10 +28,10 @@ Bundle 'bling/vim-airline.git'
 Bundle 'airblade/vim-gitgutter.git'
 
 " For objective-c iOS development
-Bundle 'Rip-Rip/clang_complete'
-Bundle 'guns/ultisnips'
-Bundle "b4winckler/vim-objc"
-Bundle 'eraserhd/vim-ios.git'
+" Bundle 'Rip-Rip/clang_complete'
+" Bundle 'guns/ultisnips'
+" Bundle 'b4winckler/vim-objc'
+" Bundle 'eraserhd/vim-ios.git'
 
 " Languages
 Bundle 'kchmck/vim-coffee-script'
@@ -121,10 +121,29 @@ let g:clang_snippets_engine = 'ultisnips'
 let g:clang_exec = '/usr/local/bin/clang'
 let g:clang_library_path = '/usr/local/lib/libclang.dylib'
 
+if !exists('g:neocomplcache_force_omni_patterns')
+    let g:neocomplcache_force_omni_patterns = {}
+endif
+
+let g:neocomplcache_force_overwrite_completefunc = 1
+let g:neocomplcache_force_omni_patterns.c =
+            \ '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplcache_force_omni_patterns.cpp =
+            \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+let g:neocomplcache_force_omni_patterns.objc =
+            \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+let g:neocomplcache_force_omni_patterns.objcpp =
+            \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+let g:clang_complete_auto = 0
+let g:clang_auto_select = 0
+let g:clang_use_library = 1
+
+
 " Disable AutoComplPop.
-let g:acp_enableAtStartup = 1
+" let g:acp_enableAtStartup = 1
+let g:acp_behaviorKeywordLength = 3
 " Use neocomplcache.
-let g:neocomplcache_enable_at_startup = 0
+let g:neocomplcache_enable_at_startup = 1
 " Use smartcase.
 let g:neocomplcache_enable_smart_case = 1
 " Set minimum syntax keyword length.
@@ -325,7 +344,8 @@ augroup END
 if has("gui_running")
   " set transparency=2
   " color vylight
-  color jellybeans
+  " color jellybeans
+  color wombat256
 else
   color jellybeans+
 end
