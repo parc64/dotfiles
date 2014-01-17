@@ -65,8 +65,8 @@ set nowb
 set noswapfile
 
 set nowrap
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
 set backspace=indent,eol,start
 
@@ -342,12 +342,12 @@ augroup END
 " call togglebg#map("<F12>")
 
 if has("gui_running")
-  " set transparency=2
+  set transparency=8
   " color vylight
   " color jellybeans
   color wombat256
 else
-  color jellybeans+
+  color ir_dark
 end
 
 if has("gui_macvim") && has("gui_running")
