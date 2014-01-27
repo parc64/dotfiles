@@ -3,14 +3,6 @@ export EDITOR="vim"
 # export ZSH_TMUX_AUTOSTART=true
 ZSH_THEME="minimal"
 
-alias top="top -o cpu"
-
-# alias vi="vim +NERDTree"
-# alias vim="vim +NERDTree"
-# alias gvim="gvim +NERDTree"
-
-#alias emacs="open ~/Applications/Emacs.app --args ${@}"
-
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
@@ -33,7 +25,7 @@ DISABLE_AUTO_TITLE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(osx rails3 git ruby rake bundler brew autojump history tmux)
+plugins=(osx rails git ruby rake bundler brew autojump history tmux)
 source $ZSH/oh-my-zsh.sh
 
 unsetopt correct_all
@@ -45,5 +37,4 @@ PATH=~/bin:/usr/local/bin:/usr/local/share/npm/bin:/usr/local/mysql/bin:/usr/loc
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
 export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-export NODE_PATH=/usr/local/lib/node_modules
-export RAILS_ENV=vowell
+# export NODE_PATH=/usr/local/lib/node_modules

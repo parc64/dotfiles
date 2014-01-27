@@ -38,6 +38,7 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'rainux/vim-vala'
 Bundle 'pangloss/vim-javascript'
 Bundle 'mmalecki/vim-node.js'
+Bundle 'digitaltoad/vim-jade.git'
 
 Bundle 'ZoomWin'
 Bundle 'Colour-Sampler-Pack'
@@ -288,9 +289,9 @@ au BufRead,BufNewFile *.jsonify setfiletype ruby
 
 if has('gui_running')
   if has('mac')
-    set guifont=Inconsolata:h19
+    " set guifont=Inconsolata:h19
     " set guifont=Droid\ Sans\ Mono:h15
-    " set guifont=Menlo:h18
+    set guifont=Menlo:h18
     " set guifont=Letter\ Gothic\ Std\ Medium:h16
   elseif has('unix')
     set guifont=Droid\ Sans\ Mono\ 12
@@ -347,7 +348,7 @@ if has("gui_running")
   " color jellybeans
   color wombat256
 else
-  color ir_dark
+  color ir_black
 end
 
 if has("gui_macvim") && has("gui_running")
