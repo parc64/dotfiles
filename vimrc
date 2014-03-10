@@ -15,17 +15,20 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
-" Bundle 'ervandew/supertab'
-Bundle 'Shougo/neocomplcache'
+Bundle 'Shougo/neocomplete'
 Bundle 'Shougo/neosnippet'
+" Bundle 'Valloric/YouCompleteMe'
 Bundle 'mileszs/ack.vim'
 Bundle 'jeetsukumaran/vim-buffergator'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'majutsushi/tagbar'
 Bundle 'TechnoGate/janus-colors'
 Bundle 'bling/vim-airline.git'
-" Bundle 'vim-scripts/Conque-Shell'
-Bundle 'airblade/vim-gitgutter.git'
+Bundle 'Shougo/vimshell.vim'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'Raimondi/delimitMate'
+Bundle 'Shougo/vimproc.vim'
+Bundle 'tpope/vim-fugitive'
 
 " For objective-c iOS development
 " Bundle 'Rip-Rip/clang_complete'
@@ -44,16 +47,15 @@ Bundle 'ZoomWin'
 Bundle 'Colour-Sampler-Pack'
 
 Bundle 'twerth/ir_black'
-" Bundle 'w0ng/vim-hybrid'
 
 syntax enable
-set number
+" set number
 set ruler
 
 set t_Co=256
 
 set autoread
-set completeopt=longest,menuone
+" set completeopt=longest,menuone
 
 " Set 7 lines to the cursor - when moving vertically using j/k
 set so=7
@@ -82,6 +84,7 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+set cursorline
 
 if has("statusline") && !&cp
   set laststatus=2  " always show the status bar
@@ -110,105 +113,68 @@ nnoremap <C-Right> :tabnext<CR>
 nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
 
-" clang_complete
-let g:clang_auto_select = 2
-let g:clang_complete_auto = 1
-let g:clang_complete_copen = 0
-let g:clang_use_library = 1
-let g:clang_periodic_quickfix = 1
-let g:clang_close_preview = 1
-let g:clang_snippets = 1
-let g:clang_snippets_engine = 'ultisnips'
-let g:clang_exec = '/usr/local/bin/clang'
-let g:clang_library_path = '/usr/local/lib/libclang.dylib'
+let g:ctrlp_match_window = 'top,order:ttb,min:1,max:10,results:10'
 
-if !exists('g:neocomplcache_force_omni_patterns')
-    let g:neocomplcache_force_omni_patterns = {}
-endif
+let g:acp_enableAtStartup = 0
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#force_overwrite_completefunc = 1
+let g:neocomplete#enable_smart_case = 1
 
-let g:neocomplcache_force_overwrite_completefunc = 1
-let g:neocomplcache_force_omni_patterns.c =
-            \ '[^.[:digit:] *\t]\%(\.\|->\)'
-let g:neocomplcache_force_omni_patterns.cpp =
-            \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-let g:neocomplcache_force_omni_patterns.objc =
-            \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-let g:neocomplcache_force_omni_patterns.objcpp =
-            \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-let g:clang_complete_auto = 0
-let g:clang_auto_select = 0
-let g:clang_use_library = 1
-
-
-" Disable AutoComplPop.
-" let g:acp_enableAtStartup = 1
-let g:acp_behaviorKeywordLength = 3
-" Use neocomplcache.
-let g:neocomplcache_enable_at_startup = 1
-" Use smartcase.
-let g:neocomplcache_enable_smart_case = 1
 " Set minimum syntax keyword length.
-let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-
-" Enable heavy features.
-" Use camel case completion.
-"let g:neocomplcache_enable_camel_case_completion = 1
-" Use underbar completion.
-let g:neocomplcache_enable_underbar_completion = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 1
 
 " Define dictionary.
-let g:neocomplcache_dictionary_filetype_lists = {
+let g:neocomplete#sources#dictionary#dictionaries = {
     \ 'default' : '',
     \ 'vimshell' : $HOME.'/.vimshell_hist',
     \ 'scheme' : $HOME.'/.gosh_completions'
         \ }
 
 " Define keyword.
-if !exists('g:neocomplcache_keyword_patterns')
-    let g:neocomplcache_keyword_patterns = {}
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
 endif
-let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
 " Plugin key-mappings.
-inoremap <expr><C-g>     neocomplcache#undo_completion()
-inoremap <expr><C-l>     neocomplcache#complete_common_string()
+inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-l>     neocomplete#complete_common_string()
 
 " Recommended key-mappings.
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
-  return neocomplcache#smart_close_popup() . "\<CR>"
+  return neocomplete#close_popup() . "\<CR>"
   " For no inserting <CR> key.
-  "return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
+  "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
 endfunction
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplcache#close_popup()
-inoremap <expr><C-e>  neocomplcache#cancel_popup()
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y>  neocomplete#close_popup()
+inoremap <expr><C-e>  neocomplete#cancel_popup()
 " Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? neocomplcache#close_popup() : "\<Space>"
+"inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
 
 " For cursor moving in insert mode(Not recommended)
-"inoremap <expr><Left>  neocomplcache#close_popup() . "\<Left>"
-"inoremap <expr><Right> neocomplcache#close_popup() . "\<Right>"
-"inoremap <expr><Up>    neocomplcache#close_popup() . "\<Up>"
-"inoremap <expr><Down>  neocomplcache#close_popup() . "\<Down>"
+"inoremap <expr><Left>  neocomplete#close_popup() . "\<Left>"
+"inoremap <expr><Right> neocomplete#close_popup() . "\<Right>"
+"inoremap <expr><Up>    neocomplete#close_popup() . "\<Up>"
+"inoremap <expr><Down>  neocomplete#close_popup() . "\<Down>"
 " Or set this.
-"let g:neocomplcache_enable_cursor_hold_i = 1
+"let g:neocomplete#enable_cursor_hold_i = 1
 " Or set this.
-"let g:neocomplcache_enable_insert_char_pre = 1
+"let g:neocomplete#enable_insert_char_pre = 1
 
 " AutoComplPop like behavior.
-"let g:neocomplcache_enable_auto_select = 1
+"let g:neocomplete#enable_auto_select = 1
 
 " Shell like behavior(not recommended).
 "set completeopt+=longest
-"let g:neocomplcache_enable_auto_select = 1
-"let g:neocomplcache_disable_auto_complete = 1
+"let g:neocomplete#enable_auto_select = 1
+"let g:neocomplete#disable_auto_complete = 1
 "inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 
 " Enable omni completion.
@@ -219,16 +185,16 @@ autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Enable heavy omni completion.
-if !exists('g:neocomplcache_omni_patterns')
-  let g:neocomplcache_omni_patterns = {}
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
 endif
-let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-let g:neocomplcache_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
-let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 
 let g:tagbar_autoclose = 0
@@ -238,9 +204,6 @@ let g:tagbar_autoshowtag = 1
 
 let g:syntastic_enable_signs = 1
 let g:syntastic_check_on_open = 1
-let g:syntastic_objc_config_file = '.clang_complete'
-let g:syntastic_objc_check_header = 1
-let g:syntastic_objc_auto_refresh_includes = 1
 
 " Status line configuration
 set statusline+=%#warningmsg#  " Add Error ruler.
@@ -271,6 +234,9 @@ nnoremap <silent> <F3> :TagbarToggle<CR>
 
 nnoremap <F6> :set nonumber!<CR>
 
+noremap  <F4> :VimShellTab<CR>
+inoremap <F4> <esc>:VimShellTab<CR>
+
 let NERDTreeMinimalUI=1
 let NERDTreeShowBookmarks=1
 let NERDTreeChDirMode=2
@@ -291,7 +257,7 @@ if has('gui_running')
   if has('mac')
     " set guifont=Inconsolata:h19
     " set guifont=Droid\ Sans\ Mono:h15
-    set guifont=Menlo:h18
+    set guifont=Menlo:h17
     " set guifont=Letter\ Gothic\ Std\ Medium:h16
   elseif has('unix')
     set guifont=Droid\ Sans\ Mono\ 12
@@ -340,15 +306,19 @@ augroup cline
   au InsertLeave * set cursorline
 augroup END
 
-" call togglebg#map("<F12>")
+call togglebg#map("<F5>")
 
 if has("gui_running")
-  set transparency=8
   " color vylight
-  " color jellybeans
-  color wombat256
+  " color jellybeans+
+  " color wombat256
+  set background=dark
+  color solarized
 else
-  color ir_black
+  " color jellybeans+
+  " color ir_black
+  set background=dark
+  color solarized
 end
 
 if has("gui_macvim") && has("gui_running")
