@@ -13,6 +13,7 @@ Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-endwise.git'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
+Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
 Bundle 'Shougo/neocomplete'
@@ -29,6 +30,10 @@ Bundle 'airblade/vim-gitgutter'
 Bundle 'Raimondi/delimitMate'
 Bundle 'Shougo/vimproc.vim'
 Bundle 'tpope/vim-fugitive'
+
+" Ruby motion
+" Bundle 'msanders/snipmate.vim'
+" Bundle 'rcyrus/snipmate-snippets-rubymotion'
 
 " For objective-c iOS development
 " Bundle 'Rip-Rip/clang_complete'
@@ -113,7 +118,7 @@ nnoremap <C-Right> :tabnext<CR>
 nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
 
-let g:ctrlp_match_window = 'top,order:ttb,min:1,max:10,results:10'
+let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:10,results:10'
 
 let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
@@ -121,7 +126,7 @@ let g:neocomplete#force_overwrite_completefunc = 1
 let g:neocomplete#enable_smart_case = 1
 
 " Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 3
 
 " Define dictionary.
 let g:neocomplete#sources#dictionary#dictionaries = {
@@ -144,10 +149,11 @@ inoremap <expr><C-l>     neocomplete#complete_common_string()
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
-  return neocomplete#close_popup() . "\<CR>"
+  " return neocomplete#close_popup() . "\<CR>"
   " For no inserting <CR> key.
-  "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+  return pumvisible() ? neocomplete#close_popup() : "\<CR>"
 endfunction
+
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
@@ -246,6 +252,14 @@ let NERDTreeAutoCenter=1
 let NERDTreeAutoDeleteBuffer=1
 let NERDTreeWinPos="left"
 
+let g:nerdtree_tabs_open_on_gui_startup=1
+let g:nerdtree_tabs_open_on_console_startup=1
+let g:nerdtree_tabs_smart_startup_focus=1
+let g:nerdtree_tabs_meaningful_tab_name=1
+let g:nerdtree_tabs_autoclose=1
+let g:nerdtree_tabs_synchronize_view=1
+let g:nerdtree_tabs_synchronize_focus=1
+
 let g:buffergator_sort_regime="mru"
 let g:buffergator_viewport_split_policy="T"
 let g:buffergator_split_size="10"
@@ -315,9 +329,9 @@ if has("gui_running")
   set background=dark
   color solarized
 else
-  " color jellybeans+
-  " color ir_black
-  set background=dark
+  color jellybeans+
+  color ir_black
+  set background=light
   color solarized
 end
 
