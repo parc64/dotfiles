@@ -3,55 +3,49 @@ set nocompatible
 filetype off
 
 " Vundle!
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-endwise.git'
-Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'jistr/vim-nerdtree-tabs'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/syntastic'
-Bundle 'Shougo/neocomplete'
-Bundle 'Shougo/neosnippet'
-" Bundle 'Valloric/YouCompleteMe'
-Bundle 'mileszs/ack.vim'
-Bundle 'jeetsukumaran/vim-buffergator'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'majutsushi/tagbar'
-Bundle 'TechnoGate/janus-colors'
-Bundle 'bling/vim-airline.git'
-Bundle 'Shougo/vimshell.vim'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'Raimondi/delimitMate'
-Bundle 'Shougo/vimproc.vim'
-Bundle 'tpope/vim-fugitive'
-
-" Ruby motion
-" Bundle 'msanders/snipmate.vim'
-" Bundle 'rcyrus/snipmate-snippets-rubymotion'
-
-" For objective-c iOS development
-" Bundle 'Rip-Rip/clang_complete'
-" Bundle 'guns/ultisnips'
-" Bundle 'b4winckler/vim-objc'
-" Bundle 'eraserhd/vim-ios.git'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-endwise.git'
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/syntastic'
+Plugin 'Shougo/neocomplete'
+Plugin 'Shougo/neosnippet'
+Plugin 'Shougo/neosnippet-snippets'
+Plugin 'mileszs/ack.vim'
+Plugin 'jeetsukumaran/vim-buffergator'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'majutsushi/tagbar'
+Plugin 'TechnoGate/janus-colors'
+Plugin 'bling/vim-airline.git'
+Plugin 'Shougo/vimshell.vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'Shougo/vimproc.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'Yggdroot/indentLine'
+Plugin 'flazz/vim-colorschemes'
 
 " Languages
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'rainux/vim-vala'
-Bundle 'pangloss/vim-javascript'
-Bundle 'mmalecki/vim-node.js'
-Bundle 'digitaltoad/vim-jade.git'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'rainux/vim-vala'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mmalecki/vim-node.js'
+Plugin 'digitaltoad/vim-jade.git'
 
-Bundle 'ZoomWin'
-Bundle 'Colour-Sampler-Pack'
+Plugin 'ZoomWin'
+Plugin 'twerth/ir_black'
 
-Bundle 'twerth/ir_black'
+call vundle#end()
+filetype plugin indent on
 
 syntax enable
 " set number
@@ -102,6 +96,7 @@ if has("statusline") && !&cp
   set statusline+=[%b][0x%B]
 endif
 
+
 filetype plugin indent on
 
 map <Leader>= <C-w>=
@@ -117,6 +112,17 @@ nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
 nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
+
+let g:indentLine_color_term=104
+let g:indentLine_color_gui='#2b3138'
+
+let g:airline_detect_modified=1
+let g:airline_detect_paste=1
+let g:airline_inactive_collapse=1
+
+let g:netrw_liststyle=4
+let g:netrw_browse_split=4
+let g:netrw_preview=1
 
 let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:10,results:10'
 
@@ -243,6 +249,8 @@ nnoremap <F6> :set nonumber!<CR>
 noremap  <F4> :VimShellTab<CR>
 inoremap <F4> <esc>:VimShellTab<CR>
 
+map <Leader> <Plug>(easymotion-prefix)
+
 let NERDTreeMinimalUI=1
 let NERDTreeShowBookmarks=1
 let NERDTreeChDirMode=2
@@ -253,7 +261,7 @@ let NERDTreeAutoDeleteBuffer=1
 let NERDTreeWinPos="left"
 
 let g:nerdtree_tabs_open_on_gui_startup=1
-let g:nerdtree_tabs_open_on_console_startup=1
+let g:nerdtree_tabs_open_on_console_startup=0
 let g:nerdtree_tabs_smart_startup_focus=1
 let g:nerdtree_tabs_meaningful_tab_name=1
 let g:nerdtree_tabs_autoclose=1
@@ -323,16 +331,21 @@ augroup END
 call togglebg#map("<F5>")
 
 if has("gui_running")
-  " color vylight
-  " color jellybeans+
-  " color wombat256
   set background=dark
-  color solarized
-else
+  " set background=light
+  " color vylight
+  set transparency=6
+  " color twilight
   color jellybeans+
+  " color wombat256
+  " color solarized
+else
+  " color jellybeans+
   color ir_black
-  set background=light
-  color solarized
+  hi TabLineFill term=bold cterm=bold ctermbg=8
+  hi TabLine term=bold cterm=bold ctermbg=8
+  "set background=light
+  "color solarized
 end
 
 if has("gui_macvim") && has("gui_running")
@@ -514,3 +527,21 @@ aug AutoloadVimrc
   au!
   au BufWritePost .vimrc source ~/.vimrc
 aug END
+
+" PRY Stuff
+" …also, Insert Mode as bpry<space>
+iabbr bpry require'pry';binding.pry
+" And admit that the typos happen:
+iabbr bpry require'pry';binding.pry
+
+" Add the pry debug line with \bp (or <Space>bp, if you did: map <Space> <Leader> )
+map <Leader>bp orequire'pry';binding.pry<esc>:w<cr>
+" Alias for one-handed operation:
+map <Leader><Leader>p <Leader>bp
+
+" Keep pry from annoyingly hanging around when using, e.g. pry-rescue/minitest
+map <f7> :wa<cr>:call system('kill-pry-rescue')<cr>
+
+" Nab lines from ~/.pry_history (respects "count")
+nmap <Leader>ph :<c-u>let pc = (v:count1 ? v:count1 : 1)<cr>:read !tail -<c-r>=pc<cr> ~/.pry_history<cr>:.-<c-r>=pc-1<cr>:norm <c-r>=pc<cr>==<cr>
+" ↑ thanks to Houl, ZyX-i, and paradigm of #vim for all dogpiling on this one.
