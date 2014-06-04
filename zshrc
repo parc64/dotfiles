@@ -38,3 +38,4 @@ PATH=~/bin:/usr/local/bin:/usr/local/share/npm/bin:/usr/local/mysql/bin:/usr/loc
 
 export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 # export NODE_PATH=/usr/local/lib/node_modules
+source /Users/jason/.iterm2_shell_integration.zsh

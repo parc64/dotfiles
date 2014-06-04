@@ -6,13 +6,15 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'gmarik/vundle'
+Plugin 'gmarik/Vundle'
 
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-endwise.git'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-dispatch'
 Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
+" Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/git-nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
@@ -113,6 +115,10 @@ nnoremap <C-Right> :tabnext<CR>
 nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
 
+let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
+let g:ackhighlight=1
+let g:ack_use_dispatch=1
+
 let g:indentLine_color_term=104
 let g:indentLine_color_gui='#2b3138'
 
@@ -208,8 +214,8 @@ endif
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
-
-let g:tagbar_autoclose = 0
+let g:tagbar_autofocus = 1
+let g:tagbar_autoclose = 1
 let g:tagbar_foldlevel = 2
 let g:tagbar_compact = 1
 let g:tagbar_autoshowtag = 1
@@ -250,6 +256,14 @@ noremap  <F4> :VimShellTab<CR>
 inoremap <F4> <esc>:VimShellTab<CR>
 
 map <Leader> <Plug>(easymotion-prefix)
+
+"augroup vimrc
+"  au BufReadPre * setlocal foldmethod=indent
+"  au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
+"augroup END
+
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+vnoremap <Space> zf
 
 let NERDTreeMinimalUI=1
 let NERDTreeShowBookmarks=1
@@ -340,8 +354,8 @@ if has("gui_running")
   " color wombat256
   " color solarized
 else
-  " color jellybeans+
-  color ir_black
+  color jellybeans+
+  " color ir_black
   hi TabLineFill term=bold cterm=bold ctermbg=8
   hi TabLine term=bold cterm=bold ctermbg=8
   "set background=light
