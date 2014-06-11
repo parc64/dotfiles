@@ -6,7 +6,7 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'gmarik/Vundle'
+Plugin 'gmarik/Vundle.vim'
 
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
@@ -293,7 +293,8 @@ if has('gui_running')
   if has('mac')
     " set guifont=Inconsolata:h19
     " set guifont=Droid\ Sans\ Mono:h15
-    set guifont=Menlo:h17
+    " set guifont=Menlo:h17
+    set guifont=Droid\ Sans\ Mono\ for\ Powerline:h18
     " set guifont=Letter\ Gothic\ Std\ Medium:h16
   elseif has('unix')
     set guifont=Droid\ Sans\ Mono\ 12
@@ -348,7 +349,7 @@ if has("gui_running")
   set background=dark
   " set background=light
   " color vylight
-  set transparency=6
+  " set transparency=6
   " color twilight
   color jellybeans+
   " color wombat256
