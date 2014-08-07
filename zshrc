@@ -25,7 +25,7 @@ DISABLE_AUTO_TITLE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(vi-mode osx rails git ruby rake bundler brew autojump history tmux)
+plugins=(vi-mode osx rails ruby rake bundler brew autojump history tmux)
 source $ZSH/oh-my-zsh.sh
 
 unsetopt correct_all
@@ -36,4 +36,5 @@ PATH=~/bin:/usr/local/bin:/usr/local/share/npm/bin:/usr/local/mysql/bin:/usr/loc
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

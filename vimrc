@@ -12,9 +12,9 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-haml'
 Plugin 'kien/ctrlp.vim'
-" Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/git-nerdtree'
+Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
@@ -29,7 +29,6 @@ Plugin 'TechnoGate/janus-colors'
 Plugin 'bling/vim-airline.git'
 Plugin 'Shougo/vimshell.vim'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'jiangmiao/auto-pairs'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'Lokaltog/vim-easymotion'
@@ -42,6 +41,11 @@ Plugin 'rainux/vim-vala'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mmalecki/vim-node.js'
 Plugin 'digitaltoad/vim-jade.git'
+
+" Clojure
+Plugin 'tpope/vim-fireplace.git'
+Plugin 'tpope/vim-leiningen.git'
+Plugin 'guns/vim-clojure-static.git'
 
 Plugin 'ZoomWin'
 Plugin 'twerth/ir_black'
@@ -87,6 +91,12 @@ set ignorecase
 set smartcase
 set cursorline
 
+" set winheight=30
+" set winminheight=5
+
+nnoremap <silent> = :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> - :exe "resize " . (winheight(0) * 2/3)<CR>
+
 if has("statusline") && !&cp
   set laststatus=2  " always show the status bar
 
@@ -119,8 +129,10 @@ let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
 let g:ackhighlight=1
 let g:ack_use_dispatch=1
 
-let g:indentLine_color_term=104
-let g:indentLine_color_gui='#2b3138'
+let g:indentLine_char = '┊'
+let g:indentLine_color_term=235
+let g:indentLine_color_gui='#2e2e2e'
+let g:indentLine_noConcealCursor=1
 
 let g:airline_detect_modified=1
 let g:airline_detect_paste=1
@@ -255,8 +267,6 @@ nnoremap <F6> :set nonumber!<CR>
 noremap  <F4> :VimShellTab<CR>
 inoremap <F4> <esc>:VimShellTab<CR>
 
-map <Leader> <Plug>(easymotion-prefix)
-
 "augroup vimrc
 "  au BufReadPre * setlocal foldmethod=indent
 "  au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
@@ -292,9 +302,9 @@ au BufRead,BufNewFile *.jsonify setfiletype ruby
 if has('gui_running')
   if has('mac')
     " set guifont=Inconsolata:h19
-    " set guifont=Droid\ Sans\ Mono:h15
+    set guifont=Droid\ Sans\ Mono:h18
     " set guifont=Menlo:h17
-    set guifont=Droid\ Sans\ Mono\ for\ Powerline:h18
+    " set guifont=Droid\ Sans\ Mono\ for\ Powerline:h18
     " set guifont=Letter\ Gothic\ Std\ Medium:h16
   elseif has('unix')
     set guifont=Droid\ Sans\ Mono\ 12
@@ -351,12 +361,13 @@ if has("gui_running")
   " color vylight
   " set transparency=6
   " color twilight
-  color jellybeans+
+  " color jellybeans+
   " color wombat256
   " color solarized
+  color ir_dark
+  " color badwolf
 else
-  color jellybeans+
-  " color ir_black
+  color ir_black
   hi TabLineFill term=bold cterm=bold ctermbg=8
   hi TabLine term=bold cterm=bold ctermbg=8
   "set background=light
