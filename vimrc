@@ -307,10 +307,10 @@ if has('gui_running')
     " set guifont=Droid\ Sans\ Mono\ for\ Powerline:h18
     " set guifont=Letter\ Gothic\ Std\ Medium:h16
   elseif has('unix')
-    set guifont=Droid\ Sans\ Mono\ 12
+    set guifont=Droid\ Sans\ Mono\ 16
   endif
 
-  set guioptions-=M
+  set guioptions-=m
   set guioptions-=T
   set guioptions-=r
   set guioptions-=l
@@ -364,7 +364,8 @@ if has("gui_running")
   " color jellybeans+
   " color wombat256
   " color solarized
-  color ir_dark
+  " color ir_dark
+  color zenburn
   " color badwolf
 else
   color ir_black
