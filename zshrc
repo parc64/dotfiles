@@ -38,3 +38,4 @@ PATH=~/bin:/usr/local/bin:/usr/local/share/npm/bin:/usr/local/mysql/bin:/usr/loc
 
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+source /Users/jason/.iterm2_shell_integration.zsh

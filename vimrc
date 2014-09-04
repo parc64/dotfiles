@@ -1,5 +1,7 @@
 set encoding=utf-8
 set nocompatible
+set ttyfast
+set t_Co=256
 filetype off
 
 " Vundle!
@@ -32,7 +34,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'Lokaltog/vim-easymotion'
-Plugin 'Yggdroot/indentLine'
+" Plugin 'Yggdroot/indentLine'
 Plugin 'flazz/vim-colorschemes'
 
 " Languages
@@ -54,10 +56,10 @@ call vundle#end()
 filetype plugin indent on
 
 syntax enable
-" set number
+set number
+set relativenumber
 set ruler
 
-set t_Co=256
 
 set autoread
 " set completeopt=longest,menuone
@@ -134,6 +136,7 @@ let g:indentLine_color_term=235
 let g:indentLine_color_gui='#2e2e2e'
 let g:indentLine_noConcealCursor=1
 
+let g:airline_powerline_fonts=1
 let g:airline_detect_modified=1
 let g:airline_detect_paste=1
 let g:airline_inactive_collapse=1
@@ -252,8 +255,6 @@ set wildignore+=*.spl                            " compiled spelling word lists
 set wildignore+=*.sw?                            " Vim swap files
 set wildignore+=*.DS_Store                       " OSX bullshit
 
-nnoremap <silent> <F8> :TlistToggle<CR>
-
 noremap  <F1> :NERDTreeFind<CR>
 inoremap <F1> <esc>:NERDTreeFind<CR>
 
@@ -302,12 +303,13 @@ au BufRead,BufNewFile *.jsonify setfiletype ruby
 if has('gui_running')
   if has('mac')
     " set guifont=Inconsolata:h19
-    set guifont=Droid\ Sans\ Mono:h18
+    " set guifont=Droid\ Sans\ Mono:h18
     " set guifont=Menlo:h17
-    " set guifont=Droid\ Sans\ Mono\ for\ Powerline:h18
+    set guifont=Droid\ Sans\ Mono\ for\ Powerline:h17
     " set guifont=Letter\ Gothic\ Std\ Medium:h16
   elseif has('unix')
-    set guifont=Droid\ Sans\ Mono\ 12
+    " set guifont=Droid\ Sans\ Mono\ 12
+    set guifont=Droid\ Sans\ Mono\ for\ Powerline:h18
   endif
 
   set guioptions-=M
@@ -342,7 +344,7 @@ endif
 set clipboard=unnamed
 
 " Highlight VCS conflict markers
-match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+" match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 " Only show cursorline in the current window and in normal mode.
 augroup cline
@@ -357,21 +359,12 @@ call togglebg#map("<F5>")
 
 if has("gui_running")
   set background=dark
-  " set background=light
-  " color vylight
-  " set transparency=6
-  " color twilight
-  " color jellybeans+
-  " color wombat256
-  " color solarized
-  color ir_dark
-  " color badwolf
+  color hybrid
 else
-  color ir_black
+  let g:hybrid_use_iTerm_colors = 1
+  colorscheme hybrid
   hi TabLineFill term=bold cterm=bold ctermbg=8
   hi TabLine term=bold cterm=bold ctermbg=8
-  "set background=light
-  "color solarized
 end
 
 if has("gui_macvim") && has("gui_running")
