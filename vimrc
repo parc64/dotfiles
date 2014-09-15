@@ -255,6 +255,8 @@ set wildignore+=*.spl                            " compiled spelling word lists
 set wildignore+=*.sw?                            " Vim swap files
 set wildignore+=*.DS_Store                       " OSX bullshit
 
+nnoremap <silent> <F8> :TlistToggle<CR>
+
 noremap  <F1> :NERDTreeFind<CR>
 inoremap <F1> <esc>:NERDTreeFind<CR>
 
@@ -308,11 +310,11 @@ if has('gui_running')
     set guifont=Droid\ Sans\ Mono\ for\ Powerline:h17
     " set guifont=Letter\ Gothic\ Std\ Medium:h16
   elseif has('unix')
-    " set guifont=Droid\ Sans\ Mono\ 12
+    set guifont=Droid\ Sans\ Mono\ 16
     set guifont=Droid\ Sans\ Mono\ for\ Powerline:h18
   endif
 
-  set guioptions-=M
+  set guioptions-=m
   set guioptions-=T
   set guioptions-=r
   set guioptions-=l
