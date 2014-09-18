@@ -136,10 +136,10 @@ let g:indentLine_color_term=235
 let g:indentLine_color_gui='#2e2e2e'
 let g:indentLine_noConcealCursor=1
 
-let g:airline_powerline_fonts=1
+let g:airline_powerline_fonts=0
 let g:airline_detect_modified=1
 let g:airline_detect_paste=1
-let g:airline_inactive_collapse=1
+let g:airline_inactive_collapse=0
 
 let g:netrw_liststyle=4
 let g:netrw_browse_split=4
