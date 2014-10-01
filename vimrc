@@ -362,7 +362,7 @@ if has("gui_running")
   color hybrid
 else
   let g:hybrid_use_iTerm_colors = 1
-  colorscheme hybrid
+  colorscheme jellybeans+
   hi TabLineFill term=bold cterm=bold ctermbg=8
   hi TabLine term=bold cterm=bold ctermbg=8
 end
