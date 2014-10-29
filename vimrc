@@ -20,9 +20,9 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
-Plugin 'Shougo/neocomplete'
-Plugin 'Shougo/neosnippet'
-Plugin 'Shougo/neosnippet-snippets'
+" Plugin 'Shougo/neocomplete'
+" Plugin 'Shougo/neosnippet'
+" Plugin 'Shougo/neosnippet-snippets'
 Plugin 'mileszs/ack.vim'
 Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'altercation/vim-colors-solarized'
@@ -36,6 +36,10 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'Lokaltog/vim-easymotion'
 " Plugin 'Yggdroot/indentLine'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'chrisbra/NrrwRgn'
+Plugin 'rizzatti/dash.vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'sunaku/vim-ruby-minitest'
 
 " Languages
 Plugin 'kchmck/vim-coffee-script'
@@ -97,6 +101,8 @@ set cursorline
 nnoremap <silent> = :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> - :exe "resize " . (winheight(0) * 2/3)<CR>
 
+set pastetoggle=<F5>
+
 if has("statusline") && !&cp
   set laststatus=2  " always show the status bar
 
@@ -136,7 +142,6 @@ let g:indentLine_noConcealCursor=1
 
 let g:airline_powerline_fonts=0
 let g:airline_detect_modified=1
-let g:airline_detect_paste=1
 let g:airline_inactive_collapse=0
 
 let g:netrw_liststyle=4
@@ -146,46 +151,46 @@ let g:netrw_preview=1
 let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:10,results:10'
 
 let g:acp_enableAtStartup = 0
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#force_overwrite_completefunc = 1
-let g:neocomplete#enable_smart_case = 1
+" let g:neocomplete#enable_at_startup = 1
+" let g:neocomplete#force_overwrite_completefunc = 1
+" let g:neocomplete#enable_smart_case = 1
 
 " Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 3
+" let g:neocomplete#sources#syntax#min_keyword_length = 3
 
 " Define dictionary.
-let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-        \ }
+" let g:neocomplete#sources#dictionary#dictionaries = {
+"     \ 'default' : '',
+"     \ 'vimshell' : $HOME.'/.vimshell_hist',
+"     \ 'scheme' : $HOME.'/.gosh_completions'
+"        \ }
 
 " Define keyword.
-if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
-endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+" if !exists('g:neocomplete#keyword_patterns')
+"     let g:neocomplete#keyword_patterns = {}
+" endif
+" let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
 " Plugin key-mappings.
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-l>     neocomplete#complete_common_string()
+" inoremap <expr><C-g>     neocomplete#undo_completion()
+" inoremap <expr><C-l>     neocomplete#complete_common_string()
 
 " Recommended key-mappings.
 " <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
+" inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+" function! s:my_cr_function()
   " return neocomplete#close_popup() . "\<CR>"
   " For no inserting <CR> key.
-  return pumvisible() ? neocomplete#close_popup() : "\<CR>"
-endfunction
+"   return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+" endfunction
 
 " <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplete#close_popup()
-inoremap <expr><C-e>  neocomplete#cancel_popup()
+" inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+" inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+" inoremap <expr><C-y>  neocomplete#close_popup()
+" inoremap <expr><C-e>  neocomplete#cancel_popup()
 " Close popup by <Space>.
 "inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
 
@@ -216,16 +221,16 @@ autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Enable heavy omni completion.
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
-endif
+" if !exists('g:neocomplete#sources#omni#input_patterns')
+"   let g:neocomplete#sources#omni#input_patterns = {}
+" endif
 "let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 "let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
 "let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
-let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+" let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 let g:tagbar_autofocus = 1
 let g:tagbar_autoclose = 1
@@ -284,6 +289,7 @@ let NERDTreeAutoCenter=1
 " let NERDTreeQuitOnOpen=1
 let NERDTreeAutoDeleteBuffer=1
 let NERDTreeWinPos="left"
+" let g:NERDTreeWinSize=20
 
 let g:nerdtree_tabs_open_on_gui_startup=1
 let g:nerdtree_tabs_open_on_console_startup=0
@@ -305,7 +311,7 @@ if has('gui_running')
     " set guifont=Inconsolata:h19
     " set guifont=Droid\ Sans\ Mono:h18
     " set guifont=Menlo:h17
-    set guifont=Droid\ Sans\ Mono\ for\ Powerline:h17
+    set guifont=Droid\ Sans\ Mono:h17
     " set guifont=Letter\ Gothic\ Std\ Medium:h16
   elseif has('unix')
     set guifont=Droid\ Sans\ Mono\ 16
@@ -343,9 +349,6 @@ endif
 " ./configure --enable-rubyinterp --enable-pythoninterp --enable-multibyte --with-features=huge
 set clipboard=unnamed
 
-" Highlight VCS conflict markers
-" match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
-
 " Only show cursorline in the current window and in normal mode.
 augroup cline
   au!
@@ -355,16 +358,19 @@ augroup cline
   au InsertLeave * set cursorline
 augroup END
 
-call togglebg#map("<F5>")
-
 if has("gui_running")
   set background=dark
   color hybrid
 else
   let g:hybrid_use_iTerm_colors = 1
   colorscheme jellybeans+
-  hi TabLineFill term=bold cterm=bold ctermbg=8
-  hi TabLine term=bold cterm=bold ctermbg=8
+  hi TabLineFill ctermbg=8
+  hi TabLine ctermbg=8
+  hi SignColumn ctermbg=black
+  hi GitGutterAdd ctermbg=black
+  hi GitGutterChange ctermbg=black
+  hi GitGutterDelete ctermbg=black
+  hi GitGutterChangeDelete ctermbg=black
 end
 
 if has("gui_macvim") && has("gui_running")
@@ -546,3 +552,4 @@ aug AutoloadVimrc
   au!
   au BufWritePost .vimrc source ~/.vimrc
 aug END
+
