@@ -20,14 +20,13 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
-" Plugin 'Shougo/neocomplete'
-" Plugin 'Shougo/neosnippet'
-" Plugin 'Shougo/neosnippet-snippets'
+Plugin 'Shougo/neocomplete'
+Plugin 'Shougo/neosnippet'
+Plugin 'Shougo/neosnippet-snippets'
 Plugin 'mileszs/ack.vim'
 Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'majutsushi/tagbar'
-Plugin 'TechnoGate/janus-colors'
 Plugin 'bling/vim-airline.git'
 Plugin 'Shougo/vimshell.vim'
 Plugin 'airblade/vim-gitgutter'
@@ -36,10 +35,12 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'Lokaltog/vim-easymotion'
 " Plugin 'Yggdroot/indentLine'
 Plugin 'flazz/vim-colorschemes'
-Plugin 'chrisbra/NrrwRgn'
+Plugin 'twerth/ir_black'
+Plugin 'TechnoGate/janus-colors'
+" Plugin 'chrisbra/NrrwRgn'
 Plugin 'rizzatti/dash.vim'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'sunaku/vim-ruby-minitest'
+Plugin 'jpalardy/vim-slime'
 
 " Languages
 Plugin 'kchmck/vim-coffee-script'
@@ -49,12 +50,10 @@ Plugin 'mmalecki/vim-node.js'
 Plugin 'digitaltoad/vim-jade.git'
 
 " Clojure
-Plugin 'tpope/vim-fireplace.git'
-Plugin 'tpope/vim-leiningen.git'
-Plugin 'guns/vim-clojure-static.git'
+" Plugin 'tpope/vim-fireplace.git'
+" Plugin 'tpope/vim-leiningen.git'
+" Plugin 'guns/vim-clojure-static.git'
 
-Plugin 'ZoomWin'
-Plugin 'twerth/ir_black'
 
 call vundle#end()
 filetype plugin indent on
@@ -95,11 +94,13 @@ set ignorecase
 set smartcase
 set cursorline
 
-" set winheight=30
-" set winminheight=5
-
-nnoremap <silent> = :exe "resize " . (winheight(0) * 3/2)<CR>
-nnoremap <silent> - :exe "resize " . (winheight(0) * 2/3)<CR>
+" Fast window resizing with +/- keys (horizontal); / and * keys (vertical)
+if bufwinnr(1)
+  nnoremap <silent> = :exe "resize +5"<CR>
+  nnoremap <silent> - :exe "resize -5"<CR>
+  nnoremap <silent> < :exe "vertical resize -5"<CR>
+  nnoremap <silent> > :exe "vertical resize +5"<CR>
+endif
 
 set pastetoggle=<F5>
 
@@ -131,6 +132,9 @@ nnoremap <C-Right> :tabnext<CR>
 nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
 
+let g:slime_target = "tmux"
+let g:slime_default_config = {"socket_name": "default", "target_pane": "1"}
+
 let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
 let g:ackhighlight=1
 let g:ack_use_dispatch=1
@@ -151,48 +155,49 @@ let g:netrw_preview=1
 let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:10,results:10'
 
 let g:acp_enableAtStartup = 0
-" let g:neocomplete#enable_at_startup = 1
-" let g:neocomplete#force_overwrite_completefunc = 1
-" let g:neocomplete#enable_smart_case = 1
+
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#force_overwrite_completefunc = 1
+let g:neocomplete#enable_smart_case = 1
 
 " Set minimum syntax keyword length.
-" let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#sources#syntax#min_keyword_length = 3
 
 " Define dictionary.
-" let g:neocomplete#sources#dictionary#dictionaries = {
-"     \ 'default' : '',
-"     \ 'vimshell' : $HOME.'/.vimshell_hist',
-"     \ 'scheme' : $HOME.'/.gosh_completions'
-"        \ }
+let g:neocomplete#sources#dictionary#dictionaries = {
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ 'scheme' : $HOME.'/.gosh_completions'
+       \ }
 
 " Define keyword.
-" if !exists('g:neocomplete#keyword_patterns')
-"     let g:neocomplete#keyword_patterns = {}
-" endif
-" let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+if !exists('g:neocomplete#keyword_patterns')
+  let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
 " Plugin key-mappings.
-" inoremap <expr><C-g>     neocomplete#undo_completion()
-" inoremap <expr><C-l>     neocomplete#complete_common_string()
+inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-l>     neocomplete#complete_common_string()
 
 " Recommended key-mappings.
 " <CR>: close popup and save indent.
-" inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-" function! s:my_cr_function()
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
   " return neocomplete#close_popup() . "\<CR>"
   " For no inserting <CR> key.
-"   return pumvisible() ? neocomplete#close_popup() : "\<CR>"
-" endfunction
+  return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+endfunction
 
 " <TAB>: completion.
 " inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
-" inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-" inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-" inoremap <expr><C-y>  neocomplete#close_popup()
-" inoremap <expr><C-e>  neocomplete#cancel_popup()
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y> neocomplete#close_popup()
+inoremap <expr><C-e> neocomplete#cancel_popup()
 " Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
+inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
 
 " For cursor moving in insert mode(Not recommended)
 "inoremap <expr><Left>  neocomplete#close_popup() . "\<Left>"
@@ -205,7 +210,7 @@ let g:acp_enableAtStartup = 0
 "let g:neocomplete#enable_insert_char_pre = 1
 
 " AutoComplPop like behavior.
-"let g:neocomplete#enable_auto_select = 1
+let g:neocomplete#enable_auto_select = 1
 
 " Shell like behavior(not recommended).
 "set completeopt+=longest
@@ -221,16 +226,16 @@ autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Enable heavy omni completion.
-" if !exists('g:neocomplete#sources#omni#input_patterns')
-"   let g:neocomplete#sources#omni#input_patterns = {}
-" endif
-"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
-" let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 let g:tagbar_autofocus = 1
 let g:tagbar_autoclose = 1
@@ -291,9 +296,9 @@ let NERDTreeAutoDeleteBuffer=1
 let NERDTreeWinPos="left"
 " let g:NERDTreeWinSize=20
 
-let g:nerdtree_tabs_open_on_gui_startup=1
+let g:nerdtree_tabs_open_on_gui_startup=0
 let g:nerdtree_tabs_open_on_console_startup=0
-let g:nerdtree_tabs_smart_startup_focus=1
+let g:nerdtree_tabs_smart_startup_focus=0
 let g:nerdtree_tabs_meaningful_tab_name=1
 let g:nerdtree_tabs_autoclose=1
 let g:nerdtree_tabs_synchronize_view=1
@@ -359,8 +364,12 @@ augroup cline
 augroup END
 
 if has("gui_running")
-  set background=dark
-  color hybrid
+  set transparency=3
+  set background=light
+  " color hemisu
+  " color swamplight
+  " color pencil
+  color jellybeans+
 else
   let g:hybrid_use_iTerm_colors = 1
   colorscheme jellybeans+
@@ -482,7 +491,7 @@ endif
 " Kills Trailing Whitespaces
 command! KillWhitespace :normal :%s/ *$//g<cr><c-o><cr>
 
-set showtabline=2 " always show tabs in gvim, but not vim
+set showtabline=1 " always show tabs in gvim, but not vim
 " set up tab labels with tab number, buffer name, number of windows
 function! GuiTabLabel()
   let label = ''
