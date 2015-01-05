@@ -47,8 +47,8 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'rainux/vim-vala'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mmalecki/vim-node.js'
-Plugin 'digitaltoad/vim-jade.git'
-
+Plugin 'digitaltoad/vim-jade'
+Plugin 'kennethzfeng/vim-raml'
 " Clojure
 " Plugin 'tpope/vim-fireplace.git'
 " Plugin 'tpope/vim-leiningen.git'
@@ -157,11 +157,11 @@ let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:10,results:10'
 let g:acp_enableAtStartup = 0
 
 let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#force_overwrite_completefunc = 1
+" let g:neocomplete#force_overwrite_completefunc = 1
 let g:neocomplete#enable_smart_case = 1
 
 " Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#sources#syntax#min_keyword_length = 1
 
 " Define dictionary.
 let g:neocomplete#sources#dictionary#dictionaries = {
@@ -169,12 +169,6 @@ let g:neocomplete#sources#dictionary#dictionaries = {
     \ 'vimshell' : $HOME.'/.vimshell_hist',
     \ 'scheme' : $HOME.'/.gosh_completions'
        \ }
-
-" Define keyword.
-if !exists('g:neocomplete#keyword_patterns')
-  let g:neocomplete#keyword_patterns = {}
-endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
 " Plugin key-mappings.
 inoremap <expr><C-g>     neocomplete#undo_completion()
@@ -190,33 +184,17 @@ function! s:my_cr_function()
 endfunction
 
 " <TAB>: completion.
-" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y> neocomplete#close_popup()
 inoremap <expr><C-e> neocomplete#cancel_popup()
 " Close popup by <Space>.
-inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
-
-" For cursor moving in insert mode(Not recommended)
-"inoremap <expr><Left>  neocomplete#close_popup() . "\<Left>"
-"inoremap <expr><Right> neocomplete#close_popup() . "\<Right>"
-"inoremap <expr><Up>    neocomplete#close_popup() . "\<Up>"
-"inoremap <expr><Down>  neocomplete#close_popup() . "\<Down>"
-" Or set this.
-"let g:neocomplete#enable_cursor_hold_i = 1
-" Or set this.
-"let g:neocomplete#enable_insert_char_pre = 1
+" inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
 
 " AutoComplPop like behavior.
 let g:neocomplete#enable_auto_select = 1
-
-" Shell like behavior(not recommended).
-"set completeopt+=longest
-"let g:neocomplete#enable_auto_select = 1
-"let g:neocomplete#disable_auto_complete = 1
-"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -229,13 +207,6 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns = {}
 endif
-let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-
-" For perlomni.vim setting.
-" https://github.com/c9s/perlomni.vim
-let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 let g:tagbar_autofocus = 1
 let g:tagbar_autoclose = 1
@@ -316,7 +287,7 @@ if has('gui_running')
     " set guifont=Inconsolata:h19
     " set guifont=Droid\ Sans\ Mono:h18
     " set guifont=Menlo:h17
-    set guifont=Droid\ Sans\ Mono:h17
+    set guifont=Droid\ Sans\ Mono:h18
     " set guifont=Letter\ Gothic\ Std\ Medium:h16
   elseif has('unix')
     set guifont=Droid\ Sans\ Mono\ 16
