@@ -36,5 +36,4 @@ PATH=~/bin:/usr/local/bin:/usr/local/share/npm/bin:/usr/local/mysql/bin:/usr/loc
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

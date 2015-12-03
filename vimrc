@@ -157,11 +157,11 @@ let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:10,results:10'
 let g:acp_enableAtStartup = 0
 
 let g:neocomplete#enable_at_startup = 1
-" let g:neocomplete#force_overwrite_completefunc = 1
+let g:neocomplete#force_overwrite_completefunc = 1
 let g:neocomplete#enable_smart_case = 1
 
 " Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 1
+" let g:neocomplete#sources#syntax#min_keyword_length = 1
 
 " Define dictionary.
 let g:neocomplete#sources#dictionary#dictionaries = {
@@ -180,7 +180,7 @@ inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
   " return neocomplete#close_popup() . "\<CR>"
   " For no inserting <CR> key.
-  return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+  return pumvisible() ? neocomplete#smart_close_popup() : "\<CR>"
 endfunction
 
 " <TAB>: completion.
@@ -191,10 +191,10 @@ inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y> neocomplete#close_popup()
 inoremap <expr><C-e> neocomplete#cancel_popup()
 " Close popup by <Space>.
-" inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
+inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
 
 " AutoComplPop like behavior.
-let g:neocomplete#enable_auto_select = 1
+"let g:neocomplete#enable_auto_select = 1
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -265,7 +265,7 @@ let NERDTreeAutoCenter=1
 " let NERDTreeQuitOnOpen=1
 let NERDTreeAutoDeleteBuffer=1
 let NERDTreeWinPos="left"
-" let g:NERDTreeWinSize=20
+let g:NERDTreeWinSize=30
 
 let g:nerdtree_tabs_open_on_gui_startup=0
 let g:nerdtree_tabs_open_on_console_startup=0
@@ -343,7 +343,8 @@ if has("gui_running")
   color jellybeans+
 else
   let g:hybrid_use_iTerm_colors = 1
-  colorscheme jellybeans+
+  "colorscheme jellybeans+
+  color ir_dark
   hi TabLineFill ctermbg=8
   hi TabLine ctermbg=8
   hi SignColumn ctermbg=black
