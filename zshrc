@@ -1,7 +1,7 @@
 ZSH=$HOME/.oh-my-zsh
 export EDITOR="vim"
 # export ZSH_TMUX_AUTOSTART=true
-ZSH_THEME="minimal"
+ZSH_THEME="clean"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"

@@ -27,7 +27,7 @@ Plugin 'mileszs/ack.vim'
 Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'majutsushi/tagbar'
-Plugin 'bling/vim-airline.git'
+Plugin 'bling/vim-airline'
 Plugin 'Shougo/vimshell.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'Shougo/vimproc.vim'
@@ -44,11 +44,10 @@ Plugin 'jpalardy/vim-slime'
 
 " Languages
 Plugin 'kchmck/vim-coffee-script'
-Plugin 'rainux/vim-vala'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mmalecki/vim-node.js'
-Plugin 'digitaltoad/vim-jade'
-Plugin 'kennethzfeng/vim-raml'
+Plugin 'keith/swift.vim'
+
 " Clojure
 " Plugin 'tpope/vim-fireplace.git'
 " Plugin 'tpope/vim-leiningen.git'
@@ -71,6 +70,7 @@ set so=7
 set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
 
+set number
 set nobackup
 set nowb
 set noswapfile
@@ -115,9 +115,6 @@ if has("statusline") && !&cp
   set statusline+=[%b][0x%B]
 endif
 
-
-filetype plugin indent on
-
 map <Leader>= <C-w>=
 map <C-j> <C-W>j
 map <C-k> <C-W>k
@@ -161,7 +158,7 @@ let g:neocomplete#force_overwrite_completefunc = 1
 let g:neocomplete#enable_smart_case = 1
 
 " Set minimum syntax keyword length.
-" let g:neocomplete#sources#syntax#min_keyword_length = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 1
 
 " Define dictionary.
 let g:neocomplete#sources#dictionary#dictionaries = {
@@ -191,7 +188,7 @@ inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y> neocomplete#close_popup()
 inoremap <expr><C-e> neocomplete#cancel_popup()
 " Close popup by <Space>.
-inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
+"inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
 
 " AutoComplPop like behavior.
 "let g:neocomplete#enable_auto_select = 1
@@ -280,14 +277,14 @@ let g:buffergator_viewport_split_policy="T"
 let g:buffergator_split_size="10"
 
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,Procfile,Guardfile,config.ru,*.rake} set ft=ruby
-au BufRead,BufNewFile *.jsonify setfiletype ruby
+au BufRead,BufNewFile *.jbuilder setfiletype ruby
 
 if has('gui_running')
   if has('mac')
     " set guifont=Inconsolata:h19
     " set guifont=Droid\ Sans\ Mono:h18
-    " set guifont=Menlo:h17
-    set guifont=Droid\ Sans\ Mono:h18
+    set guifont=Monaco:h17
+    "set guifont=Droid\ Sans\ Mono:h18
     " set guifont=Letter\ Gothic\ Std\ Medium:h16
   elseif has('unix')
     set guifont=Droid\ Sans\ Mono\ 16
@@ -335,23 +332,22 @@ augroup cline
 augroup END
 
 if has("gui_running")
-  set transparency=3
-  set background=light
-  " color hemisu
-  " color swamplight
-  " color pencil
-  color jellybeans+
+  " color jellybeans+
+  " color gruvbox
+  color hybrid
 else
   let g:hybrid_use_iTerm_colors = 1
-  "colorscheme jellybeans+
-  color ir_dark
-  hi TabLineFill ctermbg=8
-  hi TabLine ctermbg=8
-  hi SignColumn ctermbg=black
-  hi GitGutterAdd ctermbg=black
-  hi GitGutterChange ctermbg=black
-  hi GitGutterDelete ctermbg=black
-  hi GitGutterChangeDelete ctermbg=black
+  " color jellybeans+
+  " color gruvbox
+  color hybrid
+
+"  hi TabLineFill ctermbg=8
+"  hi TabLine ctermbg=8
+"  hi SignColumn ctermbg=black
+"  hi GitGutterAdd ctermbg=black
+"  hi GitGutterChange ctermbg=black
+"  hi GitGutterDelete ctermbg=black
+"  hi GitGutterChangeDelete ctermbg=black
 end
 
 if has("gui_macvim") && has("gui_running")
