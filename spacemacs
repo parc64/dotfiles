@@ -253,9 +253,6 @@ values."
   (setq neo-theme 'arrow)
   (setq vc-follow-symlinks t)
 
-  (setq paradox-github-token 'b3a4e48c77535acadb6d8058de38b31158b5aa87)
-
-
   (spacemacs/set-leader-keys
     "im" 'helm-imenu
   )
