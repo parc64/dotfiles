@@ -46,12 +46,6 @@ Plugin 'jpalardy/vim-slime'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mmalecki/vim-node.js'
-Plugin 'keith/swift.vim'
-
-" Clojure
-" Plugin 'tpope/vim-fireplace.git'
-" Plugin 'tpope/vim-leiningen.git'
-" Plugin 'guns/vim-clojure-static.git'
 
 
 call vundle#end()
@@ -141,7 +135,7 @@ let g:indentLine_color_term=235
 let g:indentLine_color_gui='#2e2e2e'
 let g:indentLine_noConcealCursor=1
 
-let g:airline_powerline_fonts=0
+let g:airline_powerline_fonts=1
 let g:airline_detect_modified=1
 let g:airline_inactive_collapse=0
 
@@ -158,14 +152,7 @@ let g:neocomplete#force_overwrite_completefunc = 1
 let g:neocomplete#enable_smart_case = 1
 
 " Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 1
-
-" Define dictionary.
-let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-       \ }
+let g:neocomplete#sources#syntax#min_keyword_length = 2
 
 " Plugin key-mappings.
 inoremap <expr><C-g>     neocomplete#undo_completion()
