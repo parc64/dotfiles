@@ -249,7 +249,7 @@ values."
   (global-set-key [f8] 'neotree-toggle)
   (setq company-idle-delay 0)
   (setq company-minimum-prefix-length 0)
-  (setq neo-window-width 20)
+  (setq neo-window-width 25)
   (setq neo-show-hidden-files nil)
   (setq neo-theme 'arrow)
   (setq vc-follow-symlinks t)

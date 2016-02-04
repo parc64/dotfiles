@@ -41,6 +41,7 @@ Plugin 'TechnoGate/janus-colors'
 Plugin 'rizzatti/dash.vim'
 Plugin 'sunaku/vim-ruby-minitest'
 Plugin 'jpalardy/vim-slime'
+Plugin 'ngmy/vim-rubocop'
 
 " Languages
 Plugin 'kchmck/vim-coffee-script'
@@ -270,7 +271,8 @@ if has('gui_running')
   if has('mac')
     " set guifont=Inconsolata:h19
     " set guifont=Droid\ Sans\ Mono:h18
-    set guifont=Monaco:h17
+    " set guifont=Monaco:h17
+    set guifont=Droid\ Sans\ Mono\ for\ Powerline:h16
     "set guifont=Droid\ Sans\ Mono:h18
     " set guifont=Letter\ Gothic\ Std\ Medium:h16
   elseif has('unix')
