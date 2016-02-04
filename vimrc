@@ -4,57 +4,57 @@ set ttyfast
 set t_Co=256
 filetype off
 
-" Vundle!
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+set runtimepath^=~/.vim/bundle/neobundle.vim/
+call neobundle#begin(expand('~/.vim/bundle/'))
+NeoBundleFetch 'Shougo/neobundle.vim'
 
-Plugin 'gmarik/Vundle.vim'
-
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-dispatch'
-Plugin 'tpope/vim-haml'
-Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/syntastic'
-Plugin 'Shougo/neocomplete'
-Plugin 'Shougo/neosnippet'
-Plugin 'Shougo/neosnippet-snippets'
-Plugin 'mileszs/ack.vim'
-Plugin 'jeetsukumaran/vim-buffergator'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'majutsushi/tagbar'
-Plugin 'bling/vim-airline'
-Plugin 'Shougo/vimshell.vim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'Shougo/vimproc.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'Lokaltog/vim-easymotion'
-" Plugin 'Yggdroot/indentLine'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'twerth/ir_black'
-Plugin 'TechnoGate/janus-colors'
-" Plugin 'chrisbra/NrrwRgn'
-Plugin 'rizzatti/dash.vim'
-Plugin 'sunaku/vim-ruby-minitest'
-Plugin 'jpalardy/vim-slime'
-Plugin 'ngmy/vim-rubocop'
+NeoBundle 'vim-ruby/vim-ruby'
+NeoBundle 'tpope/vim-rails'
+NeoBundle 'tpope/vim-endwise'
+NeoBundle 'tpope/vim-dispatch'
+NeoBundle 'tpope/vim-haml'
+NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'jistr/vim-nerdtree-tabs'
+NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'Shougo/neocomplete'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'rking/ag.vim'
+NeoBundle 'jeetsukumaran/vim-buffergator'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'majutsushi/tagbar'
+NeoBundle 'bling/vim-airline'
+NeoBundle 'Shougo/vimshell.vim'
+NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'Shougo/vimproc.vim'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'flazz/vim-colorschemes'
+NeoBundle 'twerth/ir_black'
+NeoBundle 'TechnoGate/janus-colors'
+NeoBundle 'chrisbra/NrrwRgn'
+NeoBundle 'rizzatti/dash.vim'
+NeoBundle 'sunaku/vim-ruby-minitest'
+NeoBundle 'jpalardy/vim-slime'
+NeoBundle 'ngmy/vim-rubocop'
+NeoBundle 'Shougo/unite.vim'
 
 " Languages
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'pangloss/vim-javascript'
-Plugin 'mmalecki/vim-node.js'
+NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'mmalecki/vim-node.js'
 
-
-call vundle#end()
+call neobundle#end()
+set smartindent
+set autoindent
 filetype plugin indent on
+
+NeoBundleCheck
 
 syntax enable
 set ruler
-
 
 set autoread
 " set completeopt=longest,menuone
@@ -65,7 +65,13 @@ set so=7
 set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
 
-set number
+nnoremap <Space> <nop>
+let mapleader = "\<Space>"
+noremap <Leader>ft :NERDTreeToggle<CR>
+noremap <Leader>ff :.,$!rubocop --auto-correct<CR>
+
+
+set nonumber
 set nobackup
 set nowb
 set noswapfile
@@ -155,7 +161,7 @@ let g:neocomplete#enable_smart_case = 1
 " Set minimum syntax keyword length.
 let g:neocomplete#sources#syntax#min_keyword_length = 2
 
-" Plugin key-mappings.
+" NeoBundle key-mappings.
 inoremap <expr><C-g>     neocomplete#undo_completion()
 inoremap <expr><C-l>     neocomplete#complete_common_string()
 
@@ -250,7 +256,7 @@ let NERDTreeAutoCenter=1
 " let NERDTreeQuitOnOpen=1
 let NERDTreeAutoDeleteBuffer=1
 let NERDTreeWinPos="left"
-let g:NERDTreeWinSize=30
+let g:NERDTreeWinSize=25
 
 let g:nerdtree_tabs_open_on_gui_startup=0
 let g:nerdtree_tabs_open_on_console_startup=0
@@ -401,7 +407,7 @@ else
 
   imap <A-]> <Esc>>>i
   imap <A-[> <Esc><<i
- 
+
   " Bubble single lines
   nmap <C-Up> [e
   nmap <C-Down> ]e
@@ -518,4 +524,17 @@ aug AutoloadVimrc
   au!
   au BufWritePost .vimrc source ~/.vimrc
 aug END
+
+" makes ctrlp much faster
+let g:ctrlp_use_caching = 0
+if executable('ag')
+    set grepprg=ag\ --nogroup\ --nocolor
+
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+else
+  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+  let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
+    \ } 
+endif
 
