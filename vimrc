@@ -39,7 +39,8 @@ NeoBundle 'rizzatti/dash.vim'
 NeoBundle 'sunaku/vim-ruby-minitest'
 NeoBundle 'jpalardy/vim-slime'
 NeoBundle 'ngmy/vim-rubocop'
-NeoBundle 'Shougo/unite.vim'
+NeoBundle 'epeli/slimux'
+NeoBundle 'skalnik/vim-vroom'
 
 " Languages
 NeoBundle 'kchmck/vim-coffee-script'
@@ -70,8 +71,13 @@ let mapleader = "\<Space>"
 noremap <Leader>ft :NERDTreeToggle<CR>
 noremap <Leader>ff :.,$!rubocop --auto-correct<CR>
 
+noremap <Leader>sc :SlimuxShellConfig<CR>
+noremap <Leader>sp :SlimuxShellPrompt<CR>
+noremap <Leader>sr :SlimuxShellRun<CR>
 
-set nonumber
+:nmap <silent> <leader>d <Plug>DashSearch
+
+set number
 set nobackup
 set nowb
 set noswapfile
@@ -159,7 +165,7 @@ let g:neocomplete#force_overwrite_completefunc = 1
 let g:neocomplete#enable_smart_case = 1
 
 " Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 2
+let g:neocomplete#sources#syntax#min_keyword_length = 4
 
 " NeoBundle key-mappings.
 inoremap <expr><C-g>     neocomplete#undo_completion()
@@ -193,6 +199,9 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+au FileType xml exe ":silent %!xmllint --format --recover - 2>/dev/null"
+au FileType xsd exe ":silent %!xmllint --format --recover - 2>/dev/null"
 
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
@@ -278,12 +287,12 @@ if has('gui_running')
     " set guifont=Inconsolata:h19
     " set guifont=Droid\ Sans\ Mono:h18
     " set guifont=Monaco:h17
-    set guifont=Droid\ Sans\ Mono\ for\ Powerline:h16
+    set guifont=Droid\ Sans\ Mono\ for\ Powerline:h13
     "set guifont=Droid\ Sans\ Mono:h18
     " set guifont=Letter\ Gothic\ Std\ Medium:h16
   elseif has('unix')
     set guifont=Droid\ Sans\ Mono\ 16
-    set guifont=Droid\ Sans\ Mono\ for\ Powerline:h18
+    set guifont=Droid\ Sans\ Mono\ for\ Powerline:h15
   endif
 
   set guioptions-=m
@@ -329,13 +338,18 @@ augroup END
 if has("gui_running")
   " color jellybeans+
   " color gruvbox
-  color hybrid
+  let g:solarized_contrast="high"    "default value is normal
+  let g:solarized_diffmode="low"    "default value is normal
+  let g:solarized_hitrail=1    "default value is 0
+  set background=light
+  color solarized
+  "hi Search guifg=grey guibg=blue
 else
   let g:hybrid_use_iTerm_colors = 1
   " color jellybeans+
   " color gruvbox
   color hybrid
-
+  hi Search cterm=NONE ctermfg=grey ctermbg=blue
 "  hi TabLineFill ctermbg=8
 "  hi TabLine ctermbg=8
 "  hi SignColumn ctermbg=black
