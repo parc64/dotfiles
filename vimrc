@@ -287,7 +287,7 @@ if has('gui_running')
     " set guifont=Inconsolata:h19
     " set guifont=Droid\ Sans\ Mono:h18
     " set guifont=Monaco:h17
-    set guifont=Droid\ Sans\ Mono\ for\ Powerline:h13
+    set guifont=Droid\ Sans\ Mono\ for\ Powerline:h15
     "set guifont=Droid\ Sans\ Mono:h18
     " set guifont=Letter\ Gothic\ Std\ Medium:h16
   elseif has('unix')
@@ -341,15 +341,15 @@ if has("gui_running")
   let g:solarized_contrast="high"    "default value is normal
   let g:solarized_diffmode="low"    "default value is normal
   let g:solarized_hitrail=1    "default value is 0
-  set background=light
-  color solarized
-  "hi Search guifg=grey guibg=blue
+  set background=dark
+  color hybrid
+  hi Search guifg=grey guibg=blue
 else
   let g:hybrid_use_iTerm_colors = 1
   " color jellybeans+
   " color gruvbox
+  set background=dark
   color hybrid
-  hi Search cterm=NONE ctermfg=grey ctermbg=blue
 "  hi TabLineFill ctermbg=8
 "  hi TabLine ctermbg=8
 "  hi SignColumn ctermbg=black

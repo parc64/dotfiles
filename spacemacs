@@ -43,6 +43,7 @@ values."
      themes-megapack
      theming
      vim-empty-lines
+     helm-dash
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -108,10 +109,11 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(heroku
-                         material-light
-                         sanityinc-solarized-light
+   dotspacemacs-themes '(sanityinc-solarized-light
+                         sanityinc-solarized-dark
                          zenburn
+                         heroku
+                         material-light
                          gruvbox
                          spacemacs-light
                          spacemacs-dark)
@@ -120,7 +122,7 @@ values."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("Droid Sans Mono for Powerline"
-                               :size 18.0
+                               :size 16.0
                                :weight normal
                                :width normal
                                :powerline-scale 1.2)
