@@ -36,5 +36,3 @@ PATH=~/bin:/usr/local/bin:/usr/local/mysql/bin:/usr/local/sbin:/opt/X11/bin:~/.c
 export PATH
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
-export HOMEBREW_GITHUB_API_TOKEN="c7eeed866a1ffe648bcc4addea84bcf4ff4ced36"
