@@ -3,6 +3,7 @@ export EDITOR="vim"
 # export ZSH_TMUX_AUTOSTART=true
 ZSH_THEME="minimal"
 
+export ZSH
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
@@ -25,13 +26,15 @@ DISABLE_AUTO_TITLE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(vi-mode osx rails ruby bundler brew autojump history tmux)
+plugins=(osx rails ruby rvm bundler brew tmux colorize aws)
 source $ZSH/oh-my-zsh.sh
 
 unsetopt correct_all
 unsetopt share_history
 
-PATH=~/bin:/usr/local/bin:/usr/local/share/npm/bin:/usr/local/mysql/bin:/usr/local/sbin:/opt/X11/bin:~/.cabal/bin:~/src/deploy_noesis/bin:/usr/bin:/bin:/usr/sbin:/sbin:~/bin/sbin:~/.npm:/Applications/MATLAB_R2012b.app/bin/maci64:$PATH
+PATH=~/bin:/usr/local/bin:/usr/local/mysql/bin:/usr/local/sbin:/opt/X11/bin:~/.cabal/bin:~/src/deploy_noesis/bin:/usr/bin:/bin:/usr/sbin:/sbin:~/bin/sbin:$PATH
 export PATH
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+export HOMEBREW_GITHUB_API_TOKEN="c7eeed866a1ffe648bcc4addea84bcf4ff4ced36"

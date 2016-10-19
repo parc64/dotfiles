@@ -46,6 +46,7 @@ NeoBundle 'skalnik/vim-vroom'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'mmalecki/vim-node.js'
+NeoBundle 'rust-lang/rust.vim'
 
 call neobundle#end()
 set smartindent
@@ -148,7 +149,7 @@ let g:indentLine_color_term=235
 let g:indentLine_color_gui='#2e2e2e'
 let g:indentLine_noConcealCursor=1
 
-let g:airline_powerline_fonts=1
+let g:airline_powerline_fonts=0
 let g:airline_detect_modified=1
 let g:airline_inactive_collapse=0
 
@@ -342,14 +343,11 @@ if has("gui_running")
   let g:solarized_diffmode="low"    "default value is normal
   let g:solarized_hitrail=1    "default value is 0
   set background=dark
-  color hybrid
+  color jellybeans+
   hi Search guifg=grey guibg=blue
 else
-  let g:hybrid_use_iTerm_colors = 1
-  " color jellybeans+
-  " color gruvbox
-  set background=dark
-  color hybrid
+  " let g:hybrid_use_iTerm_colors = 1
+  color jellybeans+
 "  hi TabLineFill ctermbg=8
 "  hi TabLine ctermbg=8
 "  hi SignColumn ctermbg=black
