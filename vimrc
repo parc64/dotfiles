@@ -337,8 +337,6 @@ augroup cline
 augroup END
 
 if has("gui_running")
-  " color jellybeans+
-  " color gruvbox
   let g:solarized_contrast="high"    "default value is normal
   let g:solarized_diffmode="low"    "default value is normal
   let g:solarized_hitrail=1    "default value is 0
@@ -346,15 +344,16 @@ if has("gui_running")
   color jellybeans+
   hi Search guifg=grey guibg=blue
 else
-  " let g:hybrid_use_iTerm_colors = 1
-  color jellybeans+
-"  hi TabLineFill ctermbg=8
-"  hi TabLine ctermbg=8
-"  hi SignColumn ctermbg=black
-"  hi GitGutterAdd ctermbg=black
-"  hi GitGutterChange ctermbg=black
-"  hi GitGutterDelete ctermbg=black
-"  hi GitGutterChangeDelete ctermbg=black
+  let g:hybrid_use_iTerm_colors = 1
+  set background=light
+  color solarized
+  hi TabLineFill ctermbg=8
+  hi TabLine ctermbg=8
+  hi SignColumn ctermbg=black
+  hi GitGutterAdd ctermbg=black
+  hi GitGutterChange ctermbg=black
+  hi GitGutterDelete ctermbg=black
+  hi GitGutterChangeDelete ctermbg=black
 end
 
 if has("gui_macvim") && has("gui_running")
@@ -466,7 +465,7 @@ endif
 " Kills Trailing Whitespaces
 command! KillWhitespace :normal :%s/ *$//g<cr><c-o><cr>
 
-set showtabline=1 " always show tabs in gvim, but not vim
+set showtabline=1
 " set up tab labels with tab number, buffer name, number of windows
 function! GuiTabLabel()
   let label = ''
