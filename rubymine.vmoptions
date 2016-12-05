@@ -1,0 +1,12 @@
+-server
+-ea
+-Xmx4096m
+-Xms4096m
+-XX:+UseG1GC
+-XX:-UseParNewGC
+-XX:-UseConcMarkSweepGC
+-XX:ReservedCodeCacheSize=256m
+-XX:-OmitStackTraceInFastThrow
+-XX:MaxPermSize=512m
+-XX:+UseCompressedOops
+-Dsun.io.useCanonCaches=false
