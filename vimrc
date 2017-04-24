@@ -21,7 +21,7 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'Shougo/neocomplete'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'rking/ag.vim'
+NeoBundle 'mileszs/ack.vim'
 NeoBundle 'jeetsukumaran/vim-buffergator'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'majutsushi/tagbar'
@@ -78,7 +78,7 @@ noremap <Leader>sr :SlimuxShellRun<CR>
 
 :nmap <silent> <leader>d <Plug>DashSearch
 
-set number
+set nonumber
 set nobackup
 set nowb
 set noswapfile
@@ -288,16 +288,15 @@ if has('gui_running')
     " set guifont=Inconsolata:h19
     " set guifont=Droid\ Sans\ Mono:h18
     " set guifont=Monaco:h17
-    set guifont=Droid\ Sans\ Mono\ for\ Powerline:h15
-    "set guifont=Droid\ Sans\ Mono:h18
+    " set guifont=Droid\ Sans\ Mono\ for\ Powerline:h15
+    " set guifont=Droid\ Sans\ Mono:h18
     " set guifont=Letter\ Gothic\ Std\ Medium:h16
   elseif has('unix')
-    set guifont=Droid\ Sans\ Mono\ 16
-    set guifont=Droid\ Sans\ Mono\ for\ Powerline:h15
+    set guifont=Ubuntu\ Mono\ 18
   endif
 
-  set guioptions-=m
-  set guioptions-=T
+  "set guioptions-=m
+  "set guioptions-=T
   set guioptions-=r
   set guioptions-=l
   set guioptions-=L
@@ -345,8 +344,8 @@ if has("gui_running")
   hi Search guifg=grey guibg=blue
 else
   let g:hybrid_use_iTerm_colors = 1
-  set background=light
-  color solarized
+  set background=dark
+  color jellybeans+
   hi TabLineFill ctermbg=8
   hi TabLine ctermbg=8
   hi SignColumn ctermbg=black
