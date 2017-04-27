@@ -153,7 +153,7 @@ values."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Menlo"
-                               :size 20
+                               :size 16
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -324,6 +324,7 @@ you should place your code here."
   (setq neo-show-hidden-files nil)
   (spacemacs/toggle-aggressive-indent-on)
   (spacemacs/toggle-truncate-lines-off)
+  (spacemacs/toggle-minibuffer-system-monitor-on)
 
   (use-package magithub
     :after magit
