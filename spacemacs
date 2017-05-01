@@ -157,10 +157,11 @@ values."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Ubuntu Mono"
+                               :style "Regular"
                                :size 26
                                :weight normal
                                :width normal
-                               :powerline-scale 1.2)
+                               :powerline-scale 1.1)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
    ;; The key used for Emacs commands (M-x) (after pressing on the leader key).
@@ -330,6 +331,9 @@ you should place your code here."
   (spacemacs/toggle-aggressive-indent-on)
   (spacemacs/toggle-menu-bar-on)
   (spacemacs/toggle-truncate-lines-off)
+  (spacemacs/toggle-vi-tilde-fringe-off)
+
+  (setq vc-follow-symlinks t)
   ;; (spacemacs/toggle-minibuffer-system-monitor-on)
 
   (use-package magithub
