@@ -339,7 +339,6 @@ you should place your code here."
   (setq create-lockfiles nil)
   (setq multi-term-program-switches "--login")
   (setq vc-follow-symlinks t)
-  (setq paradox-github-token "aaf1fba38f10c29f872f079173e9bc883ec8842e")
   ;; (spacemacs/toggle-minibuffer-system-monitor-on)
 
   (use-package magithub
