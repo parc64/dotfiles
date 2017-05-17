@@ -159,10 +159,10 @@ values."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Fira Code"
-                               :size 19
-                               :weight normal
+                               :size 12
+                               :weight light
                                :width normal
-                               :powerline-scale 1.2)
+                               :powerline-scale 1.0)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
    ;; The key used for Emacs commands (M-x) (after pressing on the leader key).
@@ -328,7 +328,6 @@ you should place your code here."
   (setq neo-smart-open t)
   (setq neo-theme 'nerd)
   (setq neo-show-hidden-files nil)
-  (setq line-spacing 2.5)
 
   (spacemacs/toggle-aggressive-indent-on)
   (spacemacs/toggle-menu-bar-on)
