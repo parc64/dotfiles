@@ -1,0 +1,190 @@
+
+call plug#begin('~/.local/share/nvim/plugged')
+
+Plug 'vim-ruby/vim-ruby'
+
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-haml'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+
+Plug 'kien/ctrlp.vim'
+
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/syntastic'
+
+Plug 'Shougo/deoplete.nvim'
+Plug 'mileszs/ack.vim'
+Plug 'jeetsukumaran/vim-buffergator'
+Plug 'majutsushi/tagbar'
+Plug 'vim-airline/vim-airline'
+Plug 'airblade/vim-gitgutter'
+Plug 'easymotion/vim-easymotion'
+
+Plug 'flazz/vim-colorschemes'
+Plug 'twerth/ir_black'
+Plug 'TechnoGate/janus-colors'
+
+Plug 'jpalardy/vim-slime'
+Plug 'epeli/slimux'
+
+Plug 'ngmy/vim-rubocop'
+Plug 'skalnik/vim-vroom'
+
+Plug 'vimwiki/vimwiki'
+Plug 'zhaocai/GoldenView.Vim'
+Plug 'ervandew/supertab'
+
+Plug 'kchmck/vim-coffee-script'
+Plug 'pangloss/vim-javascript'
+Plug 'mmalecki/vim-node.js'
+Plug 'rust-lang/rust.vim'
+
+" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" Plug 'junegunn/fzf.vim'
+
+Plug 'dkprice/vim-easygrep'
+
+set cursorline!
+
+call plug#end()
+
+noremap <Leader>nt :NERDTreeToggle<CR>
+
+let NERDTreeMinimalUI=1
+let NERDTreeShowBookmarks=1
+let NERDTreeChDirMode=2
+let NERDTreeChristmasTree=1
+let NERDTreeAutoCenter=1
+let NERDTreeAutoDeleteBuffer=1
+let NERDTreeWinPos="left"
+let NERDTreeWinSize=25
+let NERDTreeShowHidden=0
+
+let g:airline_powerline_fonts=1
+let g:airline_detect_modified=1
+let g:airline_inactive_collapse=1
+
+let g:buffergator_sort_regime="mru"
+let g:buffergator_viewport_split_policy="T"
+let g:buffergator_split_size="10"
+
+let g:goldenview__enable_default_mapping = 0
+let g:goldenview__enable_at_startup = 1
+
+nnoremap <silent> <F8> :TlistToggle<CR>
+
+noremap  <F2> :NERDTreeFind<CR>
+inoremap <F2> <esc>:NERDTreeFind<CR>
+
+" noremap  <D-1> :NERDTreeToggle<CR>
+" inoremap <D-1> <esc>:NERDTreeToggle<CR>
+
+noremap  <F1> :NERDTreeToggle<CR>
+inoremap <F1> <esc>:NERDTreeToggle<CR>
+
+nnoremap <silent> <F3> :TagbarToggle<CR>
+
+nnoremap <F6> :set nonumber!<CR>
+
+noremap  <F4> :Terminal<CR>
+inoremap <F4> <esc>:Termianl<CR>
+
+" Mapping selecting mappings
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+
+" Insert mode completion
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+imap <c-x><c-l> <plug>(fzf-complete-line)
+
+" NeoVim smooth scrolling
+:map <C-U> <C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y>
+:map <C-D> <C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E>
+
+" Advanced customization using autoload functions
+inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '14%'})
+au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,Procfile,Guardfile,config.ru,*.rake} set ft=ruby
+au BufRead,BufNewFile *.jbuilder setfiletype ruby
+
+if has('gui_running')
+  set guifont=Sauce\ Code\ Powerline\ Light:h14
+
+  "set guioptions-=m
+  "set guioptions-=T
+  set guioptions-=r
+  set guioptions-=l
+  set guioptions-=L
+else
+  " Mouse support
+  set mouse=a
+
+  " These sequences tell iTerm2 to change the cursor shape to a bar or block.
+  let cursor_to_bar   = "\<Esc>]50;CursorShape=1\x7"
+  let cursor_to_block = "\<Esc>]50;CursorShape=0\x7"
+
+  if exists('$TMUX')
+    let tmux_start = "\<Esc>Ptmux;"
+    let tmux_end   = "\<Esc>\\"
+
+    let cursor_to_bar   = tmux_start . "\<Esc>" . cursor_to_bar   . tmux_end
+    let cursor_to_block = tmux_start . "\<Esc>" . cursor_to_block . tmux_end
+  endif
+
+  " When entering insert mode, change the cursor to a bar.
+  " When exiting insert mode, change it back to a block.
+  let &t_SI = cursor_to_bar
+  let &t_EI = cursor_to_block
+endif
+
+set clipboard=unnamed
+
+" Only show cursorline in the current window and in normal mode.
+" augroup cline
+  " au!
+"  au WinLeave * set nocursorline
+  "au WinEnter * set cursorline
+"  au InsertEnter * set nocursorline
+"  au InsertLeave * set cursorline
+"augroup END
+
+if has("gui_running")
+  let g:solarized_contrast="high"    "default value is normal
+  let g:solarized_diffmode="low"    "default value is normal
+  let g:solarized_hitrail=1    "default value is 0
+  " set background=dark
+  color ir_dark
+  hi SignColumn guibg=#232323
+  hi GitGutterAdd guibg=#232323
+  hi GitGutterAdd guifg=green
+  hi GitGutterChange guibg=#232323
+  hi GitGutterChange guifg=yellow
+  hi GitGutterDelete guibg=#232323
+  hi GitGutterDelete guifg=red
+  hi GitGutterChangeDelete guibg=#232323
+  hi GitGutterChangeDelete guifg=purple
+  hi Search guifg=green guibg=darkblue
+  hi CursorLine guibg=#303030
+  " hi CursorColumn guibg=#303030
+else
+  let g:hybrid_use_iTerm_colors = 1
+  let g:solarized_contrast="high"    "default value is normal
+  let g:solarized_diffmode="low"    "default value is normal
+  let g:solarized_hitrail=1    "default value is 0
+  " set background=light
+  color ir_dark
+  hi TabLineFill ctermbg=8
+  hi TabLine ctermbg=8
+end
+
+" Kills Trailing Whitespaces
+command! KillWhitespace :normal :%s/ *$//g<cr><c-o><cr>
+

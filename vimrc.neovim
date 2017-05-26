@@ -8,14 +8,11 @@ set runtimepath^=~/.vim/bundle/neobundle.vim/
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-NeoBundle 'tpope/vim-sensible'
-NeoBundle 'tpope/vim-surround'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'tpope/vim-dispatch'
 NeoBundle 'tpope/vim-haml'
-NeoBundle 'tpope/vim-commentary'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'jistr/vim-nerdtree-tabs'
@@ -24,10 +21,7 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'Shougo/neocomplete'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'dyng/ctrlsf.vim'
-NeoBundle 'nazo/pt.vim'
+NeoBundle 'mileszs/ack.vim'
 NeoBundle 'jeetsukumaran/vim-buffergator'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'majutsushi/tagbar'
@@ -48,8 +42,6 @@ NeoBundle 'ngmy/vim-rubocop'
 NeoBundle 'epeli/slimux'
 NeoBundle 'skalnik/vim-vroom'
 
-NeoBundle 'xolox/vim-misc'
-NeoBundle 'xolox/vim-easytags'
 " Languages
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'pangloss/vim-javascript'
@@ -75,9 +67,8 @@ set so=7
 set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
 
-noremap <Space> <nop>
+nnoremap <Space> <nop>
 let mapleader = "\<Space>"
-
 noremap <Leader>ft :NERDTreeToggle<CR>
 noremap <Leader>ff :.,$!rubocop --auto-correct<CR>
 
@@ -86,14 +77,6 @@ noremap <Leader>sp :SlimuxShellPrompt<CR>
 noremap <Leader>sr :SlimuxShellRun<CR>
 
 :nmap <silent> <leader>d <Plug>DashSearch
-
-nnoremap <silent> ,g :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
-if executable('pt')
-  let g:unite_source_grep_command = 'pt'
-  let g:unite_source_grep_default_opts = '--nogroup --nocolor'
-  let g:unite_source_grep_recursive_opt = ''
-  let g:unite_source_grep_encoding = 'utf-8'
-endif
 
 set nonumber
 set nobackup
@@ -140,6 +123,12 @@ if has("statusline") && !&cp
   set statusline+=[%b][0x%B]
 endif
 
+map <Leader>= <C-w>=
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
 " Clean trailing whitespace
 nnoremap <leader>w mz:%s/\s\+$//<cr>:let @/=''<cr>`z
 
@@ -168,9 +157,7 @@ let g:netrw_liststyle=4
 let g:netrw_browse_split=4
 let g:netrw_preview=1
 
-let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:20,results:20'
-let g:ctrlp_use_caching = 1
-let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:10,results:10'
 
 let g:acp_enableAtStartup = 0
 
