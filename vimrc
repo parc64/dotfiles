@@ -14,19 +14,14 @@ NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'tpope/vim-dispatch'
-NeoBundle 'tpope/vim-haml'
 NeoBundle 'tpope/vim-commentary'
-NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'jistr/vim-nerdtree-tabs'
-NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'scrooloose/syntastic'
+
 NeoBundle 'Shougo/neocomplete'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'dyng/ctrlsf.vim'
 NeoBundle 'nazo/pt.vim'
 NeoBundle 'jeetsukumaran/vim-buffergator'
 NeoBundle 'altercation/vim-colors-solarized'
@@ -37,11 +32,12 @@ NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'Shougo/vimproc.vim'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'Lokaltog/vim-easymotion'
+
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'twerth/ir_black'
 NeoBundle 'TechnoGate/janus-colors'
+
 NeoBundle 'chrisbra/NrrwRgn'
-NeoBundle 'rizzatti/dash.vim'
 NeoBundle 'sunaku/vim-ruby-minitest'
 NeoBundle 'jpalardy/vim-slime'
 NeoBundle 'ngmy/vim-rubocop'
@@ -50,6 +46,8 @@ NeoBundle 'skalnik/vim-vroom'
 
 NeoBundle 'xolox/vim-misc'
 NeoBundle 'xolox/vim-easytags'
+NeoBundle 'xolox/vim-shell'
+
 " Languages
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'pangloss/vim-javascript'
@@ -75,8 +73,9 @@ set so=7
 set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
 
-noremap <Space> <nop>
-let mapleader = "\<Space>"
+" noremap <Space> <nop>
+" let mapleader = "\<Space>"
+let mapleader = "\\"
 
 noremap <Leader>ft :NERDTreeToggle<CR>
 noremap <Leader>ff :.,$!rubocop --auto-correct<CR>
@@ -86,14 +85,6 @@ noremap <Leader>sp :SlimuxShellPrompt<CR>
 noremap <Leader>sr :SlimuxShellRun<CR>
 
 :nmap <silent> <leader>d <Plug>DashSearch
-
-nnoremap <silent> ,g :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
-if executable('pt')
-  let g:unite_source_grep_command = 'pt'
-  let g:unite_source_grep_default_opts = '--nogroup --nocolor'
-  let g:unite_source_grep_recursive_opt = ''
-  let g:unite_source_grep_encoding = 'utf-8'
-endif
 
 set nonumber
 set nobackup
@@ -168,9 +159,18 @@ let g:netrw_liststyle=4
 let g:netrw_browse_split=4
 let g:netrw_preview=1
 
-let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:20,results:20'
-let g:ctrlp_use_caching = 1
-let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_match_window='bottom,order:ttb,min:1,max:10,results:100'
+let g:ctrlp_use_caching=1
+let g:ctrlp_max_files=0
+let g:ctrlp_max_depth=40
+let g:ctrlp_user_command=['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
+let g:easytags_cmd='/usr/local/bin/ctags'
+let g:easytags_opt=['--fields=+l --exclude=./vendor --exclude=./public']
+set tags=./.tags;
+let g:easytags_dynamic_files=1
+let g:easytags_async=1
+let g:easytags_auto_highlight=1
 
 let g:acp_enableAtStartup = 0
 
@@ -180,6 +180,18 @@ let g:neocomplete#enable_smart_case = 1
 
 " Set minimum syntax keyword length.
 let g:neocomplete#sources#syntax#min_keyword_length = 4
+
+let g:tagbar_type_ruby = {
+    \ 'kinds' : [
+        \ 'm:modules',
+        \ 'c:classes',
+        \ 'd:describes',
+        \ 'C:contexts',
+        \ 'f:methods',
+        \ 'F:singleton methods'
+    \ ]
+\ }
+
 
 " NeoBundle key-mappings.
 inoremap <expr><C-g>     neocomplete#undo_completion()
@@ -248,8 +260,6 @@ set wildignore+=*.spl                            " compiled spelling word lists
 set wildignore+=*.sw?                            " Vim swap files
 set wildignore+=*.DS_Store                       " OSX bullshit
 
-nnoremap <silent> <F8> :TlistToggle<CR>
-
 noremap  <F1> :NERDTreeFind<CR>
 inoremap <F1> <esc>:NERDTreeFind<CR>
 
@@ -298,12 +308,7 @@ au BufRead,BufNewFile *.jbuilder setfiletype ruby
 
 if has('gui_running')
   if has('mac')
-    " set guifont=Inconsolata:h19
-    " set guifont=Droid\ Sans\ Mono:h18
-    " set guifont=Monaco:h17
-    " set guifont=Droid\ Sans\ Mono\ for\ Powerline:h15
-    " set guifont=Droid\ Sans\ Mono:h18
-    " set guifont=Letter\ Gothic\ Std\ Medium:h16
+    set guifont=Fira\ Code:h22
   elseif has('unix')
     set guifont=Ubuntu\ Mono\ 18
   endif
@@ -313,6 +318,7 @@ if has('gui_running')
   set guioptions-=r
   set guioptions-=l
   set guioptions-=L
+  set showtabline=2
 else
   " Mouse support
   set mouse=a
@@ -353,8 +359,11 @@ if has("gui_running")
   let g:solarized_diffmode="low"    "default value is normal
   let g:solarized_hitrail=1    "default value is 0
   set background=dark
-  color jellybeans+
+  color ir_dark
   hi Search guifg=grey guibg=blue
+
+  let g:gitgutter_override_sign_column_highlight = 0
+  hi clear SignColumn
 else
   let g:hybrid_use_iTerm_colors = 1
   set background=dark

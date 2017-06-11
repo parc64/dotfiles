@@ -356,6 +356,8 @@ you should place your code here."
   (setq multi-term-program-switches "--login")
   (setq vc-follow-symlinks t)
 
+  (setq-default dotspacemacs-configuration-layers
+                '((gtags :variables gtags-enable-by-default t)))
   )
 
 (defun dotspacemacs/emacs-custom-settings ()
