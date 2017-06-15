@@ -1,4 +1,4 @@
-set encoding=utf-8
+" set encoding=utf-8
 set nocompatible
 set ttyfast
 set t_Co=256
@@ -8,21 +8,33 @@ set runtimepath^=~/.vim/bundle/neobundle.vim/
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
+set runtimepath^=~/github/openfile.vim/
+
+NeoBundle 'vim-ruby/vim-ruby'
+
 NeoBundle 'tpope/vim-sensible'
 NeoBundle 'tpope/vim-surround'
-NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'tpope/vim-dispatch'
 NeoBundle 'tpope/vim-commentary'
-NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'scrooloose/syntastic'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-bundler'
+NeoBundle 'tpope/vim-rake'
+NeoBundle 'tpope/vim-vinegar'
 
+NeoBundle 'vim-scripts/Merginal'
+NeoBundle 'ctrlpvim/ctrlp.vim'
+
+NeoBundle 'scrooloose/syntastic'
 NeoBundle 'Shougo/neocomplete'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'nazo/pt.vim'
+NeoBundle 'dyng/ctrlsf.vim'
+NeoBundle 'xolox/vim-session'
+NeoBundle 'terryma/vim-multiple-cursors'
+
 NeoBundle 'jeetsukumaran/vim-buffergator'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'majutsushi/tagbar'
@@ -30,7 +42,6 @@ NeoBundle 'bling/vim-airline'
 NeoBundle 'Shougo/vimshell.vim'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'Shougo/vimproc.vim'
-NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'Lokaltog/vim-easymotion'
 
 NeoBundle 'flazz/vim-colorschemes'
@@ -77,7 +88,6 @@ autocmd GUIEnter * set visualbell t_vb=
 " let mapleader = "\<Space>"
 let mapleader = "\\"
 
-noremap <Leader>ft :NERDTreeToggle<CR>
 noremap <Leader>ff :.,$!rubocop --auto-correct<CR>
 
 noremap <Leader>sc :SlimuxShellConfig<CR>
@@ -109,14 +119,15 @@ set incsearch
 set ignorecase
 set smartcase
 set cursorline
+set nofoldenable
 
 " Fast window resizing with +/- keys (horizontal); / and * keys (vertical)
-if bufwinnr(1)
-  nnoremap <silent> = :exe "resize +5"<CR>
-  nnoremap <silent> - :exe "resize -5"<CR>
-  nnoremap <silent> < :exe "vertical resize -5"<CR>
-  nnoremap <silent> > :exe "vertical resize +5"<CR>
-endif
+" if bufwinnr(1)
+"  nnoremap <silent> = :exe "resize +5"<CR>
+"  nnoremap <silent> - :exe "resize -5"<CR>
+"  nnoremap <silent> < :exe "vertical resize -5"<CR>
+"  nnoremap <silent> > :exe "vertical resize +5"<CR>
+"endif
 
 set pastetoggle=<F5>
 
@@ -155,9 +166,10 @@ let g:airline_powerline_fonts=0
 let g:airline_detect_modified=1
 let g:airline_inactive_collapse=0
 
-let g:netrw_liststyle=4
-let g:netrw_browse_split=4
-let g:netrw_preview=1
+" let g:netrw_liststyle=4
+" let g:netrw_browse_split=4
+" let g:netrw_preview=1
+" let g:netrw_winsize=10
 
 let g:ctrlp_match_window='bottom,order:ttb,min:1,max:10,results:100'
 let g:ctrlp_use_caching=1
@@ -192,8 +204,6 @@ let g:tagbar_type_ruby = {
     \ ]
 \ }
 
-
-" NeoBundle key-mappings.
 inoremap <expr><C-g>     neocomplete#undo_completion()
 inoremap <expr><C-l>     neocomplete#complete_common_string()
 
@@ -260,15 +270,23 @@ set wildignore+=*.spl                            " compiled spelling word lists
 set wildignore+=*.sw?                            " Vim swap files
 set wildignore+=*.DS_Store                       " OSX bullshit
 
-noremap  <F1> :NERDTreeFind<CR>
-inoremap <F1> <esc>:NERDTreeFind<CR>
-
-noremap  <F2> :NERDTreeToggle<CR>
-inoremap <F2> <esc>:NERDTreeToggle<CR>
-
 nnoremap <silent> <F3> :TagbarToggle<CR>
 
 nnoremap <F6> :set nonumber!<CR>
+
+let g:ctrlsf_default_view_mode='compact'
+let g:ctrlsf_position='bottom'
+let g:ctrlsf_winsize='30%'
+
+nmap     <C-F>f <Plug>CtrlSFPrompt
+vmap     <C-F>f <Plug>CtrlSFVwordPath
+vmap     <C-F>F <Plug>CtrlSFVwordExec
+nmap     <C-F>n <Plug>CtrlSFCwordPath
+nmap     <C-F>p <Plug>CtrlSFPwordPath
+nnoremap <C-F>o :CtrlSFOpen<CR>
+nnoremap <C-F>t :CtrlSFToggle<CR>
+inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
+
 
 noremap  <F4> :VimShellTab<CR>
 inoremap <F4> <esc>:VimShellTab<CR>
@@ -281,24 +299,6 @@ inoremap <F4> <esc>:VimShellTab<CR>
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
 
-let NERDTreeMinimalUI=1
-let NERDTreeShowBookmarks=1
-let NERDTreeChDirMode=2
-let NERDTreeChristmasTree=1
-let NERDTreeAutoCenter=1
-" let NERDTreeQuitOnOpen=1
-let NERDTreeAutoDeleteBuffer=1
-let NERDTreeWinPos="left"
-let g:NERDTreeWinSize=25
-
-let g:nerdtree_tabs_open_on_gui_startup=0
-let g:nerdtree_tabs_open_on_console_startup=0
-let g:nerdtree_tabs_smart_startup_focus=0
-let g:nerdtree_tabs_meaningful_tab_name=1
-let g:nerdtree_tabs_autoclose=1
-let g:nerdtree_tabs_synchronize_view=1
-let g:nerdtree_tabs_synchronize_focus=1
-
 let g:buffergator_sort_regime="mru"
 let g:buffergator_viewport_split_policy="T"
 let g:buffergator_split_size="10"
@@ -308,7 +308,7 @@ au BufRead,BufNewFile *.jbuilder setfiletype ruby
 
 if has('gui_running')
   if has('mac')
-    set guifont=Fira\ Code:h22
+    set guifont=Fira\ Code:h19
   elseif has('unix')
     set guifont=Ubuntu\ Mono\ 18
   endif
@@ -364,17 +364,23 @@ if has("gui_running")
 
   let g:gitgutter_override_sign_column_highlight = 0
   hi clear SignColumn
+  hi GitGutterAdd guifg=green
+  hi GitGutterChange guifg=yellow
+  hi GitGutterDelete guifg=red
+  hi GitGutterChangeDelete guifg=orange
 else
   let g:hybrid_use_iTerm_colors = 1
   set background=dark
-  color jellybeans+
-  hi TabLineFill ctermbg=8
-  hi TabLine ctermbg=8
-  hi SignColumn ctermbg=black
-  hi GitGutterAdd ctermbg=black
-  hi GitGutterChange ctermbg=black
-  hi GitGutterDelete ctermbg=black
-  hi GitGutterChangeDelete ctermbg=black
+  color ir_dark
+  let g:gitgutter_override_sign_column_highlight = 0
+  hi clear SignColumn
+  hi GitGutterAdd guifg=green
+  hi GitGutterChange guifg=yellow
+  hi GitGutterDelete guifg=red
+  hi GitGutterChangeDelete guifg=orange
+  "hi TabLineFill ctermbg=8
+  "hi TabLine ctermbg=8
+  "hi SignColumn ctermbg=black
 end
 
 if has("gui_macvim") && has("gui_running")
