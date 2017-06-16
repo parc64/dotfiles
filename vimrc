@@ -1,85 +1,20 @@
-" set encoding=utf-8
 set nocompatible
+set encoding=utf-8
+set termguicolors
 set ttyfast
 set t_Co=256
-filetype off
+set gcr=a:blinkon0              "Disable cursor blink
 
-set runtimepath^=~/.vim/bundle/neobundle.vim/
-call neobundle#begin(expand('~/.vim/bundle/'))
-NeoBundleFetch 'Shougo/neobundle.vim'
+so ~/.vim/settings/plugins.vim
 
-set runtimepath^=~/github/openfile.vim/
-
-NeoBundle 'vim-ruby/vim-ruby'
-
-NeoBundle 'tpope/vim-sensible'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'tpope/vim-rails'
-NeoBundle 'tpope/vim-endwise'
-NeoBundle 'tpope/vim-dispatch'
-NeoBundle 'tpope/vim-commentary'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'tpope/vim-bundler'
-NeoBundle 'tpope/vim-rake'
-NeoBundle 'tpope/vim-vinegar'
-
-NeoBundle 'vim-scripts/Merginal'
-NeoBundle 'ctrlpvim/ctrlp.vim'
-
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'Shougo/neocomplete'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'nazo/pt.vim'
-NeoBundle 'dyng/ctrlsf.vim'
-NeoBundle 'xolox/vim-session'
-NeoBundle 'terryma/vim-multiple-cursors'
-
-NeoBundle 'jeetsukumaran/vim-buffergator'
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'majutsushi/tagbar'
-NeoBundle 'bling/vim-airline'
-NeoBundle 'Shougo/vimshell.vim'
-NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'Shougo/vimproc.vim'
-NeoBundle 'Lokaltog/vim-easymotion'
-
-NeoBundle 'flazz/vim-colorschemes'
-NeoBundle 'twerth/ir_black'
-NeoBundle 'TechnoGate/janus-colors'
-
-NeoBundle 'chrisbra/NrrwRgn'
-NeoBundle 'sunaku/vim-ruby-minitest'
-NeoBundle 'jpalardy/vim-slime'
-NeoBundle 'ngmy/vim-rubocop'
-NeoBundle 'epeli/slimux'
-NeoBundle 'skalnik/vim-vroom'
-
-NeoBundle 'xolox/vim-misc'
-NeoBundle 'xolox/vim-easytags'
-NeoBundle 'xolox/vim-shell'
-
-" Languages
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'mmalecki/vim-node.js'
-NeoBundle 'rust-lang/rust.vim'
-
-call neobundle#end()
 set smartindent
 set autoindent
-filetype plugin indent on
-
-NeoBundleCheck
-
-syntax enable
 set ruler
 
 set autoread
 " set completeopt=longest,menuone
 
-" Set 7 lines to the cursor - when moving vertically using j/k
-set so=7
+set so=7 " lines to the cursor - when moving vertically using j/k
 
 set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
@@ -166,68 +101,17 @@ let g:airline_powerline_fonts=0
 let g:airline_detect_modified=1
 let g:airline_inactive_collapse=0
 
+set diffopt=vertical
+
 " let g:netrw_liststyle=4
 " let g:netrw_browse_split=4
 " let g:netrw_preview=1
 " let g:netrw_winsize=10
 
-let g:ctrlp_match_window='bottom,order:ttb,min:1,max:10,results:100'
-let g:ctrlp_use_caching=1
-let g:ctrlp_max_files=0
-let g:ctrlp_max_depth=40
-let g:ctrlp_user_command=['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-
-let g:easytags_cmd='/usr/local/bin/ctags'
-let g:easytags_opt=['--fields=+l --exclude=./vendor --exclude=./public']
-set tags=./.tags;
-let g:easytags_dynamic_files=1
-let g:easytags_async=1
-let g:easytags_auto_highlight=1
-
-let g:acp_enableAtStartup = 0
-
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#force_overwrite_completefunc = 1
-let g:neocomplete#enable_smart_case = 1
-
-" Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 4
-
-let g:tagbar_type_ruby = {
-    \ 'kinds' : [
-        \ 'm:modules',
-        \ 'c:classes',
-        \ 'd:describes',
-        \ 'C:contexts',
-        \ 'f:methods',
-        \ 'F:singleton methods'
-    \ ]
-\ }
-
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-l>     neocomplete#complete_common_string()
-
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  " return neocomplete#close_popup() . "\<CR>"
-  " For no inserting <CR> key.
-  return pumvisible() ? neocomplete#smart_close_popup() : "\<CR>"
-endfunction
-
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y> neocomplete#close_popup()
-inoremap <expr><C-e> neocomplete#cancel_popup()
-" Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
-
-" AutoComplPop like behavior.
-"let g:neocomplete#enable_auto_select = 1
+so ~/.vim/settings/ctrp.vim
+so ~/.vim/settings/easytags.vim
+so ~/.vim/settings/neocomplete.vim
+so ~/.vim/settings/tagbar.vim
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -243,12 +127,6 @@ au FileType xsd exe ":silent %!xmllint --format --recover - 2>/dev/null"
 if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns = {}
 endif
-
-let g:tagbar_autofocus = 1
-let g:tagbar_autoclose = 1
-let g:tagbar_foldlevel = 2
-let g:tagbar_compact = 1
-let g:tagbar_autoshowtag = 1
 
 let g:syntastic_enable_signs = 1
 let g:syntastic_check_on_open = 1
