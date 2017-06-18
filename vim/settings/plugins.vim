@@ -17,6 +17,8 @@ Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-rake'
 Plug 'tpope/vim-vinegar'
 
+Plug 'jiangmiao/auto-pairs'
+
 Plug 'vim-scripts/Merginal'
 Plug 'ctrlpvim/ctrlp.vim'
 
@@ -48,10 +50,12 @@ Plug 'ngmy/vim-rubocop'
 Plug 'epeli/slimux'
 Plug 'skalnik/vim-vroom'
 
+Plug 'ludovicchabant/vim-gutentags'
+
 Plug 'xolox/vim-misc'
-Plug 'xolox/vim-easytags'
+" Plug 'xolox/vim-easytags'
 Plug 'xolox/vim-shell'
-Plug 'xolox/vim-session'
+" Plug 'xolox/vim-session'
 
 " Languages
 Plug 'kchmck/vim-coffee-script'
