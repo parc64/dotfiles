@@ -86,8 +86,8 @@ set wildignore+=*.spl                            " compiled spelling word lists
 set wildignore+=*.sw?                            " Vim swap files
 set wildignore+=*.DS_Store                       " OSX bullshit
 
-nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
-vnoremap <Space> zf
+" nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+" vnoremap <Space> zf
 
 let g:buffergator_sort_regime="mru"
 let g:buffergator_viewport_split_policy="T"
@@ -95,10 +95,11 @@ let g:buffergator_split_size="10"
 
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,Procfile,Guardfile,config.ru,*.rake} set ft=ruby
 au BufRead,BufNewFile *.jbuilder setfiletype ruby
+au BufRead,BufNewFile *.eco setfiletype html
 
 if has('gui_running')
   if has('mac')
-    set guifont=Fira\ Code:h19
+    set guifont=Fira\ Code:h14
   elseif has('unix')
     set guifont=Ubuntu\ Mono\ 18
   endif
@@ -154,7 +155,7 @@ if has("gui_running")
 else
   let g:hybrid_use_iTerm_colors = 1
   set background=dark
-  color ir_dark
+  color jellybeans+
   hi clear SignColumn
   "hi TabLineFill ctermbg=8
   "hi TabLine ctermbg=8
@@ -168,17 +169,4 @@ aug AutoloadVimrc
   au!
   au BufWritePost .vimrc source ~/.vimrc
 aug END
-
-" makes ctrlp much faster
-let g:ctrlp_use_caching = 0
-if executable('ag')
-    set grepprg=ag\ --nogroup\ --nocolor
-
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-else
-  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
-  let g:ctrlp_prompt_mappings = {
-    \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
-    \ } 
-endif
 
