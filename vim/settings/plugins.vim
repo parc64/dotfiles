@@ -47,8 +47,6 @@ Plug 'sunaku/vim-ruby-minitest'
 Plug 'skalnik/vim-vroom'
 
 Plug 'ludovicchabant/vim-gutentags'
-
-" Languages
 Plug 'sheerun/vim-polyglot'
 
 " Plug '~/github/openfile.vim'
