@@ -94,9 +94,9 @@ au BufRead,BufNewFile *.eco setfiletype html
 
 if has('gui_running')
   if has('mac')
-    set guifont=Fira\ Code:h18
+    set guifont=Fira\ Code:h12
   elseif has('unix')
-    set guifont=Ubuntu\ Mono\ 15
+    set guifont=Ubuntu\ Mono\ 12
   endif
 
   set guioptions-=m
@@ -144,7 +144,8 @@ if has("gui_running")
   let g:solarized_hitrail=1    "default value is 0
   set background=dark
   " color ir_dark
-  color solarized
+  color gruvbox
+  " color solarized
   hi clear SignColumn
   hi Search guifg=grey guibg=blue
 else

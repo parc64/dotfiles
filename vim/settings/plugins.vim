@@ -49,6 +49,9 @@ Plug 'skalnik/vim-vroom'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'sheerun/vim-polyglot'
 
+" Windows
+Plug 'wesq3/vim-windowswap'
+
 " Plug '~/github/openfile.vim'
 
 call plug#end()

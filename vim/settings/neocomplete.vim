@@ -1,10 +1,12 @@
 " Neocomplete
 
-let g:acp_enableAtStartup = 0
-
 let g:neocomplete#enable_at_startup = 1
-" let g:neocomplete#force_overwrite_completefunc = 1
+let g:neocomplete#enable_auto_select = 1
 let g:neocomplete#enable_smart_case = 1
+
+" let g:acp_enableAtStartup = 0
+
+" let g:neocomplete#force_overwrite_completefunc = 1
 
 " Set minimum syntax keyword length.
 " let g:neocomplete#sources#syntax#min_keyword_length = 4
@@ -30,6 +32,3 @@ let g:neocomplete#enable_smart_case = 1
 "inoremap <expr><C-e> neocomplete#cancel_popup()
 " Close popup by <Space>.
 "inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
-
-" AutoComplPop like behavior.
-"let g:neocomplete#enable_auto_select = 1
