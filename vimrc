@@ -94,9 +94,9 @@ au BufRead,BufNewFile *.eco setfiletype html
 
 if has('gui_running')
   if has('mac')
-    set guifont=Fira\ Code:h12
+    set guifont=Fira\ Code:h17
   elseif has('unix')
-    set guifont=Ubuntu\ Mono\ 12
+    set guifont=Ubuntu\ Mono\ 17
   endif
 
   set guioptions-=m
