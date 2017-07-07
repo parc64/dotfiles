@@ -30,6 +30,7 @@ This function should only modify configuration layer settings."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     nginx
      sql
      vimscript
      yaml
@@ -51,6 +52,7 @@ This function should only modify configuration layer settings."
      auto-completion
      emacs-lisp
      git
+     github
      org
      (shell :variables
             shell-default-height 35
@@ -65,7 +67,7 @@ This function should only modify configuration layer settings."
      ibuffer
      evil-commentary
      vinegar
-     )
+    )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
@@ -149,7 +151,7 @@ It should only modify the values of Spacemacs settings."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Fira Code"
-                               :size 18
+                               :size 19
                                :weight light
                                :width normal
                                :powerline-scale 1.2)
@@ -368,7 +370,7 @@ you should place your code here."
   (spacemacs/toggle-aggressive-indent-on)
   ;; (spacemacs/toggle-menu-bar-on)
   (spacemacs/toggle-truncate-lines-off)
-  ;; (spacemacs/toggle-vi-tilde-fringe-off)
+  (spacemacs/toggle-vi-tilde-fringe-off)
 
   (setq create-lockfiles nil)
   (setq multi-term-program-switches "--login")
