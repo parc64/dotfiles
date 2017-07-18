@@ -149,9 +149,8 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("Fira Code"
-                               :size 12
-                               :weight light
+   dotspacemacs-default-font '("Fira Code Light"
+                               :size 13
                                :width normal
                                :powerline-scale 1.2)
    ;; The leader key
@@ -195,7 +194,7 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-display-default-layout nil
    ;; If non-nil then the last auto saved layouts are resumed automatically upon
    ;; start. (default nil)
-   dotspacemacs-auto-resume-layouts nil
+   dotspacemacs-auto-resume-layouts t
    ;; If non-nil, auto-generate layout name when creating new layouts. Only has
    ;; effect when using the "jump to layout by number" commands.
    dotspacemacs-auto-generate-layout-names nil
