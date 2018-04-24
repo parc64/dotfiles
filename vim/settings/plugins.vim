@@ -21,6 +21,7 @@ Plug 'vim-scripts/Merginal'
 Plug 'ctrlpvim/ctrlp.vim'
 
 Plug 'scrooloose/syntastic'
+Plug 'scrooloose/nerdtree'
 
 Plug 'Shougo/neocomplete'
 Plug 'Shougo/neosnippet'

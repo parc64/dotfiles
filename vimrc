@@ -64,6 +64,7 @@ so ~/.vim/settings/neocomplete.vim
 so ~/.vim/settings/tagbar.vim
 so ~/.vim/settings/gitgutter.vim
 so ~/.vim/settings/ctrlsf.vim
+so ~/.vim/settings/nerdtree.vim
 
 " Enable heavy omni completion.
 "if !exists('g:neocomplete#sources#omni#input_patterns')
