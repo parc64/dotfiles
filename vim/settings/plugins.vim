@@ -51,9 +51,7 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'sheerun/vim-polyglot'
 
 " Windows
-Plug 'wesq3/vim-windowswap'
-
-" Plug '~/github/openfile.vim'
+Plug 'simeji/winresizer'
 
 call plug#end()
 
