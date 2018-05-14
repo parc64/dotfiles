@@ -28,14 +28,19 @@ Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/vimproc.vim'
 
-Plug 'nazo/pt.vim'
+" file searching
+" Plug 'nazo/pt.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
 Plug 'dyng/ctrlsf.vim'
 Plug 'terryma/vim-multiple-cursors'
 
 Plug 'jeetsukumaran/vim-buffergator'
 Plug 'altercation/vim-colors-solarized'
 Plug 'majutsushi/tagbar'
-Plug 'bling/vim-airline'
+Plug 'itchyny/lightline.vim'
+" Plug 'bling/vim-airline'
 Plug 'airblade/vim-gitgutter'
 Plug 'Lokaltog/vim-easymotion'
 

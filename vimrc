@@ -50,13 +50,10 @@ set nofoldenable
 set pastetoggle=<F5>
 set diffopt=vertical
 
-let g:airline_powerline_fonts=1
-let g:airline_detect_modified=1
-let g:airline_inactive_collapse=0
-
 let g:syntastic_enable_signs = 1
 let g:syntastic_check_on_open = 1
 
+so ~/.vim/settings/fzf.vim
 so ~/.vim/settings/key_mappings.vim
 so ~/.vim/settings/ctrp.vim
 so ~/.vim/settings/easytags.vim
@@ -65,11 +62,7 @@ so ~/.vim/settings/tagbar.vim
 so ~/.vim/settings/gitgutter.vim
 so ~/.vim/settings/ctrlsf.vim
 so ~/.vim/settings/nerdtree.vim
-
-" Enable heavy omni completion.
-"if !exists('g:neocomplete#sources#omni#input_patterns')
-"  let g:neocomplete#sources#omni#input_patterns = {}
-"endif
+so ~/.vim/settings/buffergator.vim
 
 set wildmenu
 set wildmode=list:longest
@@ -85,17 +78,13 @@ set wildignore+=*.DS_Store                       " OSX bullshit
 " nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 " vnoremap <Space> zf
 
-let g:buffergator_sort_regime="mru"
-let g:buffergator_viewport_split_policy="T"
-let g:buffergator_split_size="10"
-
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,Procfile,Guardfile,config.ru,*.rake} set ft=ruby
 au BufRead,BufNewFile *.jbuilder setfiletype ruby
 au BufRead,BufNewFile *.eco setfiletype html
 
 if has('gui_running')
   if has('mac')
-    set guifont=Fira\ Code\ Light:h17
+    set guifont=Fira\ Code\ Light:h16
   elseif has('unix')
     set guifont=Ubuntu\ Mono\ 17
   endif
