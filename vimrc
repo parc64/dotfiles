@@ -49,6 +49,7 @@ set smartcase
 set cursorline
 set nofoldenable
 
+noremap <F2> :Autoformat<CR>
 set pastetoggle=<F5>
 set diffopt=vertical
 

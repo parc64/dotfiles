@@ -50,6 +50,8 @@ Plug 'skalnik/vim-vroom'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'sheerun/vim-polyglot'
 
+Plug 'Chiel92/vim-autoformat'
+
 " Windows management
 Plug 'simeji/winresizer'
 
