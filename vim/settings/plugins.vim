@@ -13,34 +13,28 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-rake'
-Plug 'tpope/vim-vinegar'
 
 Plug 'jiangmiao/auto-pairs'
 
 Plug 'vim-scripts/Merginal'
-Plug 'ctrlpvim/ctrlp.vim'
 
 Plug 'scrooloose/syntastic'
-Plug 'scrooloose/nerdtree'
 
 Plug 'Shougo/neocomplete'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
-Plug 'Shougo/vimproc.vim'
 
 " file searching
-" Plug 'nazo/pt.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'ap/vim-readdir'
 
-Plug 'dyng/ctrlsf.vim'
 Plug 'terryma/vim-multiple-cursors'
 
-Plug 'jeetsukumaran/vim-buffergator'
 Plug 'altercation/vim-colors-solarized'
 Plug 'majutsushi/tagbar'
 Plug 'itchyny/lightline.vim'
-" Plug 'bling/vim-airline'
+
 Plug 'airblade/vim-gitgutter'
 Plug 'Lokaltog/vim-easymotion'
 
@@ -52,10 +46,11 @@ Plug 'chrisbra/NrrwRgn'
 Plug 'sunaku/vim-ruby-minitest'
 Plug 'skalnik/vim-vroom'
 
+" tag support
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'sheerun/vim-polyglot'
 
-" Windows
+" Windows management
 Plug 'simeji/winresizer'
 
 call plug#end()

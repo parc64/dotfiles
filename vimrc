@@ -1,3 +1,5 @@
+let g:loaded_netrwPlugin = 1
+
 set nocompatible
 set encoding=utf-8
 set ttyfast
@@ -53,16 +55,16 @@ set diffopt=vertical
 let g:syntastic_enable_signs = 1
 let g:syntastic_check_on_open = 1
 
+if has('termwinsize')
+  set termwinsize=10x0
+endif
+
 so ~/.vim/settings/fzf.vim
 so ~/.vim/settings/key_mappings.vim
 so ~/.vim/settings/ctrp.vim
-so ~/.vim/settings/easytags.vim
 so ~/.vim/settings/neocomplete.vim
 so ~/.vim/settings/tagbar.vim
 so ~/.vim/settings/gitgutter.vim
-so ~/.vim/settings/ctrlsf.vim
-so ~/.vim/settings/nerdtree.vim
-so ~/.vim/settings/buffergator.vim
 
 set wildmenu
 set wildmode=list:longest
@@ -75,16 +77,13 @@ set wildignore+=*.spl                            " compiled spelling word lists
 set wildignore+=*.sw?                            " Vim swap files
 set wildignore+=*.DS_Store                       " OSX bullshit
 
-" nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
-" vnoremap <Space> zf
-
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,Procfile,Guardfile,config.ru,*.rake} set ft=ruby
 au BufRead,BufNewFile *.jbuilder setfiletype ruby
 au BufRead,BufNewFile *.eco setfiletype html
 
 if has('gui_running')
   if has('mac')
-    set guifont=Fira\ Code\ Light:h16
+    set guifont=Fira\ Code\ Light:h14
   elseif has('unix')
     set guifont=Ubuntu\ Mono\ 17
   endif
@@ -118,7 +117,8 @@ else
 endif
 
 " compile vim from source on OSX to get this feature, use system ruby
-" ./configure --enable-rubyinterp --enable-pythoninterp --enable-multibyte --with-features=huge
+"MACVIM ./configure --with-features=huge --enable-multibyte --with-macarchs=x86_64 --enable-perlinterp --enable-rubyinterp --enable-tclinterp --enable-terminal --with-tlib=ncurses --with-compiledby=Homebrew --with-local-dir=/usr/local --enable-cscope --enable
+"VIM ./configure --enable-rubyinterp --enable-pythoninterp --enable-multibyte --with-features=huge
 
 " Only show cursorline in the current window and in normal mode.
 " augroup cline
