@@ -1,5 +1,3 @@
-"let g:loaded_netrwPlugin = 1
-
 set nocompatible
 set encoding=utf-8
 set ttyfast
@@ -48,6 +46,15 @@ set ignorecase
 set smartcase
 set cursorline
 set nofoldenable
+
+" netrw config
+let g:netrw_menu = 0
+let g:netrw_banner = 0
+let g:netrw_preview = 1
+let g:netrw_liststyle = 'thin'
+" let g:netrw_hide = 1
+let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+,\(^\|\s\s\)ntuser\.\S\+'
+autocmd FileType netrw set nolist
 
 noremap <F2> :Autoformat<CR>
 set pastetoggle=<F5>
