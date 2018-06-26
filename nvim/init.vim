@@ -72,6 +72,7 @@ so ~/.config/nvim/settings/key_mappings.vim
 so ~/.config/nvim/settings/ctrp.vim
 so ~/.config/nvim/settings/tagbar.vim
 so ~/.config/nvim/settings/gitgutter.vim
+so ~/.config/nvim/settings/deoplete.vim
 
 set wildmenu
 set wildmode=list:longest
