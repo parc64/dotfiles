@@ -17,6 +17,8 @@ if dein#load_state('~/.cache/dein')
   call dein#add('tpope/vim-fugitive')
 
   call dein#add('scrooloose/syntastic')
+  call dein#add('scrooloose/nerdtree')
+
   " file searching
   call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 }) 
   call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
@@ -47,9 +49,5 @@ if dein#load_state('~/.cache/dein')
   call dein#add('simeji/winresizer')
   call dein#end()
   call dein#save_state()
-endif
-
-if dein#check_install()
-  call dein#install()
 endif
 

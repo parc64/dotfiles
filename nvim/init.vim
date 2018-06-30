@@ -56,6 +56,10 @@ let g:netrw_liststyle = 'thin'
 let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+,\(^\|\s\s\)ntuser\.\S\+'
 autocmd FileType netrw set nolist
 
+let g:python_host_prog = '/usr/bin/python'
+let g:python3_host_prog = '/usr/bin/python3'
+set clipboard+=unnamedplus
+
 noremap <F2> :Autoformat<CR>
 set pastetoggle=<F5>
 set diffopt=vertical
