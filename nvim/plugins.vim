@@ -20,7 +20,7 @@ if dein#load_state('~/.cache/dein')
   call dein#add('scrooloose/nerdtree')
 
   " file searching
-  call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 }) 
+  call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
   call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
 
   call dein#add('autozimu/LanguageClient-neovim', { 'rev': 'next', 'build': 'bash install.sh' })
@@ -47,6 +47,10 @@ if dein#load_state('~/.cache/dein')
 
   " Windows management
   call dein#add('simeji/winresizer')
+
+  " Swift
+  call dein#add('mitsuse/autocomplete-swift')
+
   call dein#end()
   call dein#save_state()
 endif
