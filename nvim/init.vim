@@ -47,6 +47,9 @@ set smartcase
 set cursorline
 set nofoldenable
 
+filetype plugin indent on
+au FileType swift setl sw=4 sts=4 et
+
 " netrw config
 let g:netrw_menu = 0
 let g:netrw_banner = 0
