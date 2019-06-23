@@ -146,9 +146,9 @@ endif
 
 set background=dark
 color gruvbox
-  " hi clear SignColumn
-  "hi TabLineFill ctermbg=8
-  "hi TabLine ctermbg=8
+" hi clear SignColumn
+hi TabLineFill ctermbg=8
+hi TabLine ctermbg=8
   " hi SignColumn ctermbg=black
 
 " Kills Trailing Whitespaces

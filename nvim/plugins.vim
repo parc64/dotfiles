@@ -51,6 +51,9 @@ if dein#load_state('~/.cache/dein')
   " Swift
   call dein#add('mitsuse/autocomplete-swift')
 
+  " Rust
+  call dein#add('rust-lang/rust.vim')
+
   call dein#end()
   call dein#save_state()
 endif
