@@ -5,7 +5,9 @@ if dein#load_state('~/.cache/dein')
   call dein#begin('~/.cache/dein')
 
   call dein#add('~/.cache/dein')
-  call dein#add('Shougo/deoplete.nvim')
+  " call dein#add('Shougo/deoplete.nvim')
+
+  call dein#add('neoclide/coc.nvim', {'rev': 'release'})
 
   if !has('nvim')
     call dein#add('roxma/nvim-yarp')
@@ -23,7 +25,7 @@ if dein#load_state('~/.cache/dein')
   call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
   call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
 
-  call dein#add('autozimu/LanguageClient-neovim', { 'rev': 'next', 'build': 'bash install.sh' })
+  " call dein#add('autozimu/LanguageClient-neovim', { 'rev': 'next', 'build': 'bash install.sh' })
 
   call dein#add('altercation/vim-colors-solarized')
   call dein#add('majutsushi/tagbar')
@@ -53,6 +55,9 @@ if dein#load_state('~/.cache/dein')
 
   " Rust
   call dein#add('rust-lang/rust.vim')
+
+  call dein#add('tmux-plugins/vim-tmux')
+  call dein#add('tmux-plugins/vim-tmux-focus-events')
 
   call dein#end()
   call dein#save_state()

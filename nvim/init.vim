@@ -22,8 +22,9 @@ autocmd GUIEnter * set visualbell t_vb=
 " let mapleader = "\<Space>"
 let mapleader = "\\"
 
-set number
+set nonumber
 set nobackup
+set nowritebackup
 set nowb
 set noswapfile
 
@@ -80,6 +81,7 @@ so ~/.config/nvim/settings/ctrp.vim
 so ~/.config/nvim/settings/tagbar.vim
 so ~/.config/nvim/settings/gitgutter.vim
 so ~/.config/nvim/settings/deoplete.vim
+so ~/.config/nvim/settings/coc.vim
 
 set wildmenu
 set wildmode=list:longest
@@ -146,10 +148,14 @@ endif
 
 set background=dark
 color gruvbox
+
 " hi clear SignColumn
-hi TabLineFill ctermbg=8
-hi TabLine ctermbg=8
-  " hi SignColumn ctermbg=black
+hi TabLine ctermbg=23
+hi TabLineFill ctermbg=235
+hi TabLineSel ctermbg=237
+
+hi SignColumn ctermbg=235
+hi SignColumn ctermbg=235
 
 " Kills Trailing Whitespaces
 command! KillWhitespace :normal :%s/ *$//g<cr><c-o><cr>
