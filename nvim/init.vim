@@ -19,8 +19,8 @@ set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
 
 " noremap <Space> <nop>
-" let mapleader = "\<Space>"
-let mapleader = "\\"
+let mapleader = "\<Space>"
+" let mapleader = "a"
 
 set nonumber
 set nobackup

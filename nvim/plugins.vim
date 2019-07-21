@@ -25,8 +25,6 @@ if dein#load_state('~/.cache/dein')
   call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
   call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
 
-  " call dein#add('autozimu/LanguageClient-neovim', { 'rev': 'next', 'build': 'bash install.sh' })
-
   call dein#add('altercation/vim-colors-solarized')
   call dein#add('majutsushi/tagbar')
   call dein#add('itchyny/lightline.vim')
