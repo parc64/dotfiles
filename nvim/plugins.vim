@@ -29,7 +29,7 @@ if dein#load_state('~/.cache/dein')
 
   call dein#add('altercation/vim-colors-solarized')
   call dein#add('majutsushi/tagbar')
-  call dein#add('itchyny/lightline.vim')
+  call dein#add('vim-airline/vim-airline')
 
   call dein#add('airblade/vim-gitgutter')
   call dein#add('Lokaltog/vim-easymotion')
@@ -38,6 +38,7 @@ if dein#load_state('~/.cache/dein')
   call dein#add('twerth/ir_black')
   call dein#add('sainnhe/gruvbox-material')
   call dein#add('TechnoGate/janus-colors')
+  call dein#add('sainnhe/vim-color-ice-age')
 
   call dein#add('chrisbra/NrrwRgn')
   call dein#add('skalnik/vim-vroom')

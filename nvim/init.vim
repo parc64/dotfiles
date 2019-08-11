@@ -85,6 +85,7 @@ so ~/.config/nvim/settings/gitgutter.vim
 so ~/.config/nvim/settings/deoplete.vim
 so ~/.config/nvim/settings/coc.vim
 so ~/.config/nvim/settings/denite.vim
+so ~/.config/nvim/settings/airline.vim
 
 set wildmenu
 set wildmode=list:longest
@@ -149,7 +150,8 @@ endif
 "   au InsertLeave * set cursorline
 " augroup END
 
-set background=dark
+set termguicolors
+" set background=light
 color gruvbox-material-hard
 
 " hi clear SignColumn
