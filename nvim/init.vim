@@ -19,8 +19,10 @@ set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
 
 " noremap <Space> <nop>
-let mapleader = "\<Space>"
-" let mapleader = "a"
+" let mapleader = "\<Space>"
+let mapleader = "`"
+
+set showtabline=2
 
 set nonumber
 set nobackup
@@ -82,6 +84,7 @@ so ~/.config/nvim/settings/tagbar.vim
 so ~/.config/nvim/settings/gitgutter.vim
 so ~/.config/nvim/settings/deoplete.vim
 so ~/.config/nvim/settings/coc.vim
+so ~/.config/nvim/settings/denite.vim
 
 set wildmenu
 set wildmode=list:longest
@@ -110,7 +113,7 @@ if has('gui_running')
   set guioptions-=r
   set guioptions-=l
   set guioptions-=L
-  " set showtabline=2
+  set showtabline=2
 else
   " Mouse support
   set mouse=a
@@ -147,15 +150,15 @@ endif
 " augroup END
 
 set background=dark
-color gruvbox
+color gruvbox-material-hard
 
 " hi clear SignColumn
-hi TabLine ctermbg=23
-hi TabLineFill ctermbg=235
-hi TabLineSel ctermbg=237
+"hi TabLine ctermbg=23
+"hi TabLineFill ctermbg=235
+"hi TabLineSel ctermbg=237
 
-hi SignColumn ctermbg=235
-hi SignColumn ctermbg=235
+"hi SignColumn ctermbg=235
+"hi SignColumn ctermbg=235
 
 " Kills Trailing Whitespaces
 command! KillWhitespace :normal :%s/ *$//g<cr><c-o><cr>

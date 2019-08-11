@@ -1,6 +1,8 @@
 ZSH=$HOME/.oh-my-zsh
+
 export EDITOR="vim"
 # export ZSH_TMUX_AUTOSTART=true
+
 ZSH_THEME="afowler"
 
 export ZSH
@@ -28,7 +30,7 @@ DISABLE_AUTO_TITLE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(rails ruby bundler tmux colorize aws zsh-nvm)
+plugins=(rails ruby bundler tmux colorize aws)
 source $ZSH/oh-my-zsh.sh
 
 unsetopt correct_all
@@ -42,3 +44,7 @@ export PATH="/usr/local/bin:$PATH:$HOME/.rvm/bin"
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

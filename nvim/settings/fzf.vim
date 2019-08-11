@@ -13,7 +13,8 @@ nmap <Leader>l :BLines<CR>
 nmap <Leader>L :Lines<CR>
 nmap <Leader>' :Marks<CR>
 
-nnoremap <silent> <leader>a :execute 'Ag ' . input('Ag/ ')<CR>
+" nnoremap <silent> <leader>a :execute 'Ag ' . input('Ag/ ')<CR>
+nnoremap <silent> <leader>a :execute 'Ag '<CR>
 
 nmap <Leader>H :Helptags!<CR>
 

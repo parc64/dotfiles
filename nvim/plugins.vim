@@ -5,6 +5,8 @@ if dein#load_state('~/.cache/dein')
   call dein#begin('~/.cache/dein')
 
   call dein#add('~/.cache/dein')
+
+  call dein#add('Shougo/denite.nvim')
   " call dein#add('Shougo/deoplete.nvim')
 
   call dein#add('neoclide/coc.nvim', {'rev': 'release'})
@@ -34,6 +36,7 @@ if dein#load_state('~/.cache/dein')
 
   call dein#add('flazz/vim-colorschemes')
   call dein#add('twerth/ir_black')
+  call dein#add('sainnhe/gruvbox-material')
   call dein#add('TechnoGate/janus-colors')
 
   call dein#add('chrisbra/NrrwRgn')
@@ -51,11 +54,10 @@ if dein#load_state('~/.cache/dein')
   " Swift
   call dein#add('mitsuse/autocomplete-swift')
 
-  " Rust
-  call dein#add('rust-lang/rust.vim')
-
   call dein#add('tmux-plugins/vim-tmux')
   call dein#add('tmux-plugins/vim-tmux-focus-events')
+
+  call dein#add('ryanoasis/vim-devicons')
 
   call dein#end()
   call dein#save_state()
