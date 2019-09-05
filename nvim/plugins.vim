@@ -7,7 +7,6 @@ if dein#load_state('~/.cache/dein')
   call dein#add('~/.cache/dein')
 
   call dein#add('Shougo/denite.nvim')
-  " call dein#add('Shougo/deoplete.nvim')
 
   call dein#add('neoclide/coc.nvim', {'rev': 'release'})
 
