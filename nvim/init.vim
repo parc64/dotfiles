@@ -152,7 +152,7 @@ endif
 
 set termguicolors
 " set background=light
-color gruvbox-material-hard
+color gruvbox-material
 
 " hi clear SignColumn
 "hi TabLine ctermbg=23
