@@ -12,6 +12,8 @@ export ZSH
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vi="nvim"
 alias grep="`which grep` --color=auto"
+alias oni2='/Applications/Onivim2.app/Contents/MacOS/Oni2'
+alias nvq='/Applications/nvim-qt.app/Contents/MacOS/nvim-qt'
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -30,8 +32,8 @@ COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(rails ruby rake bundler tmux colorize aws)
+# Example format: plugins=(aws git textmate ruby lighthouse)
+plugins=(ruby rake bundler tmux colorize aws)
 source $ZSH/oh-my-zsh.sh
 
 unsetopt correct_all

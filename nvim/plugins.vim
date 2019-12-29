@@ -15,6 +15,8 @@ if dein#load_state('~/.cache/dein')
     call dein#add('roxma/vim-hug-neovim-rpc')
   endif
 
+  call dein#add('equalsraf/neovim-gui-shim')
+
   call dein#add('tpope/vim-sensible')
   call dein#add('tpope/vim-surround')
   call dein#add('tpope/vim-fugitive')
@@ -37,7 +39,7 @@ if dein#load_state('~/.cache/dein')
   call dein#add('twerth/ir_black')
   call dein#add('sainnhe/gruvbox-material')
   call dein#add('TechnoGate/janus-colors')
-  call dein#add('sainnhe/vim-color-ice-age')
+  " call dein#add('sainnhe/vim-color-ice-age')
 
   call dein#add('chrisbra/NrrwRgn')
   call dein#add('skalnik/vim-vroom')

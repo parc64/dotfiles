@@ -102,11 +102,15 @@ au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,Procfile,Guardfile,
 au BufRead,BufNewFile *.jbuilder setfiletype ruby
 au BufRead,BufNewFile *.eco setfiletype html
 
+if exists('g:GuiLoaded')
+  Guifont UbuntuMono Nerd Font:h19
+endif
+
 if has('gui_running')
   if has('mac')
-    set guifont=Fira\ Code\ Light:h14
+    set guifont=Ubuntu\ Mono\ Nerd\ Font\ Regular:h19
   elseif has('unix')
-    set guifont=Ubuntu\ Mono\ 17
+    set guifont=UbuntuMono\ Nerd\ Font\ Regular:h19
   endif
 
   set guioptions-=m
