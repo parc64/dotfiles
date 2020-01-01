@@ -77,6 +77,7 @@ if has('termwinsize')
   set termwinsize=10x0
 endif
 
+so ~/.config/nvim/settings/nerdtree.vim
 so ~/.config/nvim/settings/fzf.vim
 so ~/.config/nvim/settings/key_mappings.vim
 so ~/.config/nvim/settings/ctrp.vim
@@ -86,6 +87,7 @@ so ~/.config/nvim/settings/deoplete.vim
 so ~/.config/nvim/settings/coc.vim
 so ~/.config/nvim/settings/denite.vim
 so ~/.config/nvim/settings/airline.vim
+so ~/.config/nvim/settings/choosewin.vim
 
 set wildmenu
 set wildmode=list:longest
@@ -102,15 +104,11 @@ au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,Procfile,Guardfile,
 au BufRead,BufNewFile *.jbuilder setfiletype ruby
 au BufRead,BufNewFile *.eco setfiletype html
 
-if exists('g:GuiLoaded')
-  Guifont UbuntuMono Nerd Font:h19
-endif
-
 if has('gui_running')
   if has('mac')
-    set guifont=Ubuntu\ Mono\ Nerd\ Font\ Regular:h19
+    "set guifont=Ubuntu\ Mono\ Nerd\ Font\ Regular:h19
   elseif has('unix')
-    set guifont=UbuntuMono\ Nerd\ Font\ Regular:h19
+    " set guifont=UbuntuMono\ Nerd\ Font\ Regular:h19
   endif
 
   set guioptions-=m
@@ -158,13 +156,7 @@ set termguicolors
 " set background=light
 color gruvbox-material
 
-" hi clear SignColumn
-"hi TabLine ctermbg=23
-"hi TabLineFill ctermbg=235
-"hi TabLineSel ctermbg=237
-
-"hi SignColumn ctermbg=235
-"hi SignColumn ctermbg=235
+let g:syntastic_quiet_messages = { "!level": "errors" }
 
 " Kills Trailing Whitespaces
 command! KillWhitespace :normal :%s/ *$//g<cr><c-o><cr>

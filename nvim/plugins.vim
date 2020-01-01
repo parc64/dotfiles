@@ -7,13 +7,12 @@ if dein#load_state('~/.cache/dein')
   call dein#add('~/.cache/dein')
 
   call dein#add('Shougo/denite.nvim')
-
-  call dein#add('neoclide/coc.nvim', {'rev': 'release'})
-
   if !has('nvim')
     call dein#add('roxma/nvim-yarp')
     call dein#add('roxma/vim-hug-neovim-rpc')
   endif
+
+  call dein#add('neoclide/coc.nvim', {'rev': 'release'})
 
   call dein#add('equalsraf/neovim-gui-shim')
 
@@ -23,6 +22,9 @@ if dein#load_state('~/.cache/dein')
 
   call dein#add('scrooloose/syntastic')
   call dein#add('scrooloose/nerdtree')
+  call dein#add('Xuyuanp/nerdtree-git-plugin')
+  call dein#add('t9md/vim-choosewin')
+  call dein#add('weilbith/nerdtree_choosewin-plugin')
 
   " file searching
   call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
@@ -39,7 +41,6 @@ if dein#load_state('~/.cache/dein')
   call dein#add('twerth/ir_black')
   call dein#add('sainnhe/gruvbox-material')
   call dein#add('TechnoGate/janus-colors')
-  " call dein#add('sainnhe/vim-color-ice-age')
 
   call dein#add('chrisbra/NrrwRgn')
   call dein#add('skalnik/vim-vroom')

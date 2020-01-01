@@ -13,7 +13,7 @@ export ZSH
 alias vi="nvim"
 alias grep="`which grep` --color=auto"
 alias oni2='/Applications/Onivim2.app/Contents/MacOS/Oni2'
-alias nvq='/Applications/nvim-qt.app/Contents/MacOS/nvim-qt'
+alias viq='/Applications/nvim-qt.app/Contents/MacOS/nvim-qt'
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"

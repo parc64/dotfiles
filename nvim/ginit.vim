@@ -2,5 +2,4 @@ if exists('g:GuiLoaded')
   Guifont UbuntuMono Nerd Font:h25
 endif
 
-cd ~
-
+set linespace=8
