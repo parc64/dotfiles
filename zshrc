@@ -3,10 +3,12 @@ ZSH=$HOME/.oh-my-zsh
 export EDITOR="vim"
 # export ZSH_TMUX_AUTOSTART=true
 
+# bindkey '^ ' autosuggest-accept
+
 ZSH_THEME="simple"
 # ZSH_THEME="agnoster"
 
-export ZSH
+export ZSH ZSH_AUTOSUGGEST_USE_ASYNC=1
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
@@ -33,7 +35,7 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(aws git textmate ruby lighthouse)
-plugins=(ruby rake bundler tmux colorize aws)
+plugins=(tmux colorize aws vi-mode zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
 
 unsetopt correct_all
@@ -51,3 +53,10 @@ export PATH="/usr/local/opt/ruby/bin:$PATH"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# HSTR configuration - add this to ~/.zshrc
+alias hh=hstr                    # hh to be alias for hstr
+setopt histignorespace           # skip cmds w/ leading space from history
+export HSTR_CONFIG=hicolor       # get more colors
+bindkey -s "\C-r" "\C-a hstr -- \C-j"     # bind hstr to Ctrl-r (for Vi mode check doc)
+
