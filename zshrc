@@ -3,12 +3,12 @@ ZSH=$HOME/.oh-my-zsh
 export EDITOR="vim"
 # export ZSH_TMUX_AUTOSTART=true
 
-# bindkey '^ ' autosuggest-accept
-
 ZSH_THEME="simple"
 # ZSH_THEME="agnoster"
 
 export ZSH ZSH_AUTOSUGGEST_USE_ASYNC=1
+
+bindkey '^ ' autosuggest-accept
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
