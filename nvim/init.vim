@@ -83,7 +83,7 @@ so ~/.config/nvim/settings/key_mappings.vim
 so ~/.config/nvim/settings/ctrp.vim
 so ~/.config/nvim/settings/tagbar.vim
 so ~/.config/nvim/settings/gitgutter.vim
-so ~/.config/nvim/settings/deoplete.vim
+" so ~/.config/nvim/settings/deoplete.vim
 so ~/.config/nvim/settings/coc.vim
 so ~/.config/nvim/settings/denite.vim
 so ~/.config/nvim/settings/airline.vim

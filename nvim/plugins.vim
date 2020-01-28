@@ -55,7 +55,7 @@ if dein#load_state('~/.cache/dein')
   call dein#add('simeji/winresizer')
 
   " Swift
-  call dein#add('mitsuse/autocomplete-swift')
+  " call dein#add('mitsuse/autocomplete-swift')
 
   call dein#add('tmux-plugins/vim-tmux')
   call dein#add('tmux-plugins/vim-tmux-focus-events')
