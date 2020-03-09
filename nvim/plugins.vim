@@ -34,6 +34,8 @@ if dein#load_state('~/.cache/dein')
   call dein#add('majutsushi/tagbar')
   call dein#add('vim-airline/vim-airline')
 
+  call dein#add('justinmk/vim-sneak')
+
   call dein#add('airblade/vim-gitgutter')
   call dein#add('Lokaltog/vim-easymotion')
 
