@@ -62,3 +62,4 @@ export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-11.0.6.jdk/Contents/Home
 
 bindkey '^ ' autosuggest-accept
 
+export PATH="/usr/local/go/bin:$PATH"

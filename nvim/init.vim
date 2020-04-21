@@ -89,6 +89,8 @@ so ~/.config/nvim/settings/denite.vim
 so ~/.config/nvim/settings/airline.vim
 so ~/.config/nvim/settings/choosewin.vim
 
+let g:gutentags_ctags_tagfile='.git/tags'
+
 set wildmenu
 set wildmode=list:longest
 
