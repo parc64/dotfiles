@@ -63,7 +63,7 @@ alias hh=hstr                    # hh to be alias for hstr
 setopt histignorespace           # skip cmds w/ leading space from history
 export HSTR_CONFIG=hicolor       # get more colors
 bindkey -s "\C-r" "\C-a hstr -- \C-j"     # bind hstr to Ctrl-r (for Vi mode check doc)
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-11.0.6.jdk/Contents/Home"
+export JAVA_HOME="/Users/jay/Library/Java/JavaVirtualMachines/openjdk-14.0.1-1/Contents/Home"
 
 bindkey '^ ' autosuggest-accept
 
