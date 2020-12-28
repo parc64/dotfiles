@@ -1,8 +1,8 @@
 ZSH=$HOME/.oh-my-zsh
 
-export EDITOR="peepcode"
+#export EDITOR="peepcode"
 
-# export ZSH_TMUX_AUTOSTART=true
+export ZSH_TMUX_AUTOSTART=true
 
 ZSH_THEME="muse"
 #ZSH_THEME="apple"
@@ -30,14 +30,14 @@ alias oni2="/Applications/Onivim2.app/Contents/MacOS/Oni2"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 COMPLETION_WAITING_DOTS="true"
-ZSH_COLORIZE_STYLE="colorful"
-ZSH_COLORIZE_TOOL=chroma
+# ZSH_COLORIZE_STYLE="colorful"
+# ZSH_COLORIZE_TOOL=chroma
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(aws git textmate ruby lighthouse)
 #plugins=(tmux colorize aws vi-mode zsh-autosuggestions)
-plugins=(tmux colorize aws vi-mode zsh-autosuggestions)
+plugins=(tmux colorize aws vi-mode)
 source $ZSH/oh-my-zsh.sh
 
 alias ls="ls -haltrG"
