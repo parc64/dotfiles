@@ -2,10 +2,9 @@ ZSH=$HOME/.oh-my-zsh
 
 #export EDITOR="peepcode"
 
-export ZSH_TMUX_AUTOSTART=true
+#export ZSH_TMUX_AUTOSTART=true
 
-ZSH_THEME="muse"
-#ZSH_THEME="apple"
+ZSH_THEME="clean"
 
 export ZSH ZSH_AUTOSUGGEST_USE_ASYNC=1
 
@@ -37,10 +36,10 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(aws git textmate ruby lighthouse)
 #plugins=(tmux colorize aws vi-mode zsh-autosuggestions)
-plugins=(tmux colorize aws vi-mode)
+plugins=(colorize aws vi-mode)
 source $ZSH/oh-my-zsh.sh
 
-alias ls="ls -haltrG"
+# alias ls="ls -haltrG"
 
 unsetopt correct_all
 unsetopt share_history
@@ -49,8 +48,10 @@ unsetopt share_history
 # alias open=xdg-open
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="/usr/local/bin:$PATH:$HOME/.rvm/bin"
-export PATH="/usr/local/opt/ruby/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:$PATH:$HOME/.emacs.d/bin"
+export PATH="/opt/homebrew/lib/ruby/gems/3.0.0/bin:$PATH"
+
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -63,11 +64,19 @@ alias hh=hstr                    # hh to be alias for hstr
 setopt histignorespace           # skip cmds w/ leading space from history
 export HSTR_CONFIG=hicolor       # get more colors
 bindkey -s "\C-r" "\C-a hstr -- \C-j"     # bind hstr to Ctrl-r (for Vi mode check doc)
-export JAVA_HOME="/Users/jay/Library/Java/JavaVirtualMachines/openjdk-14.0.1-1/Contents/Home"
 
 bindkey '^ ' autosuggest-accept
 
-export PATH="/usr/local/go/bin:$PATH"
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"
 
-export NPM_TOKEN=1a2f8770-8e08-4b89-ad07-ab8d4235d83b
+export PKG_CONFIG_PATH="/opt/homebrew/opt/ruby/lib/pkgconfig"
+export PATH="/opt/homebrew/opt/krb5/bin:$PATH"
+export PATH="/opt/homebrew/opt/krb5/sbin:$PATH"
+
+export LDFLAGS="-L/opt/homebrew/opt/krb5/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/krb5/include"
+
+export PKG_CONFIG_PATH="/opt/homebrew/opt/krb5/lib/pkgconfig"
 

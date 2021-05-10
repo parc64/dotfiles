@@ -19,8 +19,8 @@ set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
 
 " noremap <Space> <nop>
-" let mapleader = "\<Space>"
-let mapleader = "`"
+let mapleader = "\<Space>"
+" let mapleader = "`"
 
 set showtabline=2
 
@@ -62,8 +62,8 @@ let g:netrw_liststyle = 'thin'
 let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+,\(^\|\s\s\)ntuser\.\S\+'
 autocmd FileType netrw set nolist
 
-let g:python_host_prog = '/usr/local/bin/python2'
-let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python_host_prog = '/usr/bin/python2'
+let g:python3_host_prog = '/usr/bin/python3'
 set clipboard+=unnamedplus
 
 noremap <F2> :Autoformat<CR>
@@ -156,7 +156,8 @@ endif
 
 set termguicolors
 " set background=light
-color gruvbox-material
+" color gruvbox-material
+color dracula
 
 let g:syntastic_quiet_messages = { "!level": "errors" }
 
